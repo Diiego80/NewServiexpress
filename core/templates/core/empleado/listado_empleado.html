@@ -41,18 +41,18 @@
                 {% for e in empleados %}
 
                 <tr>
-                    <td>{{e.emp_id }}</td>
+                    <td>{{e.id }}</td>
                     <td>{{e.emp_rut }}</td>
                     <td>{{e.emp_pnombre}}</td>
                     <td>{{e.emp_apellidopat}} {{e.emp_apellidomat}}</td>
                     <td>${{e.emp_sueldo | intcomma}}</td>
                     <td>{{e.emp_telefono}}</td>
                     <td>{{e.emp_email}}</td>
-                    <td>{{e.id_tipo_empleado}}</td>
-                    <td>{{e.user}}</td>
+                    <td>{{e.desc_tipo_empleado}}</td>
+                    <td>{{e.user_nombre}}</td>
                     <td>
-                        <a href="{% url 'modificar_empleado' e.emp_id %}" class="btn btn-info btn-sm">Modificar</a>
-                        <a href="{% url 'eliminar_empleado' e.emp_id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                        <a href="{% url 'modificar_empleado' e.id %}" class="btn btn-info btn-sm">Modificar</a>
+                        <a href="{% url 'eliminar_empleado' e.id %}" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>
                 {% endfor %}

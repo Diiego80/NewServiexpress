@@ -166,7 +166,7 @@ def listado_empleado (request):
 
 def modificar_empleado(request, id):
 
-    empleado = Empleado.objects.get(emp_id = id)
+    empleado = Empleado.objects.get(id = id)
 
     data = {
         'form': EmpleadoForm(instance=empleado)
@@ -181,7 +181,7 @@ def modificar_empleado(request, id):
     return render(request, 'core/empleado/modificar_empleado.html', data)
 
 def eliminar_empleado(request, id):
-    empleado = Empleado.objects.get(emp_id = id)
+    empleado = Empleado.objects.get(id = id)
     empleado.delete()
 
     return redirect(to='listado_empleado')

@@ -57,14 +57,13 @@
                 {% for p in productos %}
 
                 <tr>
-                    <td>{{p.prod_id }}</td>
+                    <td>{{p.id }}</td>
                     <td>{{p.prod_nombre | title}}</td>
                     <td>{{p.prod_stock}}</td>
-                    <td>{{p.prov_id }}</td>
-                    <td>{{p.id_marca}}</td>
+                  
                     <td>
-                        <a href="{% url 'modificar_producto' p.prod_id %}" class="btn btn-info btn-sm">Modificar</a>
-                        <a href="#" onclick="eliminarProducto ({{p.prod_id}})"
+                        <a href="{% url 'modificar_producto' p.id %}" class="btn btn-info btn-sm">Modificar</a>
+                        <a href="#" onclick="eliminarProducto ({{p.id}})"
                             class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>

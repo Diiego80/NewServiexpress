@@ -196,7 +196,7 @@ class Reserva(models.Model):
     res_hora_reservada = models.DateField(max_length=5, choices=opciones_hora_reservada)
     res_fecha_pedido_reserva = models.DateField()
     res_desc_reserva = models.CharField(max_length=200)
-    cli_rut = models.ForeignKey("Cliente", on_delete=PROTECT)
+    cli_rut = models.CharField(max_length=8)
 
     
     def __int__(self):

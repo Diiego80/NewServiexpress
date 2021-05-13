@@ -116,7 +116,7 @@ def listado_producto (request):
 
 def modificar_producto(request, id):
 
-    producto = Producto.objects.get(prod_id = id)
+    producto = Producto.objects.get(id = id)
 
     data = {
         'form': ProductoForm(instance=producto)
@@ -132,7 +132,7 @@ def modificar_producto(request, id):
     return render(request,'core/producto/modificar_producto.html', data)
 
 def eliminar_producto (request, id):
-    producto = Producto.objects.get(prod_id = id)
+    producto = Producto.objects.get(id = id)
     producto.delete()
     messages.success(request, "Producto Eliminado Correctamente")
 

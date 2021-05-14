@@ -80,13 +80,10 @@ class DetalleServicio(models.Model):
     #res_id_reserva = models.ForeignKey('Reserva', models.DO_NOTHING, db_column='res_id_reserva')
 
 
-    
-    def __int__(self):
-        return self.id_det_serv
 
 
 class Empleado(models.Model):
-    emp_rut = models.IntegerField(primary_key=True)
+    emp_rut = models.CharField(max_length=8)
     emp_pnombre = models.CharField(max_length=50)
     emp_apellidopat = models.CharField(max_length=50)
     emp_apellidomat = models.CharField(max_length=50)

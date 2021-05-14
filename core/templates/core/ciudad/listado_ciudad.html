@@ -35,12 +35,12 @@
                 {% for u in ciudades %}
 
                 <tr>
-                    <td>{{u.id_ciudad}}</td>
+                    <td>{{u.id}}</td>
                     <td>{{u.desc_ciudad}}</td>
                     <td>{{u.id_region}}</td>
                     <td>
-                        <a href="{% url 'modificar_ciudad' u.id_ciudad %}" class="btn btn-info btn-sm">Modificar</a>
-                        <a href="{% url 'eliminar_ciudad' u.id_ciudad %}" class="btn btn-danger btn-sm">Eliminar</a>
+                        <a href="{% url 'modificar_ciudad' u.id %}" class="btn btn-info btn-sm">Modificar</a>
+                        <a href="{% url 'eliminar_ciudad' u.id %}" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>
                 {% endfor %}

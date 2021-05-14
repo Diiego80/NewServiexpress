@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BoletaFactura, Ciudad, Cliente, Comuna, DetalleServicio, Empleado, EmpleadoServicio, PagoServicio, PedidoOrden, PedidoOrdenProducto, Producto, Proveedor, RecepcionPedido, RecepcionPedidoProducto, Region, Reserva, Servicio, TipoEmpleado, TipoMarca, TipoPago, TipoUsuario, Usuario
+from .models import *
 # Register your models here.
 
 admin.site.register(BoletaFactura)

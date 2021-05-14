@@ -64,10 +64,6 @@ def formulario_producto(request):
     return render(request, 'core/formularios/formulario_productos.html')
 
 
-def formulario_empleados(request):
-    return render(request, 'core/producto/formulario_empleados.html')
-
-
 def formulario_clientes(request):
     return render(request, 'core/cliente/formulario_clientes.html')
 
@@ -142,14 +138,14 @@ def eliminar_producto (request, id):
 
 def agregar_empleado(request):
     data = {
-        'form': EmpleadoForm(data=request.POST)
+        'form': EmpleadoForm()
     }
 
     if request.method == 'POST':
         formulario = EmpleadoForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
-            data['mensaje'] = "Empleado Agregado Con Exito"
+            messages.success(request,"Empleado Registrado Correctamente")
         else:
             data["form"] = formulario
         
@@ -175,16 +171,18 @@ def modificar_empleado(request, id):
         formulario = EmpleadoForm(data=request.POST, instance=empleado)
         if formulario.is_valid():
             formulario.save()
-            data['mensaje'] = "Empleado Modificado Correctamente"
-            data ['form'] = formulario
+            messages.success(request, "Empleado Modificado Correctamente")
+            return redirect(to="listado_empleado")
+        data ['form'] = formulario
 
     return render(request, 'core/empleado/modificar_empleado.html', data)
 
 def eliminar_empleado(request, id):
     empleado = Empleado.objects.get(id = id)
     empleado.delete()
+    messages.success(request, "Empleado Eliminado Correctamente")
 
-    return redirect(to='listado_empleado')
+    return redirect(to="listado_empleado")
 
 # S E R V I C I O S 
 
@@ -214,7 +212,7 @@ def listado_servicio (request):
 
 def modificar_servicio(request, id):
 
-    servicio = Servicio.objects.get(serv_id = id)
+    servicio = Servicio.objects.get(id = id)
 
     data = {
         'form': ServicioForm(instance=servicio)
@@ -229,7 +227,7 @@ def modificar_servicio(request, id):
     return render(request, 'core/servicio/modificar_servicio.html', data)
 
 def eliminar_servicio(request, id):
-    servicio = Servicio.objects.get(serv_id = id)
+    servicio = Servicio.objects.get(id = id)
     servicio.delete()
 
     return redirect(to='listado_servicio')
@@ -250,6 +248,7 @@ def agregar_comuna(request):
             data["form"] = formulario
         
     return render(request,'core/comuna/agregar_comuna.html', data)
+    
 
 def listado_comuna (request):
     comunas = Comuna.objects.all()
@@ -262,7 +261,7 @@ def listado_comuna (request):
 
 def modificar_comuna(request, id):
 
-    comuna = Comuna.objects.get(id_comuna = id)
+    comuna = Comuna.objects.get(id = id)
 
     data = {
         'form': ComunaForm(instance=comuna)
@@ -277,7 +276,7 @@ def modificar_comuna(request, id):
     return render(request, 'core/comuna/modificar_comuna.html', data)
 
 def eliminar_comuna(request, id):
-    comuna = Comuna.objects.get(id_comuna = id)
+    comuna = Comuna.objects.get(id = id)
     comuna.delete()
 
     return redirect(to='listado_comuna')
@@ -310,7 +309,7 @@ def listado_ciudad (request):
 
 def modificar_ciudad(request, id):
 
-    ciudad = Ciudad.objects.get(id_ciudad = id)
+    ciudad = Ciudad.objects.get(id = id)
 
     data = {
         'form': CiudadForm(instance=ciudad)
@@ -325,7 +324,7 @@ def modificar_ciudad(request, id):
     return render(request, 'core/ciudad/modificar_ciudad.html', data)
 
 def eliminar_ciudad(request, id):
-    ciudad = Ciudad.objects.get(id_ciudad = id)
+    ciudad = Ciudad.objects.get(id = id)
     ciudad.delete()
 
     return redirect(to='listado_ciudad')
@@ -357,7 +356,7 @@ def listado_det_serv(request):
 
 def modificar_det_serv(request):
 
-    det_ser = DetalleServicio.objects.get(id_det_serv = id)
+    det_ser = DetalleServicio.objects.get(id = id)
 
     data = {
         'form':DetalleServicioForm(instance=det_ser)
@@ -371,7 +370,7 @@ def modificar_det_serv(request):
     return render(request, 'core/detalle_servicio/modificar_det_serv.html', data)
 
 def eliminar_det_serv(request, id):
-    det_ser = DetalleServicio.objects.get(id_det_serv = id)
+    det_ser = DetalleServicio.objects.get(id = id)
     det_ser.delete()
 
     return redirect(to='listado_det_serv')
@@ -404,7 +403,7 @@ def listado_bol_fac (request):
 
 def modificar_bol_fac(request, id):
 
-    boleta = BoletaFactura.objects.get(bol_fac_id = id)
+    boleta = BoletaFactura.objects.get(id = id)
 
     data = {
         'form': BoletaFacturaPedidoForm(instance=boleta)
@@ -419,7 +418,7 @@ def modificar_bol_fac(request, id):
     return render(request,'core/boleta/modificar_bol_fac.html', data)
 
 def eliminar_bol_fac(request, id):
-    boleta = BoletaFactura.objects.get(bol_fac_id = id)
+    boleta = BoletaFactura.objects.get(id = id)
     boleta.delete()
     messages.success(request, "Boleta y/o Factura Eliminada Correctamente")
 

@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path
 
 from .views import *
+from .models import *
 
 urlpatterns = [
     #Navegacion General
@@ -18,7 +19,6 @@ urlpatterns = [
     path ('registro-productos/', registro_productos, name="registro_productos"),
     #Formularios
     path ('formulario-producto/', formulario_producto, name="formulario_producto"),
-    path ('formulario-empleado/', formulario_empleados, name="formulario_empleados"),
     path ('formulario-clientes/', formulario_clientes, name="formulario_clientes"),
     path ('formulario-reserva/', formulario_reserva, name="formulario_reserva"),
     path ('formulario-servicios/', formulario_servicios, name="formulario_servicios"),

@@ -63,8 +63,8 @@
                     <td>{{s.serv_descripcion}}</td>
                     <td>${{s.serv_costo | intcomma }}</td>
                     <td>
-                        <a href="{% url 'modificar_servicio' s.serv_id %}" class="btn btn-info btn-sm">Modificar</a>
-                        <a href="#" onclick="eliminarServicio ({{p.id}})" class="btn btn-danger btn-sm">Eliminar</a>
+                        <a href="{% url 'modificar_servicio' s.id %}" class="btn btn-info btn-sm">Modificar</a>
+                        <a href="#" onclick="eliminarServicio ({{s.id}})" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>
                 {% endfor %}

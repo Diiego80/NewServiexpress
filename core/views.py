@@ -229,7 +229,7 @@ def modificar_servicio(request, id):
 def eliminar_servicio(request, id):
     servicio = Servicio.objects.get(id = id)
     servicio.delete()
-    messages.success(request, "Empleado Modificado Correctamente")
+    messages.success(request, "Servicio Eliminado Correctamente")
 
     return redirect(to='listado_servicio')
 
@@ -425,4 +425,52 @@ def eliminar_bol_fac(request, id):
 
     return redirect(to="listado_bol_fac")
 
+# C L I E N T E S
 
+
+def agregar_cliente(request):
+    data = {
+        'form': ClienteForm(data=request.POST)
+    }
+
+    if request.method == 'POST':
+        formulario = ClienteForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Cliente Agregado Correctamente")
+        else:
+            data["form"] = formulario
+        
+    return render(request,'core/cliente/agregar_cliente.html', data)
+
+def listado_cliente (request):
+    clientes = Cliente.objects.all()
+
+    data = {
+        'clientes': clientes
+    }
+
+    return render(request,'core/cliente/listado_cliente.html', data)
+
+def modificar_cliente(request, id):
+
+    cliente = Cliente.objects.get(id = id)
+
+    data = {
+        'form': ClienteForm(instance=cliente)
+    }
+    if request.method == 'POST':
+        formulario = ClienteForm(data=request.POST, instance=cliente)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Clietne Modificado Correctamente")
+            data ['form'] = formulario
+
+    return render(request, 'core/cliente/modificar_cliente.html', data)
+
+def eliminar_cliente(request, id):
+    cliente = Cliente.objects.get(id = id)
+    cliente.delete()
+    messages.success(request, "Cliente Modificado Correctamente")
+
+    return redirect(to='listado_cliente')

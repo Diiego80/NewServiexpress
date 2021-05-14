@@ -195,7 +195,7 @@ def agregar_servicio(request):
         formulario = ServicioForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
-            data['mensaje'] = "Servicio Agregado Con Exito"
+            messages.success(request, "Servicio Agregado Correctamente")
         else:
             data["form"] = formulario
         
@@ -221,7 +221,7 @@ def modificar_servicio(request, id):
         formulario = ServicioForm(data=request.POST, instance=servicio)
         if formulario.is_valid():
             formulario.save()
-            data['mensaje'] = "Servicio Modificado Correctamente"
+            messages.success(request, "Servicio Modificado Correctamente")
             data ['form'] = formulario
 
     return render(request, 'core/servicio/modificar_servicio.html', data)
@@ -229,6 +229,7 @@ def modificar_servicio(request, id):
 def eliminar_servicio(request, id):
     servicio = Servicio.objects.get(id = id)
     servicio.delete()
+    messages.success(request, "Empleado Modificado Correctamente")
 
     return redirect(to='listado_servicio')
 

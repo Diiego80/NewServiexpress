@@ -4,6 +4,27 @@
 <title>INGRESO</title>
 <link rel="stylesheet" href="{% static 'core/css/formulario.css' %}">
 {% endblock %}
+{% block js %}
+<script>
+    function eliminarServicio(id) {
+        Swal.fire({
+            "title": "¿Estas Seguro?",
+            "text": "Esta acción no se puede deshacer",
+            "icon": "question",
+            "showCancelButton": true,
+            "cancelButtonText": "No, Cancelar",
+            "confirmButtonText": "Si, Eliminar",
+            "confirmButtonColor": "#dc3534"
+        })
+            .then(function (result) {
+                if (result.isConfirmed) {
+                    window.location.href = "/eliminar-servicio/" + id + "/"
+                }
+            })
+    }
+</script>
+
+{% endblock %}
 
 <!-- BLOC NAV -->
 {% block nav%}
@@ -37,13 +58,13 @@
                 {% for s in servicios %}
 
                 <tr>
-                    <td>{{s.serv_id }}</td>
+                    <td>{{s.id }}</td>
                     <td>{{s.serv_titulo | title}}</td>
                     <td>{{s.serv_descripcion}}</td>
                     <td>${{s.serv_costo | intcomma }}</td>
                     <td>
                         <a href="{% url 'modificar_servicio' s.serv_id %}" class="btn btn-info btn-sm">Modificar</a>
-                        <a href="{% url 'eliminar_servicio' s.serv_id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                        <a href="#" onclick="eliminarServicio ({{p.id}})" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>
                 {% endfor %}

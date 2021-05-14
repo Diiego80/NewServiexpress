@@ -1,6 +1,6 @@
 from django import forms
 from django.db import models
-from .models import Usuario, Reserva, Producto, Region, Ciudad, Comuna, Cliente, Empleado, TipoMarca, Proveedor, TipoEmpleado, TipoPago, TipoUsuario, PagoServicio, Servicio, PedidoOrden, PedidoOrdenProducto, RecepcionPedido, RecepcionPedidoProducto, DetalleServicio, EmpleadoServicio, BoletaFactura
+from .models import *
 import datetime
 
 

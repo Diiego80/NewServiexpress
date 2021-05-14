@@ -14,7 +14,7 @@
 {% endblock %}
 {% block js %}
 <script>
-    function eliminarEmpleado(id) {
+    function eliminarCliente(id) {
         Swal.fire({
             "title": "¿Estas Seguro?",
             "text": "Esta acción no se puede deshacer",
@@ -26,7 +26,7 @@
         })
             .then(function (result) {
                 if (result.isConfirmed) {
-                    window.location.href = "/eliminar-empleado/" + id + "/"
+                    window.location.href = "/eliminar-cliente/" + id + "/"
                 }
             })
     }
@@ -73,7 +73,7 @@
                     <td>{{e.user_nombre}}</td>
                     <td>
                         <a href="{% url 'modificar_empleado' e.id %}" class="btn btn-info btn-sm">Modificar</a>
-                        <a href="#" onclick="eliminarEmpleado ({{p.id}})" class="btn btn-danger btn-sm">Eliminar</a>
+                        <a href="#" onclick="eliminarCliente ({{p.id}})" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>
                 {% endfor %}

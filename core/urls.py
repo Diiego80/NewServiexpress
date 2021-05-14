@@ -19,7 +19,6 @@ urlpatterns = [
     path ('registro-productos/', registro_productos, name="registro_productos"),
     #Formularios
     path ('formulario-producto/', formulario_producto, name="formulario_producto"),
-    path ('formulario-clientes/', formulario_clientes, name="formulario_clientes"),
     path ('formulario-reserva/', formulario_reserva, name="formulario_reserva"),
     path ('formulario-servicios/', formulario_servicios, name="formulario_servicios"),
     #Agregar

@@ -19,7 +19,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    
+
+
 
 </head>
 
@@ -34,7 +35,7 @@
         <nav class="navbar navbar-dark navbar-expand-md" id="navfull">
             <!-- LOGO -->
             <a class="navbar-brand" href="{% url 'index' %}"></a>
-                <img src="{% static 'core/img/logos/logo.png' %}" alt="logo" id="logo">
+            <img src="{% static 'core/img/logos/logo.png' %}" alt="logo" id="logo">
             </a>
             <!-- NAV COLLAPSE -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
@@ -71,7 +72,7 @@
         </nav>
     </div>
 
-    
+
 
     {% block contenido %}
     <!-- CONTENIDO CUERPO DE LA PAGINA -->
@@ -164,16 +165,16 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     {% if messages %}
-        {% for m in messages %}
-            <script>
-                Swal.fire({
-                    "title":"Felicitaciones",
-                    "text": "{{m}}",
-                    "icon":"success"
-                })
+    {% for m in messages %}
+    <script>
+        Swal.fire({
+            "title": "Felicitaciones",
+            "text": "{{m}}",
+            "icon": "success"
+        })
 
-            </script>
-        {% endfor %}
+    </script>
+    {% endfor %}
     {% endif %}
 
     {% block js %}

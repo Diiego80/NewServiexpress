@@ -670,4 +670,102 @@ def eliminar_pago_servicio(request, id):
 
     return redirect(to='listado_pago_serv')
 
-#FALTA PROVEEDOR
+# P R O V E E D O R 
+
+
+def agregar_proveedor(request):
+    data = {
+        'form': ProveedorForm(data=request.POST)
+    }
+
+    if request.method == 'POST':
+        formulario = ProveedorForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Proveedor Agregada Con Exito")
+        else:
+            data["form"] = formulario
+        
+    return render(request,'core/proveedor/agregar_proveedor.html', data)
+    
+
+def listado_proveedor (request):
+    proveedores = Proveedor.objects.all()
+
+    data = {
+        'proveedores': proveedores
+    }
+
+    return render(request, 'core/proveedor/listado_proveedor.html', data)
+
+def modificar_proveedor(request, id):
+
+    proveedor = Proveedor.objects.get(id = id)
+
+    data = {
+        'form': ProveedorForm(instance=proveedor)
+    }
+    if request.method == 'POST':
+        formulario = ProveedorForm(data=request.POST, instance=proveedor)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Región Modificada Con Exito")
+            data ['form'] = formulario
+
+    return render(request, 'core/proveedor/modificar_proveedor.html', data)
+
+def eliminar_proveedor(request, id):
+    proveedor = Proveedor.objects.get(id = id)
+    proveedor.delete()
+
+    return redirect(to='listado_proveedor')
+
+# T I P O  M A R C A S
+
+def agregar_tipo_marca(request):
+    data = {
+        'form': TipoMarcaForm(data=request.POST)
+    }
+
+    if request.method == 'POST':
+        formulario = TipoMarcaForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Marca Agregada Con Exito")
+        else:
+            data["form"] = formulario
+        
+    return render(request,'core/tipo_marca/agregar_tipo_marca.html', data)
+    
+
+def listado_tipo_marca (request):
+    tipo_marcas = TipoMarca.objects.all()
+
+    data = {
+        'tipo_marcas': tipo_marcas
+    }
+
+    return render(request, 'core/tipo_marca/listado_tipo_marca.html', data)
+
+def modificar_tipo_marca(request, id):
+
+    tipo_marca = TipoMarca.objects.get(id = id)
+
+    data = {
+        'form': TipoMarcaForm(instance=tipo_marca) 
+    }
+    if request.method == 'POST':
+        formulario = TipoMarcaForm(data=request.POST, instance=tipo_marca)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Marca Modificada Con Exito")
+            data ['form'] = formulario
+
+    return render(request, 'core/tipo_marca/modificar_tipo_marca.html', data)
+
+def eliminar_tipo_marca(request, id):
+    tipo_marca = TipoMarca.objects.get(id = id)
+    tipo_marca.delete()
+    messages.success(request, "Marca Eliminada Con Exito")
+    
+    return redirect(to='listado_tipo_marca')

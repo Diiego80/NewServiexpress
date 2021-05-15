@@ -34,6 +34,8 @@ urlpatterns = [
     path ('agregar-region/', agregar_region, name="agregar_region"),
     path ('agregar-tipo-usuario/', agregar_tipo_usuario, name="agregar_tipo_usuario"),
     path ('agregar-pago-serv/', agregar_pago_servicio, name="agregar_pago_serv"),
+    path ('agregar-proveedor/', agregar_proveedor, name="agregar_proveedor"),
+    path ('agregar-tipo-marca/', agregar_tipo_marca, name="agregar_tipo_marca"),
     #Listados
     path ('listado-producto/', listado_producto, name="listado_producto"),
     path ('listado-empleado/', listado_empleado, name="listado_empleado"),
@@ -47,6 +49,8 @@ urlpatterns = [
     path ('listado-region/', listado_region, name="listado_region"),
     path ('listado-tipo-usuario/', listado_tipo_usuario, name="listado_tipo_usuario"),
     path ('listado-pago-serv/', listado_pago_serv, name="listado_pago_serv"),
+    path ('listado-proveedor/', listado_proveedor, name="listado_proveedor"),
+    path ('listado-tipo-marca/', listado_tipo_marca, name="listado_tipo_marca"),
     #Modificar
     path ('modificar-producto/<id>/', modificar_producto, name="modificar_producto"),
     path ('modificar-empleado/<id>/', modificar_empleado, name="modificar_empleado"),
@@ -60,6 +64,8 @@ urlpatterns = [
     path ('modificar-region/<id>/', modificar_region, name="modificar_region"),
     path ('modificar-tipo-usuario/<id>/', modificar_tipo_usuario, name="modificar_tipo_usuario"),
     path ('modificar-pago-serv/<id>/', modificar_pago_servicio, name="modificar_pago_serv"),
+    path ('modificar-proveedor/<id>/', modificar_proveedor, name="modificar_proveedor"),
+    path ('modificar-tipo-marca/<id>/', modificar_tipo_marca, name="modificar_tipo_marca"),
     #Eliminar
     path ('eliminar-producto/<id>/', eliminar_producto, name="eliminar_producto"),
     path ('eliminar-empleado/<id>/', eliminar_empleado, name="eliminar_empleado"),
@@ -73,6 +79,8 @@ urlpatterns = [
     path ('eliminar-region/<id>/', eliminar_region, name="eliminar_region"),
     path ('eliminar-tipo-usuario/<id>/', eliminar_tipo_usuario, name="eliminar_tipo_usuario"),
     path ('eliminar-pago-serv/<id>/', eliminar_pago_servicio, name="eliminar_pago_serv"),
+    path ('eliminar-proveedor/<id>/', eliminar_proveedor, name="eliminar_proveedor"),
+    path ('eliminar-tipo-marca/<id>/', eliminar_tipo_marca, name="eliminar_tipo_marca"),
 ]
 
 

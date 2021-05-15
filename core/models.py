@@ -1,6 +1,7 @@
 
 from django.db import models
 from django.db.models.deletion import PROTECT
+from django.db.models.fields.related import OneToOneField
 from django.forms.widgets import DateTimeBaseInput
 
 # Create your models here.
@@ -27,6 +28,7 @@ opciones_hora_reservada = [
     ["20:00","20:00"]
 
 ]
+#OK
 class BoletaFactura(models.Model):
     bol_fac_total = models.BigIntegerField()
     bol_fac_fecha_emision = models.DateField()
@@ -36,7 +38,7 @@ class BoletaFactura(models.Model):
     #def __str__(self):
     #    return self.bol_fac_id
 
-
+#OK
 class Ciudad(models.Model):
     desc_ciudad = models.CharField(max_length=50)
     desc_region = models.ForeignKey("Region", on_delete=models.PROTECT)
@@ -45,7 +47,7 @@ class Ciudad(models.Model):
     def __str__(self):
         return self.desc_ciudad
 
-
+#OK
 class Cliente(models.Model):
     cli_rut = models.IntegerField(primary_key=True)
     cli_pnombre = models.CharField(max_length=30)
@@ -59,7 +61,7 @@ class Cliente(models.Model):
     def __str__(self):
         return self.cli_pnombre+" "+self.cli_apellidopat
 
-
+#OK
 class Comuna(models.Model):
     desc_comuna = models.CharField(max_length=50)
     desc_ciudad = models.ForeignKey("Ciudad", on_delete=PROTECT)
@@ -68,7 +70,7 @@ class Comuna(models.Model):
     def __str__(self):
         return self.desc_comuna
 
-
+#OK
 class DetalleServicio(models.Model):
     fecha_serv_realizado = models.DateField()
     hora_servicio_realizado = models.CharField(max_length=5 ,choices=opciones_hora_reservada)
@@ -81,7 +83,7 @@ class DetalleServicio(models.Model):
 
 
 
-
+#OK
 class Empleado(models.Model):
     emp_rut = models.CharField(max_length=8)
     emp_pnombre = models.CharField(max_length=50)
@@ -100,6 +102,7 @@ class Empleado(models.Model):
 class EmpleadoServicio(models.Model):
     cant_utilizada_prod = models.BigIntegerField()
     res_id_reserva = models.BigIntegerField()
+    prod_nombre = models.CharField('Producto', on_delete= PROTECT)
     serv_titulo = models.ForeignKey('Servicio', on_delete=PROTECT)
     prod_nombre = models.ForeignKey('Producto', on_delete=PROTECT)
     emp_rut = models.ForeignKey("Empleado", on_delete=PROTECT)

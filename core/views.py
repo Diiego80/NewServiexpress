@@ -474,3 +474,52 @@ def eliminar_cliente(request, id):
     messages.success(request, "Cliente Modificado Correctamente")
 
     return redirect(to='listado_cliente')
+
+# E M P L E A D O  S E R V I C I O
+
+def agregar_emp_serv(request):
+    data = {
+        'form': EmpleadoServicioForm(data=request.POST)
+    }
+
+    if request.method == 'POST':
+        formulario = EmpleadoServicioForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Documento Agregado Con Exito")
+        else:
+            data["form"] = formulario
+        
+    return render(request,'core/empleado_servicio/agregar_emp_serv.html', data)
+    
+
+def listado_emp_serv (request):
+    emp_servicios = EmpleadoServicio.objects.all()
+
+    data = {
+        'emp_servicios': emp_servicios
+    }
+
+    return render(request, 'core/empleado_servicio/listado_emp_serv.html', data)
+
+def modificar_emp_serv(request, id):
+
+    emp_serv = EmpleadoServicio.objects.get(id = id)
+
+    data = {
+        'form': EmpleadoServicioForm(instance=emp_serv)
+    }
+    if request.method == 'POST':
+        formulario = EmpleadoServicioForm(data=request.POST, instance=emp_serv)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Documento Modificado Con Exito")
+            data ['form'] = formulario
+
+    return render(request, 'core/empleado_servicio/modificar_emp_serv.html', data)
+
+def eliminar_emp_serv(request, id):
+    emp_serv = EmpleadoServicio.objects.get(id = id)
+    emp_serv.delete()
+
+    return redirect(to='listado_emp_serv')

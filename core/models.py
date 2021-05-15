@@ -102,7 +102,6 @@ class Empleado(models.Model):
 class EmpleadoServicio(models.Model):
     cant_utilizada_prod = models.BigIntegerField()
     res_id_reserva = models.BigIntegerField()
-    prod_nombre = models.CharField('Producto', on_delete= PROTECT)
     serv_titulo = models.ForeignKey('Servicio', on_delete=PROTECT)
     prod_nombre = models.ForeignKey('Producto', on_delete=PROTECT)
     emp_rut = models.ForeignKey("Empleado", on_delete=PROTECT)

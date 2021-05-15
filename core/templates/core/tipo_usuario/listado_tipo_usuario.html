@@ -1,0 +1,74 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block css %}
+<title>INGRESO</title>
+<link rel="stylesheet" href="{% static 'core/css/formulario.css' %}">
+{% endblock %}
+{% block js %}
+<script>
+    function eliminarTipoUsuario(id) {
+        Swal.fire({
+            "title": "¿Estas Seguro?",
+            "text": "Esta acción no se puede deshacer",
+            "icon": "question",
+            "showCancelButton": true,
+            "cancelButtonText": "No, Cancelar",
+            "confirmButtonText": "Si, Eliminar",
+            "confirmButtonColor": "#dc3534"
+        })
+            .then(function (result) {
+                if (result.isConfirmed) {
+                    window.location.href = "/eliminar-tipo-usuario/" + id + "/"
+                }
+            })
+    }
+</script>
+
+{% endblock %}
+<!-- BLOC NAV -->
+{% block nav%}
+<a class="nav-item nav-link" href="{% url 'index' %}">INICIO <span class="sr-only">(current)</span></a>
+<a class="nav-item nav-link" href="{% url 'nosotros' %}">NOSOTROS</a>
+<a class="nav-item nav-link" href="{% url 'servicio' %}">SERVICIOS</a>
+<a class="nav-item nav-link" href="{% url 'ubicacion' %}">UBICACIÓN</a>
+{% endblock %}
+
+<!-- BLOC CONTENIDO -->
+{% block contenido %}
+{% load humanize %}
+<br><br><br>
+<div class="col-12 col-md-6 offset-md-3">
+    <div class="card">
+        <div class="card-body">
+            <h2>Listado de Tipo-Usuario</h2>
+            <hr>
+            <table class="table table-striped table-hover table-responsive-sm">
+                <a href="{% url 'agregar_tipo_usuario' %}" class="btn btn-primary">Agregar</a>
+                <br><br>
+                <tr>
+                    <th>ID</th>
+                    <th>Desctipcion Tipo Usuario</th>
+                    <th>Opciones</th>
+                </tr>
+
+                {% for l in tipos %}
+
+                <tr>
+                    <td>{{l.id }}</td>
+                    <td>{{l.user_desc}}</td>
+
+
+                    <td>
+                        <a href="{% url 'modificar_tipo_usuario' l.id %}" class="btn btn-info btn-sm">Modificar</a>
+                        <a href="#" onclick="eliminarTipoUsuario ({{l.id}})"
+                            class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+
+        </div>
+    </div>
+</div>
+<br><br><br>
+{% endblock %}

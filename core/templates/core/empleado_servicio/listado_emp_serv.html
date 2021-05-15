@@ -48,32 +48,26 @@
                 <br><br>
                 <tr>
                     <th>ID</th>
-                    <th>Rut</th>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Sueldo</th>
-                    <th>Telefono</th>
-                    <th>Email</th>
-                    <th>Tipo Empleado</th>
-                    <th>Tag Usuario</th>
+                    <th>Numero De Reserva</th>
+                    <th>Servicio Realizado</th>
+                    <th>Producto Utilizado</th>
+                    <th>Cantidad Final Utilizada</th>
+                    <th>Empleado Responsable</th>
                     <th>Opciones</th>
                 </tr>
 
-                {% for e in empleados %}
+                {% for x in emp_servicios %}
 
                 <tr>
-                    <td>{{e.id}}</td>
-                    <td>{{e.emp_rut }}</td>
-                    <td>{{e.emp_pnombre}}</td>
-                    <td>{{e.emp_apellidopat}} {{e.emp_apellidomat}}</td>
-                    <td>${{e.emp_sueldo | intcomma}}</td>
-                    <td>{{e.emp_telefono}}</td>
-                    <td>{{e.emp_email}}</td>
-                    <td>{{e.desc_tipo_empleado}}</td>
-                    <td>{{e.user_nombre}}</td>
+                    <td>{{x.id}}</td>
+                    <td>{{x.res_id_reserva}}</td>
+                    <td>{{x.serv_titulo }}</td>
+                    <td>{{x.prod_nombre}}</td>
+                    <td>{{x.cant_utilizada_prod}}</td>
+                    <td>{{x.emp_rut}}</td>
                     <td>
-                        <a href="{% url 'modificar_empleado' e.id %}" class="btn btn-info btn-sm">Modificar</a>
-                        <a href="#" onclick="eliminarEmpleado ({{e.id}})" class="btn btn-danger btn-sm">Eliminar</a>
+                        <a href="{% url 'modificar_emp_serv' es.id %}" class="btn btn-info btn-sm">Modificar</a>
+                        <a href="#" onclick="eliminarEmpServ ({{x.id}})" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>
                 {% endfor %}

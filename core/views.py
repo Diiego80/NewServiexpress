@@ -235,6 +235,7 @@ def eliminar_servicio(request, id):
 
 # C O M U N A
 
+
 def agregar_comuna(request):
     data = {
         'form': ComunaForm(data=request.POST)
@@ -427,7 +428,6 @@ def eliminar_bol_fac(request, id):
 
 # C L I E N T E S
 
-
 def agregar_cliente(request):
     data = {
         'form': ClienteForm(data=request.POST)
@@ -443,7 +443,7 @@ def agregar_cliente(request):
         
     return render(request,'core/cliente/agregar_cliente.html', data)
 
-def listado_cliente (request):
+def listado_cliente(request):
     clientes = Cliente.objects.all()
 
     data = {
@@ -503,7 +503,6 @@ def listado_emp_serv (request):
     return render(request, 'core/empleado_servicio/listado_emp_serv.html', data)
 
 def modificar_emp_serv(request, id):
-
     emp_serv = EmpleadoServicio.objects.get(id = id)
 
     data = {
@@ -523,3 +522,152 @@ def eliminar_emp_serv(request, id):
     emp_serv.delete()
 
     return redirect(to='listado_emp_serv')
+
+# R E G I O N
+
+def agregar_region(request):
+    data = {
+        'form': RegionForm(data=request.POST)
+    }
+
+    if request.method == 'POST':
+        formulario = RegionForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Region Agregada Con Exito")
+        else:
+            data["form"] = formulario
+        
+    return render(request,'core/region/agregar_region.html', data)
+    
+
+def listado_region (request):
+    regiones = Region.objects.all()
+
+    data = {
+        'regiones': regiones
+    }
+
+    return render(request, 'core/region/listado_region.html', data)
+
+def modificar_region(request, id):
+
+    region = Region.objects.get(id = id)
+
+    data = {
+        'form': RegionForm(instance=region)
+    }
+    if request.method == 'POST':
+        formulario = RegionForm(data=request.POST, instance=region)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Región Modificada Con Exito")
+            data ['form'] = formulario
+
+    return render(request, 'core/region/modificar_region.html', data)
+
+def eliminar_region(request, id):
+    region = Region.objects.get(id = id)
+    region.delete()
+
+    return redirect(to='listado_region')
+
+# T I P O  U S U A R I O
+
+def agregar_tipo_usuario(request):
+    data = {
+        'form': TipoUsuarioForm(data=request.POST)
+    }
+
+    if request.method == 'POST':
+        formulario = TipoUsuarioForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Nuevo Tipo-Usuario Agregado Con Exito")
+        else:
+            data["form"] = formulario
+        
+    return render(request,'core/tipo_usuario/agregar_tipo_usuario.html', data)
+    
+
+def listado_tipo_usuario (request):
+    tipos = TipoUsuario.objects.all()
+
+    data = {
+        'tipos': tipos
+    }
+
+    return render(request, 'core/tipo_usuario/listado_tipo_usuario.html', data)
+
+def modificar_tipo_usuario(request, id):
+
+    tipo_usuario = TipoUsuario.objects.get(id = id)
+
+    data = {
+        'form': TipoUsuarioForm(instance=tipo_usuario)
+    }
+    if request.method == 'POST':
+        formulario = TipoUsuarioForm(data=request.POST, instance=tipo_usuario)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Tipo-Usuario Modificado Con Exito")
+            data ['form'] = formulario
+
+    return render(request, 'core/tipo_usuario/modificar_tipo_usuario.html', data)
+
+def eliminar_tipo_usuario(request, id):
+    tipo_usuario = TipoUsuario.objects.get(id = id)
+    tipo_usuario.delete()
+
+    return redirect(to='listado_tipo_usuario')
+
+# P A G O  S E R V I C I O
+
+def agregar_pago_servicio(request):
+    data = {
+        'form': PagoServicioForm(data=request.POST)
+    }
+
+    if request.method == 'POST':
+        formulario = PagoServicioForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Pago Agregado Con Exito")
+        else:
+            data["form"] = formulario
+        
+    return render(request,'core/pago_servicio/agregar_pago_serv.html', data)
+    
+
+def listado_pago_serv (request):
+    pagos = PagoServicio.objects.all()
+
+    data = {
+        'pagos': pagos
+    }
+
+    return render(request, 'core/pago_servicio/listado_pago_serv.html', data)
+
+def modificar_pago_servicio(request, id):
+
+    pago_servicio = PagoServicio.objects.get(id = id)
+
+    data = {
+        'form': PagoServicioForm(instance=pago_servicio)
+    }
+    if request.method == 'POST':
+        formulario = PagoServicioForm(data=request.POST, instance=pago_servicio)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Pago Modificado Con Exito")
+            data ['form'] = formulario
+
+    return render(request, 'core/pago_servicio/modificar_pago_serv.html', data)
+
+def eliminar_pago_servicio(request, id):
+    pago_servicio = PagoServicio.objects.get(id = id)
+    pago_servicio.delete()
+
+    return redirect(to='listado_pago_serv')
+
+#FALTA PROVEEDOR

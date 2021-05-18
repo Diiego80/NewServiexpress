@@ -32,7 +32,6 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 # Application definition
 
 INSTALLED_APPS = [
-    'admin_interface',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,6 +44,8 @@ INSTALLED_APPS = [
     'sequences.apps.SequencesConfig',
     'crispy_forms',
     'django_extensions',
+    'rest_framework',
+    'admin_interface',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

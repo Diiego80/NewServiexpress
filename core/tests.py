@@ -8,3 +8,4 @@ from django.test import TestCase
 #CHILE CAMPEON
 #xdxdxdddd
 #MARIKONG
+#Vamosqesepuee

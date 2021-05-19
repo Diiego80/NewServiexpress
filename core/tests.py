@@ -4,7 +4,7 @@ from django.test import TestCase
 # Create your tests here.
 
 #aeae
-#holo
+#aloha
 #CHILE CAMPEON
 #xdxdxdddd
 #MARIKONG

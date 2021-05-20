@@ -137,3 +137,9 @@ LOGOUT_REDIRECT_URL='/'
 
 #Configuracion fecha
 DATE_INPUT_FORMATS = ['%d-%m-%Y']
+
+#Configuracion imagenes
+import os 
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")

@@ -4,6 +4,7 @@ from django.db.models.deletion import PROTECT
 from django.db.models.fields.related import OneToOneField
 from django.forms.widgets import DateTimeBaseInput
 
+
 # Create your models here.
 
 opciones_bol_fac = [
@@ -251,3 +252,15 @@ class Usuario(models.Model):
         
     def __str__(self):
         return self.user_nombre 
+
+# MODELOS ONLY PAG WEB
+
+class MisionVision(models.Model):
+    mision = models.CharField(max_length=200)
+    vision = models.CharField(max_length=200)
+    imagen_vision = models.ImageField(upload_to="Vision", null=True)
+    imagen_mision = models.ImageField(upload_to="Mision", null=True)
+
+
+    
+

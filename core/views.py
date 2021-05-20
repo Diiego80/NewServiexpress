@@ -12,6 +12,14 @@ from django.http import Http404
 
 # Create your views here.
 
+# M I S I O N  V I S I O N
+def mision_vision(request):
+    misionVision = MisionVision.objects.all()
+    data = {
+        'misionvision': misionVision
+    }
+    return render(request, 'core/nosotros.html', data)
+
 #Navegación General
 def index(request):
     return render(request, 'core/index.html')
@@ -86,6 +94,7 @@ def formulario_reserva(request):
     return render(request, 'core/reserva/formulario_reserva.html', data)
 
 # P R O D U C T O
+@login_required
 def agregar_producto(request):
     data = {
         'form': ProductoForm()
@@ -101,6 +110,7 @@ def agregar_producto(request):
 
     return render(request, 'core/producto/agregar_producto.html',data)
 
+@login_required
 def listado_producto (request):
     productos = Producto.objects.all()
     
@@ -110,6 +120,7 @@ def listado_producto (request):
 
     return render(request, 'core/producto/listado_producto.html', data)
 
+@login_required
 def modificar_producto(request, id):
 
     producto = Producto.objects.get(id = id)
@@ -127,6 +138,7 @@ def modificar_producto(request, id):
 
     return render(request,'core/producto/modificar_producto.html', data)
 
+@login_required
 def eliminar_producto (request, id):
     producto = Producto.objects.get(id = id)
     producto.delete()
@@ -136,6 +148,7 @@ def eliminar_producto (request, id):
 
 # E M P L E A D O
 
+@login_required
 def agregar_empleado(request):
     data = {
         'form': EmpleadoForm()
@@ -151,6 +164,7 @@ def agregar_empleado(request):
         
     return render(request,'core/empleado/agregar_empleado.html', data)
 
+@login_required
 def listado_empleado (request):
     empleados = Empleado.objects.all()
 
@@ -160,6 +174,7 @@ def listado_empleado (request):
 
     return render(request, 'core/empleado/listado_empleado.html', data)
 
+@login_required
 def modificar_empleado(request, id):
 
     empleado = Empleado.objects.get(id = id)
@@ -177,6 +192,7 @@ def modificar_empleado(request, id):
 
     return render(request, 'core/empleado/modificar_empleado.html', data)
 
+@login_required
 def eliminar_empleado(request, id):
     empleado = Empleado.objects.get(id = id)
     empleado.delete()
@@ -186,6 +202,7 @@ def eliminar_empleado(request, id):
 
 # S E R V I C I O S 
 
+@login_required
 def agregar_servicio(request):
     data = {
         'form': ServicioForm(data=request.POST)
@@ -201,6 +218,7 @@ def agregar_servicio(request):
         
     return render(request,'core/servicio/agregar_servicio.html', data)
 
+
 def listado_servicio (request):
     servicios = Servicio.objects.all()
 
@@ -210,6 +228,7 @@ def listado_servicio (request):
 
     return render(request,'core/servicio/listado_servicio.html', data)
 
+@login_required
 def modificar_servicio(request, id):
 
     servicio = Servicio.objects.get(id = id)
@@ -226,6 +245,7 @@ def modificar_servicio(request, id):
 
     return render(request, 'core/servicio/modificar_servicio.html', data)
 
+@login_required
 def eliminar_servicio(request, id):
     servicio = Servicio.objects.get(id = id)
     servicio.delete()
@@ -235,7 +255,7 @@ def eliminar_servicio(request, id):
 
 # C O M U N A
 
-
+@login_required
 def agregar_comuna(request):
     data = {
         'form': ComunaForm(data=request.POST)
@@ -252,6 +272,7 @@ def agregar_comuna(request):
     return render(request,'core/comuna/agregar_comuna.html', data)
     
 
+@login_required
 def listado_comuna (request):
     comunas = Comuna.objects.all()
 
@@ -261,6 +282,7 @@ def listado_comuna (request):
 
     return render(request, 'core/comuna/listado_comuna.html', data)
 
+@login_required
 def modificar_comuna(request, id):
 
     comuna = Comuna.objects.get(id = id)
@@ -277,6 +299,7 @@ def modificar_comuna(request, id):
 
     return render(request, 'core/comuna/modificar_comuna.html', data)
 
+@login_required
 def eliminar_comuna(request, id):
     comuna = Comuna.objects.get(id = id)
     comuna.delete()
@@ -285,6 +308,7 @@ def eliminar_comuna(request, id):
 
 # C I U D A D
 
+@login_required
 def agregar_ciudad(request):
     data = {
         'form': CiudadForm(data=request.POST)
@@ -300,6 +324,7 @@ def agregar_ciudad(request):
         
     return render(request,'core/ciudad/agregar_ciudad.html', data)
 
+@login_required
 def listado_ciudad (request):
     ciudades = Ciudad.objects.all()
 
@@ -309,6 +334,7 @@ def listado_ciudad (request):
 
     return render(request, 'core/ciudad/listado_ciudad.html', data)
 
+@login_required
 def modificar_ciudad(request, id):
 
     ciudad = Ciudad.objects.get(id = id)
@@ -325,6 +351,7 @@ def modificar_ciudad(request, id):
 
     return render(request, 'core/ciudad/modificar_ciudad.html', data)
 
+@login_required
 def eliminar_ciudad(request, id):
     ciudad = Ciudad.objects.get(id = id)
     ciudad.delete()
@@ -333,6 +360,7 @@ def eliminar_ciudad(request, id):
  
 # D E T A L L E  S E R V I C I O
 
+@login_required
 def agregar_det_serv(request):
     data = {
         'form': DetalleServicioForm(data=request.POST)
@@ -347,6 +375,7 @@ def agregar_det_serv(request):
             data["form"] = formulario
     return render(request,'core/detalle_servicio/agregar_det_serv.html', data)
 
+@login_required
 def listado_det_serv(request):
     det_serv = DetalleServicio.objects.all()
 
@@ -356,6 +385,7 @@ def listado_det_serv(request):
 
     return render(request, 'core/detalle_servicio/listado_det_serv.html', data)
 
+@login_required
 def modificar_det_serv(request):
 
     det_ser = DetalleServicio.objects.get(id = id)
@@ -371,6 +401,7 @@ def modificar_det_serv(request):
             data['form'] = formulario
     return render(request, 'core/detalle_servicio/modificar_det_serv.html', data)
 
+@login_required
 def eliminar_det_serv(request, id):
     det_ser = DetalleServicio.objects.get(id = id)
     det_ser.delete()
@@ -379,6 +410,7 @@ def eliminar_det_serv(request, id):
 
 # F A C T U R A  Y  B O L E T A
 
+@login_required
 def agregar_bol_fac(request):
     data = {
         'form':BoletaFacturaPedidoForm()
@@ -769,3 +801,53 @@ def eliminar_tipo_marca(request, id):
     messages.success(request, "Marca Eliminada Con Exito")
     
     return redirect(to='listado_tipo_marca')
+
+# P E D I D O  O R D E N
+
+def agregar_ped_orden(request):
+    data = {
+        'form': PedidoOrdenForm(data=request.POST)
+    }
+
+    if request.method == 'POST':
+        formulario = PedidoOrdenForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Pedido Agregado Con Exito")
+        else:
+            data["form"] = formulario
+        
+    return render(request,'core/pedido_orden/agregar_ped_orden.html', data)
+    
+
+def listado_ped_orden (request):
+    ped_ordenes = PedidoOrden.objects.all()
+
+    data = {
+        'ped_ordenes': ped_ordenes
+    }
+
+    return render(request, 'core/pedido_orden/listado_ped_orden.html', data)
+
+def modificar_ped_orden(request, id):
+
+    ped_orden = PedidoOrden.objects.get(id = id)
+
+    data = {
+        'form': PedidoOrdenForm(instance=ped_orden) 
+    }
+    if request.method == 'POST':
+        formulario = PedidoOrdenForm(data=request.POST, instance=ped_orden)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Pedido Modificado Con Exito")
+            data ['form'] = formulario
+
+    return render(request, 'core/pedido_orden/modificar_ped_orden.html', data)
+
+def eliminar_ped_orden(request, id):
+    ped_orden = PedidoOrden.objects.get(id = id)
+    ped_orden.delete()
+    messages.success(request, "Pedido Eliminado Con Exito")
+    
+    return redirect(to='listado_ped_orden')

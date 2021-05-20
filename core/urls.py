@@ -6,11 +6,12 @@ from .models import *
 
 urlpatterns = [
     #Navegacion General
-    path('', index, name="index"),
-    path('ingreso/', ingreso, name="ingreso"),
+    path ('', index, name="index"),
+    path ('ingreso/', ingreso, name="ingreso"),
     path ('nosotros/', nosotros, name="nosotros"),
     path ('servicio/', servicio, name="servicio"),
     path ('ubicacion/', ubicacion, name="ubicacion"),
+    path ('administracion/', administracion, name="administracion"), 
     
     #Registro
     path('registro/', registro, name="registro"),

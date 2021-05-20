@@ -44,6 +44,9 @@ def servicio(request):
 def ubicacion(request):
     return render(request, 'core/ubicacion.html')
 
+def administracion(request):
+    return render(request, 'core/administracion.html')
+
 #Ingreso de Django Admin
 def registro(request):
     dataRegistro = {

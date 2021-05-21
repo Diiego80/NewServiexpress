@@ -53,20 +53,7 @@
                     <img src="{% static 'core/img/logos/logo.png' %}" alt="logo" id="logo">
                 </a>
 
-                <div>
-                    {% if user.is_authenticated %}
-                    <li>
-                        <a href="{% url 'logout' %}" style="color:#b84e4e" ;>Cerrar Sesión</a>
-                    </li>
-                    <li>
-                        <p href="#" style="color:#000000fa" ;>Usuario:{{ user.username }}</p>
-                    </li>
-                    {% else %}
-                    <li>
-                        <a href="{% url 'login' %}" style="color:#29813c" ;>Iniciar Sesión</a>
-                    </li>
-                    {% endif %}
-                </div>
+                
 
             </div>
         </nav>

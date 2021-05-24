@@ -1,0 +1,54 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block css %}
+<title>INICIO</title>
+<link rel="stylesheet" href="{% static 'core/css/index.css' %}">
+{% endblock %}
+
+<!-- BLOC NAV -->
+{% block nav%}
+<a class="nav-item nav-link active" href="{% url 'index' %}">INICIO <span class="sr-only">(current)</span></a>
+<a class="nav-item nav-link" href="{% url 'nosotros' %}">NOSOTROS</a>
+<a class="nav-item nav-link" href="{% url 'servicio' %}">SERVICIOS</a>
+<a class="nav-item nav-link" href="{% url 'ubicacion' %}">UBICACIÓN</a>
+{% endblock %}
+
+<!-- BLOC CONTENIDO -->
+{% block contenido %}
+{% load crispy_forms_tags %}
+<link rel="stylesheet" href="{% static 'core/css/formulario.css' %}">
+
+<br><br>
+<div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+        <div>
+            <a href="{% url 'listado_ped_orden' %}" class="btn btn-primary">Ir/Volver hacia Listado</a>
+        </div>
+        <br>
+        <div class="card">
+            
+            <div class="card-body">
+                <h2>Modificar Pedido</h2>
+                <hr>
+                <form action="" class="" method="POST">
+                    
+                    {% csrf_token %}
+                    {{form | crispy}}
+                    <br>
+                    <div class="d-flex justify-content-end">
+                        <input type="reset" value="Limpiar Formulario" class="btn btn-secondary">
+                        &nbsp;
+                        <button type="submit" id="btnEnviar" class="btn btn-primary">Enviar</button>
+
+                    </div>
+                </form>
+                {{mensaje}}
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+<br><br>
+{% endblock %}

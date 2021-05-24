@@ -24,7 +24,10 @@
 
 </head>
 
-<body>
+<body style="background: #36D1DC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+">
     <!-- SECCION - BANNER -->
     <section>
         <img id="banner" src="{% static 'core/img/Logos/banner.png' %}">
@@ -48,25 +51,9 @@
 
                     {% endblock %}
                 </div>
-                <!-- LOGO -->
-                <a class="navbar-brand" href="{% url 'index' %}">
-                    <img src="{% static 'core/img/logos/logo.png' %}" alt="logo" id="logo">
-                </a>
+               
 
-                <div>
-                    {% if user.is_authenticated %}
-                    <li>
-                        <a href="{% url 'logout' %}" style="color:#b84e4e" ;>Cerrar Sesión</a>
-                    </li>
-                    <li>
-                        <p href="#" style="color:#000000fa" ;>Usuario:{{ user.username }}</p>
-                    </li>
-                    {% else %}
-                    <li>
-                        <a href="{% url 'login' %}" style="color:#29813c" ;>Iniciar Sesión</a>
-                    </li>
-                    {% endif %}
-                </div>
+                
 
             </div>
         </nav>
@@ -85,7 +72,10 @@
 
 
     <!-- FOOTER -->
-    <footer>
+    <footer style="background: #83a4d4;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #b6fbff, #83a4d4);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #b6fbff, #83a4d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+">
         <!-- MARCAS -->
         <div class="backmarcas">
             <div class="marcas">
@@ -97,8 +87,12 @@
                 <img src="{% static 'core/img/Logos/nissan.png' %}" alt="">
                 <img src="{% static 'core/img/Logos/renault.png' %}" alt="">
                 <img src="{% static 'core/img/Logos/honda.png' %}" alt="">
+                <div>
+                    <a href="" class="btn btn-info"> Sector Administrativo </a>
+                </div>
 
             </div>
+
         </div>
 
         <!-- CONTENIDO FOOTER -->

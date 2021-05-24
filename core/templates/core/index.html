@@ -5,8 +5,7 @@
 <link rel="stylesheet" href="{% static 'core/css/index.css' %}">
 {% endblock %}
 
-<link rel="stylesheet" href="{% static 'core/css/estilo.css' %}">
-<link rel="icon" type="image/png" href="{% static 'core/img/Logos/logo.png' %}">
+
 
 
 <!-- BLOC NAV -->
@@ -15,6 +14,22 @@
 <a class="nav-item nav-link" href="{% url 'nosotros' %}">NOSOTROS</a>
 <a class="nav-item nav-link" href="{% url 'servicio' %}">SERVICIOS</a>
 <a class="nav-item nav-link" href="{% url 'ubicacion' %}">UBICACIÓN</a>
+<a class="navbar-brand" href="{% url 'index' %}"></a>
+<img src="{% static 'core/img/logos/logo.png' %}" alt="logo" id="logo">
+</a>
+{% if user.is_authenticated %}
+
+
+
+
+<p href="#" class="nav-item nav-link" ;>Bienvenido: {{ user.username }}</p>
+<a href="{% url 'logout' %}" class="nav-item nav-link" ;>Cerrar Sesión</a>
+{% else %}
+
+<a href="{% url 'login' %}" class="nav-item nav-link" ;>Iniciar Sesión</a>
+
+{% endif %}
+
 {% endblock %}
 
 <!-- BLOC CONTENIDO -->
@@ -81,25 +96,26 @@
         </div>
     </div>
 </div>
+<br><br><br><br>
 <!-- Container (Services Section) -->
 <div id="services" class="container-fluid text-center">
-    <h2>SERVICES</h2>
+    <h2>NUESTROS SERVICIOS </h2>
     <h4>What we offer</h4>
     <br>
     <div class="row slideanim">
         <div class="col-sm-4">
             <span class="glyphicon glyphicon-off logo-small"></span>
-            <h4>POWER</h4>
+            <h4>ELECTROMECANICA</h4>
             <p>Lorem ipsum dolor sit amet..</p>
         </div>
         <div class="col-sm-4">
             <span class="glyphicon glyphicon-heart logo-small"></span>
-            <h4>LOVE</h4>
+            <h4>SCANNER AUTOMOTRIZ</h4>
             <p>Lorem ipsum dolor sit amet..</p>
         </div>
         <div class="col-sm-4">
             <span class="glyphicon glyphicon-lock logo-small"></span>
-            <h4>JOB DONE</h4>
+            <h4>CIERRE SENTRALIZADO</h4>
             <p>Lorem ipsum dolor sit amet..</p>
         </div>
     </div>
@@ -107,19 +123,20 @@
     <div class="row slideanim">
         <div class="col-sm-4">
             <span class="glyphicon glyphicon-leaf logo-small"></span>
-            <h4>GREEN</h4>
+            <h4>AJUSTES DE MOTOR</h4>
             <p>Lorem ipsum dolor sit amet..</p>
         </div>
         <div class="col-sm-4">
             <span class="glyphicon glyphicon-certificate logo-small"></span>
-            <h4>CERTIFIED</h4>
+            <h4>CONTROL DE EMISIONES</h4>
             <p>Lorem ipsum dolor sit amet..</p>
         </div>
         <div class="col-sm-4">
             <span class="glyphicon glyphicon-wrench logo-small"></span>
-            <h4 style="color:#303030;">HARD WORK</h4>
+            <h4 style="color:#303030;">RECTIFICACION DE DISCOS Y TAMBORES DE FRENOS</h4>
             <p>Lorem ipsum dolor sit amet..</p>
         </div>
     </div>
 </div>
+
 {% endblock %}

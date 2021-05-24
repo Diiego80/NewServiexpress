@@ -12,19 +12,15 @@
         <div class="row">
             <div class="col-md-8 login-form-1">
                 <h3>Registro de nuevo usuario</h3>
-
-               
                 <form action="" method="POST">
                     {% csrf_token %}
                     <table>
                         {{ form }}
                     </table>
                     <button type="submit" id="btnEnviar" class="btn btn-info" href="/">Registrar</button>
-
                 </form>
               {{mensaje}}
             </div>
-
         </div>
     </div>
 </body>

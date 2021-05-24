@@ -47,20 +47,38 @@ def ubicacion(request):
 def administracion(request):
     return render(request, 'core/administracion.html')
 
-#Ingreso de Django Admin
+#INGRESO USUARIOS FINALES 
 def registro(request):
-    dataRegistro = {
-        'form': UsuarioForm()
+    data = {
+        'form': CustomUserCreationForm
     }
-    if request.method == 'POST':
-        formularioContacto = UsuarioForm(data=request.POST)
-        if formularioContacto.is_valid():
-            formularioContacto.save()
-            dataRegistro["mensaje"] = "Usuario Guardado Correctamente"
-        else:
-            dataRegistro["form"] = formularioContacto
 
-    return render(request, 'registration/registro.html', dataRegistro)
+    if request.method == 'POST':
+        formulario = CustomUserCreationForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            user = authenticate(username=formulario.cleaned_data["username"], 
+                                password=formulario.cleaned_data["password1"])
+            login(request,user)
+            messages.success(request, "Registro Completado Correctamente")
+            return redirect(to='/')
+        data["form"] = formulario
+    return render(request, 'registration/registro.html', data)
+
+#Ingreso de Django Admin
+#def registro_admin(request):
+#    dataRegistro = {
+#        'form': UsuarioForm()
+#    }
+#    if request.method == 'POST':
+#        formularioContacto = UsuarioForm(data=request.POST)
+#        if formularioContacto.is_valid():
+#            formularioContacto.save()
+#            dataRegistro["mensaje"] = "Usuario Guardado Correctamente"
+#        else:
+#            dataRegistro["form"] = formularioContacto
+#
+#    return render(request, 'registration/registro.html', dataRegistro)
 
 
 def registro_clientes(request):

@@ -14,18 +14,21 @@
 <a class="nav-item nav-link" href="{% url 'nosotros' %}">NOSOTROS</a>
 <a class="nav-item nav-link" href="{% url 'servicio' %}">SERVICIOS</a>
 <a class="nav-item nav-link" href="{% url 'ubicacion' %}">UBICACIÓN</a>
+<a class="navbar-brand" href="{% url 'index' %}"></a>
+<img src="{% static 'core/img/logos/logo.png' %}" alt="logo" id="logo">
+</a>
 {% if user.is_authenticated %}
-                   
-                        <a href="{% url 'logout' %}" class="nav-item nav-link" ;>Cerrar Sesión</a>
-                
-               
-                        <p href="#" class="nav-item nav-link" ;>Bienvenido: {{ user.username }}</p>
-                  
-                    {% else %}
-                
-                        <a href="{% url 'login' %}" class="nav-item nav-link" ;>Iniciar Sesión</a>
-                 
-                    {% endif %}
+
+
+
+
+<p href="#" class="nav-item nav-link" ;>Bienvenido: {{ user.username }}</p>
+<a href="{% url 'logout' %}" class="nav-item nav-link" ;>Cerrar Sesión</a>
+{% else %}
+
+<a href="{% url 'login' %}" class="nav-item nav-link" ;>Iniciar Sesión</a>
+
+{% endif %}
 
 {% endblock %}
 
@@ -62,8 +65,8 @@
 </section>
 
 <!-- CONTENIDO -->
-<div id="contenido"> 
-    <div id="servicios" class="servicios" >
+<div id="contenido">
+    <div id="servicios" class="servicios">
         <div class="servicio">
             <div id="container" class="container">
                 <img src="{% static 'core/img/Genericas/generica.jpg' %}" alt="">
@@ -95,7 +98,7 @@
 </div>
 <br><br><br><br>
 <!-- Container (Services Section) -->
-<div id="services" class="container-fluid text-center" >
+<div id="services" class="container-fluid text-center">
     <h2>NUESTROS SERVICIOS </h2>
     <h4>What we offer</h4>
     <br>

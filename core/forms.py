@@ -2,7 +2,11 @@ from django import forms
 from django.db import models
 from .models import *
 import datetime
+from django.contrib.auth.forms import UserCreationForm
 
+
+class CustomUserCreationForm(UserCreationForm):
+    pass
 
 class UsuarioForm(forms.ModelForm):
 

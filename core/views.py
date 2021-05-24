@@ -3,7 +3,7 @@ from .models import *
 from .forms import *
 # Extra
 from django.http import JsonResponse
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
 from rest_framework import viewsets
@@ -43,6 +43,7 @@ def servicio(request):
 
 def ubicacion(request):
     return render(request, 'core/ubicacion.html')
+
 
 def administracion(request):
     return render(request, 'core/administracion.html')
@@ -99,7 +100,7 @@ def formulario_clientes(request):
 def formulario_servicios(request):
     return render(request, 'core/servicio/formulario_servicio.html')
 
-
+@login_required
 def formulario_reserva(request):
     data = {
         'formReserva': ReservaForm()
@@ -115,7 +116,7 @@ def formulario_reserva(request):
     return render(request, 'core/reserva/formulario_reserva.html', data)
 
 # P R O D U C T O
-@login_required
+@permission_required('core.add_producto')
 def agregar_producto(request):
     data = {
         'form': ProductoForm()

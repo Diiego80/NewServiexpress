@@ -35,7 +35,7 @@ body{
 }
 
 .backnav{
-  background-color: black;
+  background-color: dodgerblue;
 }
   
 #navfull{
@@ -186,7 +186,7 @@ footer{
 /* MARCAS */
 footer .backmarcas {
   width: 100%;
-  background-color:red;
+  background-color:dodgerblue;
 }
 
 footer .marcas {

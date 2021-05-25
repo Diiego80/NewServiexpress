@@ -11,18 +11,6 @@
 <a class="nav-item nav-link active" href="{% url 'nosotros' %}">NOSOTROS</a>
 <a class="nav-item nav-link" href="{% url 'servicio' %}">SERVICIOS</a>
 <a class="nav-item nav-link" href="{% url 'ubicacion' %}">UBICACIÓN</a>
-{% if user.is_authenticated %}
-                   
-                        <a href="{% url 'logout' %}" class="nav-item nav-link" ;>Cerrar Sesión</a>
-                
-               
-                        <p href="#" class="nav-item nav-link" ;>Bienvenido: {{ user.username }}</p>
-                  
-                    {% else %}
-                
-                        <a href="{% url 'login' %}" class="nav-item nav-link" ;>Iniciar Sesión</a>
-                 
-                    {% endif %}
 {% endblock %}
 
 <!-- BLOC CONTENIDO -->
@@ -43,9 +31,6 @@
             mattis vulputate leo id lobortis. In ornare, massa nec semper luctus, erat nunc dapibus orci, et
             lobortis dui sapien in orci. Cras dapibus, purus vitae sodales efficitur, lectus massa mollis tortor,
             vitae dapibus dui tortor lacinia neque. Donec id arcu odio. Prueba Git. AEAEAEA.
-
-
-            xdddddd
         </p>
 
         <!-- VISIÓN -->

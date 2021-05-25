@@ -24,10 +24,7 @@
 
 </head>
 
-<body style="background: #36D1DC;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-">
+<body>
     <!-- SECCION - BANNER -->
     <section>
         <img id="banner" src="{% static 'core/img/Logos/banner.png' %}">
@@ -37,8 +34,8 @@ background: linear-gradient(to left, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Fi
     <div class="backnav">
         <nav class="navbar navbar-dark navbar-expand-md" id="navfull">
             <!-- LOGO -->
-            <a class="navbar-brand" href="{% url 'index' %}"></a>
-            <img src="{% static 'core/img/logos/logo.png' %}" alt="logo" id="logo">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img src="{% static 'core/img/logos/logo.png' %}" alt="logo" id="logo">
             </a>
             <!-- NAV COLLAPSE -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
@@ -50,11 +47,15 @@ background: linear-gradient(to left, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Fi
                     {% block nav%}
 
                     {% endblock %}
+                    {% if user.is_authenticated %}
+                    <p href="#" class="nav-item nav-link" ;>Bienvenido: {{ user.username }}</p>
+                    <a href="{% url 'logout' %}" class="nav-item nav-link" ;>Cerrar Sesión</a>
+                    {% else %}
+
+                    <a href="{% url 'login' %}" class="nav-item nav-link" ;>Iniciar Sesión</a>
+
+                    {% endif %}
                 </div>
-               
-
-                
-
             </div>
         </nav>
     </div>
@@ -72,10 +73,7 @@ background: linear-gradient(to left, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Fi
 
 
     <!-- FOOTER -->
-    <footer style="background: #83a4d4;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #b6fbff, #83a4d4);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #b6fbff, #83a4d4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-">
+    <footer>
         <!-- MARCAS -->
         <div class="backmarcas">
             <div class="marcas">

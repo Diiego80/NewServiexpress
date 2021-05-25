@@ -14,20 +14,6 @@
 <a class="nav-item nav-link" href="{% url 'nosotros' %}">NOSOTROS</a>
 <a class="nav-item nav-link" href="{% url 'servicio' %}">SERVICIOS</a>
 <a class="nav-item nav-link" href="{% url 'ubicacion' %}">UBICACIÓN</a>
-<a class="navbar-brand" href="{% url 'index' %}"></a>
-{% if user.is_authenticated %}
-
-
-
-
-<p href="#" class="nav-item nav-link" ;>Bienvenido: {{ user.username }}</p>
-<a href="{% url 'logout' %}" class="nav-item nav-link" ;>Cerrar Sesión</a>
-{% else %}
-
-<a href="{% url 'login' %}" class="nav-item nav-link" ;>Iniciar Sesión</a>
-
-{% endif %}
-
 {% endblock %}
 
 <!-- BLOC CONTENIDO -->
@@ -64,10 +50,12 @@
 
 <!-- CONTENIDO -->
 <div id="contenido">
+    <h1 class="title"><b>PREVENCIÓN</b></h1>
+    <div id="raya"></div>
     <div id="servicios" class="servicios">
         <div class="servicio">
-            <div id="container" class="container">
-                <img src="{% static 'core/img/Genericas/generica.jpg' %}" alt="">
+            <div id="contenedor" class="contenedor">
+                <img src="img/Genericas/generica.jpg" alt="">
                 <div class="detalle">
                     <a id="tit">LAVADO<br></a>
                     <a id="detalle">Lavado del vehiculo + accesorios<br></a>
@@ -75,8 +63,97 @@
             </div>
         </div>
         <div class="servicio">
-            <div id="container" class="container">
-                <img src="{% static 'core/img/Genericas/generica.jpg' %}" alt="">
+            <div id="contenedor" class="contenedor">
+                <img src="img/Genericas/generica.jpg" alt="">
+                <div class="detalle">
+                    <a id="tit">LAVADO<br></a>
+                    <a id="detalle">Lavado del vehiculo + accesorios<br></a>
+                </div>
+            </div>
+        </div>
+        <div class="servicio">
+            <div id="contenedor" class="contenedor">
+                <img src="img/Genericas/generica.jpg" alt="">
+                <div class="detalle">
+                    <a id="tit">LAVADO<br></a>
+                    <a id="detalle">Lavado del vehiculo + accesorios<br></a>
+                </div>
+            </div>
+        </div>
+        <div class="servicio">
+            <div id="contenedor" class="contenedor">
+                <img src="img/Genericas/generica.jpg" alt="">
+                <div class="detalle">
+                    <a id="tit">LAVADO<br></a>
+                    <a id="detalle">Lavado del vehiculo + accesorios<br></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="title"><b>MANTENCIÓN</b></h1>
+    <div id="raya"></div>
+    <div id="servicios" class="servicios">
+        <div class="servicio">
+            <div id="contenedor" class="contenedor">
+                <img src="img/Genericas/generica.jpg" alt="">
+                <div class="detalle">
+                    <a id="tit">CAMBIO<br></a>
+                    <a id="detalle">Cambio de algun material + accesorios<br></a>
+                </div>
+            </div>
+        </div>
+        <div class="servicio">
+            <div id="contenedor" class="contenedor">
+                <img src="img/Genericas/generica.jpg" alt="">
+                <div class="detalle">
+                    <a id="tit">CAMBIO<br></a>
+                    <a id="detalle">Cambio de algun material + accesorios<br></a>
+                </div>
+            </div>
+        </div>
+        <div class="servicio">
+            <div id="contenedor" class="contenedor">
+                <img src="img/Genericas/generica.jpg" alt="">
+                <div class="detalle">
+                    <a id="tit">CAMBIO<br></a>
+                    <a id="detalle">Cambio de algun material + accesorios<br></a>
+                </div>
+            </div>
+        </div>
+        <div class="servicio">
+            <div id="contenedor" class="contenedor">
+                <img src="img/Genericas/generica.jpg" alt="">
+                <div class="detalle">
+                    <a id="tit">CAMBIO<br></a>
+                    <a id="detalle">Cambio de algun material + accesorios<br></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="title"><b>CORRECCIÓN</b></h1>
+    <div id="raya"></div>
+    <div id="servicios" class="servicios">
+        <div class="servicio">
+            <div id="contenedor" class="contenedor">
+                <img src="img/Genericas/generica.jpg" alt="">
+                <div class="detalle">
+                    <a id="tit">ARREGLO<br></a>
+                    <a id="detalle">Arreglo en particular + accesorios<br></a>
+                </div>
+            </div>
+        </div>
+        <div class="servicio">
+            <div id="contenedor" class="contenedor">
+                <img src="img/Genericas/generica.jpg" alt="">
+                <div class="detalle">
+                    <a id="tit">ARREGLO<br></a>
+                    <a id="detalle">Arreglo en particular + accesorios<br></a>
+                </div>
+            </div>
+        </div>
+        <div class="servicio">
+            <div id="contenedor" class="contenedor">
+                <img src="img/Genericas/generica.jpg" alt="">
                 <div class="detalle">
                     <a id="tit">DESABOLLADURA<br></a>
                     <a id="detalle">Arreglo de una parte del vehiculo + accesorios<br></a>
@@ -84,17 +161,16 @@
             </div>
         </div>
         <div class="servicio">
-            <div id="container" class="container">
-                <img src="{% static 'core/img/Genericas/generica.jpg' %}" alt="">
+            <div id="contenedor" class="contenedor">
+                <img src="img/Genericas/generica.jpg" alt="">
                 <div class="detalle">
-                    <a id="tit">ARREGLO<br></a>
-                    <a id="detalle">Arreglo en particular + accesorios<br></a>
+                    <a id="tit">DESABOLLADURA<br></a>
+                    <a id="detalle">Arreglo de una parte del vehiculo + accesorios<br></a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<br><br><br><br>
 <!-- Container (Services Section) -->
 <div id="services" class="container-fluid text-center">
     <h2>NUESTROS SERVICIOS </h2>

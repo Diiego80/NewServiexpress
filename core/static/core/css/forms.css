@@ -1,0 +1,36 @@
+/* FORMULARIOS */
+#formu{
+    width: 400px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#post{
+    width: 100%;
+    text-align: center;
+}
+
+#titul{
+    border-radius: 5px;
+    border: 1px solid grey;
+    margin: 10px;
+}
+
+#titu{
+    font-size: xx-large;
+}
+
+#tabl{
+    margin-left: 8%;
+}
+
+#btns{
+    margin: 10px;
+    background-color: gray;
+    color: white;
+    font-weight: bold;
+}

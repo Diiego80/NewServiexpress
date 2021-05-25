@@ -9,7 +9,6 @@
 /* CUERPO */
 body{
   font-family: Helvetica, sans-serif;
-   
 }
 
 /* BANNER */
@@ -221,4 +220,10 @@ footer .marcas img{
   footer .marcas img{
     width: 30px;
   }
+}
+
+/* LOGIN */
+#amen {
+  background-color:black;
+  border-radius: 5%;
 }

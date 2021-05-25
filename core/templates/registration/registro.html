@@ -1,26 +1,36 @@
+{% extends 'core/base.html' %}
 {% load static %}
+{% block css %}
+<title>REGISTRO</title>
+<link rel="stylesheet" href="{% static 'core/css/forms.css' %}">
+{% endblock %}
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="{% static 'core/css/login.css' %}">
-<title>Registro de usuario</title>
-<body background="{% static 'core/genericas/mazda.jpg' %}">
-    <!------ Include the above in your HEAD tag ---------->
+<!-- BLOC NAV -->
+{% block nav%}
+<a class="nav-item nav-link" href="{% url 'index' %}">INICIO <span class="sr-only">(current)</span></a>
+<a class="nav-item nav-link" href="{% url 'nosotros' %}">NOSOTROS</a>
+<a class="nav-item nav-link" href="{% url 'servicio' %}">SERVICIOS</a>
+<a class="nav-item nav-link" href="{% url 'ubicacion' %}">UBICACIÓN</a>
+{% endblock %}
 
-    <div class="container login-container" style="background: aquamarine" >
-        <div class="row">
-            <div class="col-md-8 login-form-1">
-                <h3>Registro de nuevo usuario</h3>
-                <form action="" method="POST">
-                    {% csrf_token %}
-                    <table>
-                        {{ form }}
-                    </table>
-                    <button type="submit" id="btnEnviar" class="btn btn-info" href="/">Registrar</button>
-                </form>
-              {{mensaje}}
+<!-- BLOC CONTENIDO -->
+{% block contenido %}
+<div class="container login-container" id="formu">
+    <form action="" method="POST" id="post">
+        <div id="titul">
+            <b id="titu"> REGISTRO </b>
+        </div>
+        {% csrf_token %}
+        <table id="tabl">
+            {{ form }}
+        </table>
+        <input type="submit" value="REGISTRAR" class="btn btn-sm" id="btns">
+        <div class="card-footer">
+            <div class="justify-content-center link">
+                Ya tienes cuenta?<a href="{% url 'login' %}" style="text-decoration: none;"> INGRESA</a>
             </div>
         </div>
-    </div>
-</body>
+    </form>
+    {{mensaje}}
+</div>
+{% endblock %}

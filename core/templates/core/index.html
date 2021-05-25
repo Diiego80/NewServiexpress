@@ -5,9 +5,6 @@
 <link rel="stylesheet" href="{% static 'core/css/index.css' %}">
 {% endblock %}
 
-
-
-
 <!-- BLOC NAV -->
 {% block nav%}
 <a class="nav-item nav-link active" href="{% url 'index' %}">INICIO <span class="sr-only">(current)</span></a>
@@ -55,7 +52,7 @@
     <div id="servicios" class="servicios">
         <div class="servicio">
             <div id="contenedor" class="contenedor">
-                <img src="img/Genericas/generica.jpg" alt="">
+                <img src="{% static 'core/img/Genericas/generica.jpg' %}" alt="">
                 <div class="detalle">
                     <a id="tit">LAVADO<br></a>
                     <a id="detalle">Lavado del vehiculo + accesorios<br></a>
@@ -64,7 +61,7 @@
         </div>
         <div class="servicio">
             <div id="contenedor" class="contenedor">
-                <img src="img/Genericas/generica.jpg" alt="">
+                <img src="{% static 'core/img/Genericas/generica.jpg' %}" alt="">
                 <div class="detalle">
                     <a id="tit">LAVADO<br></a>
                     <a id="detalle">Lavado del vehiculo + accesorios<br></a>
@@ -73,7 +70,7 @@
         </div>
         <div class="servicio">
             <div id="contenedor" class="contenedor">
-                <img src="img/Genericas/generica.jpg" alt="">
+                <img src="{% static 'core/img/Genericas/generica.jpg' %}" alt="">
                 <div class="detalle">
                     <a id="tit">LAVADO<br></a>
                     <a id="detalle">Lavado del vehiculo + accesorios<br></a>
@@ -82,7 +79,7 @@
         </div>
         <div class="servicio">
             <div id="contenedor" class="contenedor">
-                <img src="img/Genericas/generica.jpg" alt="">
+                <img src="{% static 'core/img/Genericas/generica.jpg' %}" alt="">
                 <div class="detalle">
                     <a id="tit">LAVADO<br></a>
                     <a id="detalle">Lavado del vehiculo + accesorios<br></a>
@@ -95,7 +92,7 @@
     <div id="servicios" class="servicios">
         <div class="servicio">
             <div id="contenedor" class="contenedor">
-                <img src="img/Genericas/generica.jpg" alt="">
+                <img src="{% static 'core/img/Genericas/generica.jpg' %}" alt="">
                 <div class="detalle">
                     <a id="tit">CAMBIO<br></a>
                     <a id="detalle">Cambio de algun material + accesorios<br></a>
@@ -104,7 +101,7 @@
         </div>
         <div class="servicio">
             <div id="contenedor" class="contenedor">
-                <img src="img/Genericas/generica.jpg" alt="">
+                <img src="{% static 'core/img/Genericas/generica.jpg' %}" alt="">
                 <div class="detalle">
                     <a id="tit">CAMBIO<br></a>
                     <a id="detalle">Cambio de algun material + accesorios<br></a>
@@ -113,7 +110,7 @@
         </div>
         <div class="servicio">
             <div id="contenedor" class="contenedor">
-                <img src="img/Genericas/generica.jpg" alt="">
+                <img src="{% static 'core/img/Genericas/generica.jpg' %}" alt="">
                 <div class="detalle">
                     <a id="tit">CAMBIO<br></a>
                     <a id="detalle">Cambio de algun material + accesorios<br></a>
@@ -122,7 +119,7 @@
         </div>
         <div class="servicio">
             <div id="contenedor" class="contenedor">
-                <img src="img/Genericas/generica.jpg" alt="">
+                <img src="{% static 'core/img/Genericas/generica.jpg' %}" alt="">
                 <div class="detalle">
                     <a id="tit">CAMBIO<br></a>
                     <a id="detalle">Cambio de algun material + accesorios<br></a>
@@ -135,7 +132,7 @@
     <div id="servicios" class="servicios">
         <div class="servicio">
             <div id="contenedor" class="contenedor">
-                <img src="img/Genericas/generica.jpg" alt="">
+                <img src="{% static 'core/img/Genericas/generica.jpg' %}" alt="">
                 <div class="detalle">
                     <a id="tit">ARREGLO<br></a>
                     <a id="detalle">Arreglo en particular + accesorios<br></a>
@@ -144,7 +141,7 @@
         </div>
         <div class="servicio">
             <div id="contenedor" class="contenedor">
-                <img src="img/Genericas/generica.jpg" alt="">
+                <img src="{% static 'core/img/Genericas/generica.jpg' %}" alt="">
                 <div class="detalle">
                     <a id="tit">ARREGLO<br></a>
                     <a id="detalle">Arreglo en particular + accesorios<br></a>
@@ -153,7 +150,7 @@
         </div>
         <div class="servicio">
             <div id="contenedor" class="contenedor">
-                <img src="img/Genericas/generica.jpg" alt="">
+                <img src="{% static 'core/img/Genericas/generica.jpg' %}" alt="">
                 <div class="detalle">
                     <a id="tit">DESABOLLADURA<br></a>
                     <a id="detalle">Arreglo de una parte del vehiculo + accesorios<br></a>
@@ -162,7 +159,7 @@
         </div>
         <div class="servicio">
             <div id="contenedor" class="contenedor">
-                <img src="img/Genericas/generica.jpg" alt="">
+                <img src="{% static 'core/img/Genericas/generica.jpg' %}" alt="">
                 <div class="detalle">
                     <a id="tit">DESABOLLADURA<br></a>
                     <a id="detalle">Arreglo de una parte del vehiculo + accesorios<br></a>
@@ -171,7 +168,11 @@
         </div>
     </div>
 </div>
-<!-- Container (Services Section) -->
+
+<!-- 
+
+Container (Services Section)
+
 <div id="services" class="container-fluid text-center">
     <h2>NUESTROS SERVICIOS </h2>
     <h4>What we offer</h4>
@@ -213,4 +214,5 @@
     </div>
 </div>
 
+-->
 {% endblock %}

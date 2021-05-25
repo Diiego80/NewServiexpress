@@ -1,30 +1,35 @@
+{% extends 'core/base.html' %}
 {% load static %}
+{% block css %}
+<title>LOGIN</title>
+<link rel="stylesheet" href="{% static 'core/css/forms.css' %}">
+{% endblock %}
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<title>Login</title>
+<!-- BLOC NAV -->
+{% block nav%}
+<a class="nav-item nav-link" href="{% url 'index' %}">INICIO <span class="sr-only">(current)</span></a>
+<a class="nav-item nav-link" href="{% url 'nosotros' %}">NOSOTROS</a>
+<a class="nav-item nav-link" href="{% url 'servicio' %}">SERVICIOS</a>
+<a class="nav-item nav-link" href="{% url 'ubicacion' %}">UBICACIÓN</a>
+{% endblock %}
 
-<body background="{% static 'core/genericas/mazda.jpg' %}">
-    <!------ Include the above in your HEAD tag ---------->
-
-    <div class="container login-container" style="width: 400px;  margin-top: 10%; margin-bottom: 10%; 
-        padding: 5px; border-radius: 5px; box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
-        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
-        <form action="" method="POST" style="width: 100%; text-align: center; ">
-            <div style="border-radius: 5px; border: 1px solid grey; margin: 10px;">
-                <b style="font-size: xx-large; "> LOGIN </b>
+<!-- BLOC CONTENIDO -->
+{% block contenido %}
+<div class="container login-container" id="formu">
+    <form action="" method="POST" id="post">
+        <div id="titul">
+            <b id="titu"> LOGIN </b>
+        </div>
+        {% csrf_token %}
+        <table id="tabl">
+            {{ form }}
+        </table>
+        <input type="submit" value="INGRESAR" class="btn btn-sm" id="btns">
+        <div class="card-footer">
+            <div class="justify-content-center link">
+                No tienes cuenta?<a href="{% url 'registro' %}" style="text-decoration: none;"> REGISTRATE</a>
             </div>
-            {% csrf_token %}
-            <table style="margin-left: 8%;">
-                {{ form }}
-            </table>
-            <input type="submit" value="INGRESAR" class="btn" style="margin: 10px; background-color: gray; color: white; font-weight: bold;">
-            <div class="card-footer">
-                <div class="justify-content-center link">
-                    No tienes cuenta?<a href="{% url 'registro' %}" style="text-decoration: none;"> REGISTRATE</a>
-                </div>
-            </div>
-        </form>
-    </div>
-</body>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -7,28 +7,20 @@
 <title>Registro de usuario</title>
 <body background="{% static 'core/genericas/mazda.jpg' %}">
     <!------ Include the above in your HEAD tag ---------->
-    {% load crispy_forms_tags%}
+
     <div class="container login-container" style="background: aquamarine" >
         <div class="row">
             <div class="col-md-8 login-form-1">
                 <h3>Registro de nuevo usuario</h3>
-
-               
                 <form action="" method="POST">
                     {% csrf_token %}
                     <table>
-                        {{ form|crispy }}
+                        {{ form }}
                     </table>
                     <button type="submit" id="btnEnviar" class="btn btn-info" href="/">Registrar</button>
-                    <a href="{% url 'login' %}">Ir hacia Login</a>
-                    <div class="d-flex justify-content-center links">
-                        Deseas volver al Home? <a href="{% url 'index' %}">Ir hacia el Home</a>
-                    </div>
-
                 </form>
               {{mensaje}}
             </div>
-
         </div>
     </div>
 </body>

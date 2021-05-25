@@ -3,30 +3,28 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="{% static 'core/css/login.css' %}">
 <title>Login</title>
 
 <body background="{% static 'core/genericas/mazda.jpg' %}">
     <!------ Include the above in your HEAD tag ---------->
 
-    <div class="container login-container">
-        <div class="row">
-            <div class="col-md-8 login-form-1">
-                <h3>Login </h3>
-                <form action="" method="POST">
-                    {% csrf_token %}
-                    <table>
-                        {{ form }}
-                    </table>
-                    <input type="submit" value="Ingresar" class="btn btn-info">
-                    <br>
-                    <div class="card-footer">
-                        <div class="d-flex justify-content-center links">
-                            No tienes cuenta?<a href="{% url 'registro' %}">Ingresa</a>
-                        </div>
-                    </div>
-                </form>
+    <div class="container login-container" style="width: 400px;  margin-top: 10%; margin-bottom: 10%; 
+        padding: 5px; border-radius: 5px; box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+        <form action="" method="POST" style="width: 100%; text-align: center; ">
+            <div style="border-radius: 5px; border: 1px solid grey; margin: 10px;">
+                <b style="font-size: xx-large; "> LOGIN </b>
             </div>
-        </div>
+            {% csrf_token %}
+            <table style="margin-left: 8%;">
+                {{ form }}
+            </table>
+            <input type="submit" value="INGRESAR" class="btn" style="margin: 10px; background-color: gray; color: white; font-weight: bold;">
+            <div class="card-footer">
+                <div class="justify-content-center link">
+                    No tienes cuenta?<a href="{% url 'registro' %}" style="text-decoration: none;"> REGISTRATE</a>
+                </div>
+            </div>
+        </form>
     </div>
 </body>

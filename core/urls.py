@@ -13,6 +13,9 @@ urlpatterns = [
     path ('ubicacion/', ubicacion, name="ubicacion"),
     path ('administracion/', administracion, name="administracion"), 
     
+    #Sectores Internos de Administracion
+    path ('sector-ubicaciones/', sector_ubicaciones, name="sector_ubicaciones"), 
+
     #Registro
     path('registro/', registro, name="registro"),
     #Administracion Interna

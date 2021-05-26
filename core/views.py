@@ -44,9 +44,13 @@ def servicio(request):
 def ubicacion(request):
     return render(request, 'core/ubicacion.html')
 
-
+@login_required
+@permission_required('core.admin_interface')
 def administracion(request):
     return render(request, 'core/administracion.html')
+
+def sector_ubicaciones(request):
+    return render(request, 'core/sector_ubicaciones.html')
 
 #INGRESO USUARIOS FINALES 
 def registro(request):

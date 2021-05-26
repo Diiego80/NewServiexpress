@@ -86,18 +86,18 @@ def registro_clientes(request):
     return render(request, 'core/registro_clientes.html')
 
 
-def registro_productos(request):
+#def registro_productos(request):
     return render(request, 'core/registro_productos.html')
 
 
-def formulario_producto(request):
+#def formulario_producto(request):
     return render(request, 'core/formularios/formulario_productos.html')
 
 
-def formulario_clientes(request):
+#def formulario_clientes(request):
     return render(request, 'core/cliente/formulario_clientes.html')
 
-def formulario_servicios(request):
+#def formulario_servicios(request):
     return render(request, 'core/servicio/formulario_servicio.html')
 
 @login_required

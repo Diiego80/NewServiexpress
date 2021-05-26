@@ -17,11 +17,11 @@ urlpatterns = [
     path('registro/', registro, name="registro"),
     #Administracion Interna
     path ('registro-clientes/', registro_clientes, name="registro_clientes"),
-    path ('registro-productos/', registro_productos, name="registro_productos"),
+    #path ('registro-productos/', registro_productos, name="registro_productos"),
     #Formularios
-    path ('formulario-producto/', formulario_producto, name="formulario_producto"),
+    #path ('formulario-producto/', formulario_producto, name="formulario_producto"),
     path ('formulario-reserva/', formulario_reserva, name="formulario_reserva"),
-    path ('formulario-servicios/', formulario_servicios, name="formulario_servicios"),
+    #path ('formulario-servicios/', formulario_servicios, name="formulario_servicios"),
     #Agregar
     path ('agregar-producto/', agregar_producto, name="agregar_producto"),
     path ('agregar-empleado/', agregar_empleado, name="agregar_empleado"),

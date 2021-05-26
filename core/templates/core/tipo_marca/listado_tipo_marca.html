@@ -59,7 +59,7 @@
                     <td>{{t.desc_marca | title}}</td>
 
                     <td>
-                        <a href="{% url 'modificar_producto' p.id %}" class="btn btn-info btn-sm">Modificar</a>
+                        <a href="{% url 'modificar_producto' t.id %}" class="btn btn-info btn-sm">Modificar</a>
                         <a href="#" onclick="eliminarMarca ({{t.id}})"
                             class="btn btn-danger btn-sm">Eliminar</a>
                     </td>

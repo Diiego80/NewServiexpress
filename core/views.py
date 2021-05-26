@@ -120,7 +120,7 @@ def formulario_reserva(request):
     return render(request, 'core/reserva/formulario_reserva.html', data)
 
 # P R O D U C T O
-@permission_required('core.add_producto')
+@permission_required('auth.group.Grupo_Empleados')
 def agregar_producto(request):
     data = {
         'form': ProductoForm()

@@ -81,9 +81,11 @@
                 <img src="{% static 'core/img/Logos/nissan.png' %}" alt="">
                 <img src="{% static 'core/img/Logos/renault.png' %}" alt="">
                 <img src="{% static 'core/img/Logos/honda.png' %}" alt="">
+                {% if perms.core.add_empleado %}
                 <div>
                     <a href="{% url  'administracion' %}" class="btn btn-info"> Sector Administrativo </a>
                 </div>
+                {% endif %}
             </div>
         </div>
 

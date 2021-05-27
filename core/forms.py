@@ -121,6 +121,11 @@ class PedidoOrdenForm(forms.ModelForm):
         model = PedidoOrden
         fields = "__all__"
 
+    widgets = {
+            "ped_fecha_emision": forms.SelectDateWidget()
+        }
+
+
 class PedidoOrdenProductoForm(forms.ModelForm):
 
     class Meta:
@@ -134,17 +139,30 @@ class RecepcionPedidoForm(forms.ModelForm):
         model = RecepcionPedido
         fields = "__all__"
 
+    widgets = {
+            "fecha_recepcion": forms.SelectDateWidget()
+        }
+
+
 class RecepcionPedidoProductoForm(forms.ModelForm):
 
     class Meta:
         model = RecepcionPedidoProducto
         fields = "__all__"
+    
+    widgets = {
+            "fecha_recepcion": forms.SelectDateWidget()
+        }
 
 class DetalleServicioForm(forms.ModelForm):
 
     class Meta:
         model = DetalleServicio
         fields = "__all__"
+    
+    widgets = {
+            "fecha_serv_realizado": forms.SelectDateWidget()
+        }
 
 class EmpleadoServicioForm(forms.ModelForm):
 
@@ -157,3 +175,7 @@ class BoletaFacturaPedidoForm(forms.ModelForm):
     class Meta:
         model = BoletaFactura
         fields = "__all__"
+    
+    widgets = {
+            "bol_fac_fecha_emision": forms.SelectDateWidget()
+        }

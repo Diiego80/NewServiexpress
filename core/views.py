@@ -877,3 +877,53 @@ def eliminar_ped_orden(request, id):
     messages.success(request, "Pedido Eliminado Con Exito")
     
     return redirect(to='listado_ped_orden')
+
+# T I P O  E M P L E A D O 
+
+def agregar_tipo_empleado(request):
+    data = {
+        'form': TipoEmpleadoForm(data=request.POST)
+    }
+
+    if request.method == 'POST':
+        formulario = TipoEmpleadoForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Tipo-Empleado Agregado Con Exito")
+        else:
+            data["form"] = formulario
+        
+    return render(request,'core/tipo_empleado/agregar_tipo_empleado.html', data)
+    
+
+def listado_tipo_empleado (request):
+    tipo_empleados = TipoEmpleado.objects.all()
+
+    data = {
+        'tipo_empleados': tipo_empleados
+    }
+
+    return render(request, 'core/tipo_empleado/listado_tipo_empleado.html', data)
+
+def modificar_tipo_empleado(request, id):
+
+    tipo_empleado = TipoEmpleado.objects.get(id = id)
+
+    data = {
+        'form': TipoEmpleadoForm(instance=tipo_empleado) 
+    }
+    if request.method == 'POST':
+        formulario = TipoEmpleadoForm(data=request.POST, instance=tipo_empleado)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Tipo-Empleado Modificado Con Exito")
+            data ['form'] = formulario
+
+    return render(request, 'core/tipo_empleado/modificar_tipo_empleado.html', data)
+
+def eliminar_tipo_empleado(request, id):
+    tipo_empleado = TipoEmpleado.objects.get(id = id)
+    tipo_empleado.delete()
+    messages.success(request, "Tipo-Empleado Eliminado Con Exito")
+    
+    return redirect(to='listado_tipo_empleado')

@@ -41,6 +41,7 @@ urlpatterns = [
     path ('agregar-proveedor/', agregar_proveedor, name="agregar_proveedor"),
     path ('agregar-tipo-marca/', agregar_tipo_marca, name="agregar_tipo_marca"),
     path ('agregar-pedido-orden/', agregar_ped_orden, name="agregar_ped_orden"),
+    path ('agregar-tipo-empleado/', agregar_tipo_empleado, name="agregar_tipo_empleado"),
     #Listados
     path ('listado-producto/', listado_producto, name="listado_producto"),
     path ('listado-empleado/', listado_empleado, name="listado_empleado"),
@@ -57,6 +58,7 @@ urlpatterns = [
     path ('listado-proveedor/', listado_proveedor, name="listado_proveedor"),
     path ('listado-tipo-marca/', listado_tipo_marca, name="listado_tipo_marca"),
     path ('listado-pedido-orden/', listado_ped_orden, name="listado_ped_orden"),
+    path ('listado-tipo-empleado/', listado_tipo_empleado, name="listado_tipo_empleado"),
     #Modificar
     path ('modificar-producto/<id>/', modificar_producto, name="modificar_producto"),
     path ('modificar-empleado/<id>/', modificar_empleado, name="modificar_empleado"),
@@ -73,6 +75,8 @@ urlpatterns = [
     path ('modificar-proveedor/<id>/', modificar_proveedor, name="modificar_proveedor"),
     path ('modificar-tipo-marca/<id>/', modificar_tipo_marca, name="modificar_tipo_marca"),
     path ('modificar-pedido-orden/<id>/', modificar_ped_orden, name="modificar_ped_orden"),
+    path ('modificar-tipo-empleado/<id>/', modificar_ped_orden, name="modificar_ped_orden"),
+
     #Eliminar
     path ('eliminar-producto/<id>/', eliminar_producto, name="eliminar_producto"),
     path ('eliminar-empleado/<id>/', eliminar_empleado, name="eliminar_empleado"),
@@ -89,6 +93,7 @@ urlpatterns = [
     path ('eliminar-proveedor/<id>/', eliminar_proveedor, name="eliminar_proveedor"),
     path ('eliminar-tipo-marca/<id>/', eliminar_tipo_marca, name="eliminar_tipo_marca"),
     path ('eliminar-pedido-orden/<id>/', eliminar_ped_orden, name="eliminar_ped_orden"),
+    path ('eliminar-tipo-empleado/<id>/', eliminar_tipo_empleado, name="eliminar_tipo_empleado"),
 ]
 
 

@@ -1,8 +1,10 @@
 
+from datetime import datetime
 from django.db import models
 from django.db.models.deletion import PROTECT
+from django.db.models.fields import DateTimeCheckMixin
 from django.db.models.fields.related import OneToOneField
-from django.forms.widgets import DateTimeBaseInput
+from django.forms.widgets import DateTimeBaseInput, DateTimeInput
 
 
 # Create your models here.
@@ -144,18 +146,18 @@ class PedidoOrdenProducto(models.Model):
 
 
 class Producto(models.Model):
-    prod_nombre = models.CharField(max_length=100)
-    prod_stock = models.BigIntegerField()
-    prov_nombre = models.ForeignKey('Proveedor', on_delete=PROTECT)
-    desc_marca = models.ForeignKey('TipoMarca', on_delete=PROTECT)
+    prod_nombre = models.CharField(max_length=100, verbose_name="Nombre del Producto:")
+    prod_stock = models.BigIntegerField(verbose_name="Cantidad a ingresar:")
+    prov_nombre = models.ForeignKey('Proveedor', on_delete=PROTECT,verbose_name="Seleccione el Proveedor del producto:")
+    desc_marca = models.ForeignKey('TipoMarca', on_delete=PROTECT,verbose_name="Seleccione la Marca asociada al producto:")
 
     def __str__(self):
         return self.prod_nombre
 
 
 class Proveedor(models.Model):
-    prov_nombre = models.CharField(max_length=100)
-    prov_rut_empresa = models.CharField(max_length=12)
+    prov_nombre = models.CharField(max_length=100, verbose_name="Ingrese el Nombre del Proveedor:")
+    prov_rut_empresa = models.CharField(max_length=12, verbose_name="Ingrese el Rut de la Empresa asociada:")
 
 
     
@@ -164,14 +166,14 @@ class Proveedor(models.Model):
 
 
 class RecepcionPedido(models.Model):
-    fecha_recepcion = models.DateField()
-    desc_recepcion = models.CharField(max_length=150)
+    fecha_recepcion = models.DateField(verbose_name="Seleccione la Fecha de recepción del pedido:")
+    desc_recepcion = models.CharField(max_length=150, verbose_name="Ingrese el nombre y cantidad de Productos recibidos:")
     emp_rut = models.ForeignKey('Empleado', on_delete=PROTECT)
 
 
 
 class RecepcionPedidoProducto(models.Model):
-    prod_cantidad = models.BigIntegerField()
+    prod_cantidad = models.BigIntegerField(verbose_name="Ingrese Cantidad entrante del Producto:")
     fecha_recepcion = models.DateField()
     costo_recepcion = models.BigIntegerField(blank=True, null=True)
     prod_nombre = models.ForeignKey('Producto', on_delete=PROTECT)
@@ -193,10 +195,11 @@ class Region(models.Model):
 
 
 class Reserva(models.Model):
-    res_hora_reservada = models.DateField(max_length=5, choices=opciones_hora_reservada)
-    res_fecha_pedido_reserva = models.DateField()
-    res_desc_reserva = models.CharField(max_length=200)
-    cli_rut = models.CharField(max_length=8)
+    res_hora_reservada = models.DateField(max_length=5, choices=opciones_hora_reservada, verbose_name="Seleccione hora a reservar:")
+    res_fecha_pedido_reserva = models.DateField(verbose_name="Seleccione dia a reservar:")
+    serv_titulo = models.ForeignKey('Servicio', on_delete=PROTECT, verbose_name="Ingrese servicio a realizar:")
+    res_desc_reserva = models.CharField(max_length=200, verbose_name="Agregue una breve descripción del vehiculo y/o sus errores:")
+    cli_rut = models.CharField(max_length=8, verbose_name="Ingrese su RUT sin punto y sin DV, Ej: '20537529' ")
 
     
     def __int__(self):

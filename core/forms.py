@@ -1,5 +1,6 @@
 from django import forms
 from django.db import models
+from django.forms.widgets import Textarea
 from .models import *
 import datetime
 from django.contrib.auth.forms import UserCreationForm
@@ -28,7 +29,7 @@ class ReservaForm(forms.ModelForm):
     class Meta:
         model = Reserva
         fields =  "__all__"
-
+        
         widgets = {
             "res_fecha_pedido_reserva": forms.SelectDateWidget()
         }

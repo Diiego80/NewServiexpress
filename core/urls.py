@@ -15,7 +15,7 @@ urlpatterns = [
     
     #Sectores Internos de Administracion
     path ('sector-ubicaciones/', sector_ubicaciones, name="sector_ubicaciones"), 
-
+    path ('sector-pagos/', sector_pagos, name="sector_pagos"),
     #Registro
     path('registro/', registro, name="registro"),
     #Administracion Interna

@@ -52,6 +52,9 @@ def administracion(request):
 def sector_ubicaciones(request):
     return render(request, 'core/sector_ubicaciones.html')
 
+def sector_pagos(request):
+    return render (request,'core/sector_pagos.html')
+
 #INGRESO USUARIOS FINALES 
 def registro(request):
     data = {

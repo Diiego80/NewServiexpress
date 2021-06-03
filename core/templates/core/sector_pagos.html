@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-<title>Serviexpress Ubicaciones</title>
+<title>Serviexpress Pagos</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -41,30 +41,21 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <div class="w3-third w3-container w3-margin-bottom">
   
       <div class="w3-container w3-white">
-        <p><b>Sector Region</b></p>
-        <p>Al seleccionar este sector lo llevara directamente al Listado De REGIONES, donde podra Visualizar, Agregar, Modificar, Actualizar o Eliminar datos segun la necesidad</p>
-        <a href="{% url 'listado_region' %}" class="w3-button w3-black">Ir hacia Listado</a>
+        <p><b>Sector Pagos</b></p>
+        <p>Al seleccionar este sector lo llevara directamente al Listado De PAGOS, donde podra Visualizar, Agregar, Modificar, Actualizar o Eliminar datos segun la necesidad</p>
+        <a href="{% url 'listado_bol_fac' %}" class="w3-button w3-black">Ir hacia Listado</a>
         <br><br>
       </div>
     </div>
     <div class="w3-third w3-container w3-margin-bottom">
-      <img src="/w3images/lights.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
       <div class="w3-container w3-white">
-        <p><b>Sector Ciudad</b></p>
-        <p>Al seleccionar este sector lo llevara directamente al Listado De CIUDADES, donde podra Visualizar, Agregar, Modificar, Actualizar o Eliminar datos segun la necesidad</p>
-        <a href="{% url 'listado_ciudad' %}" class="w3-button w3-black">Ir hacia Listado</a>
+        <p><b>Sector Medios De Pago</b></p>
+        <p>Al seleccionar este sector lo llevara directamente al Listado De MEDIOS DE PAGO, donde podra Visualizar, Agregar, Modificar, Actualizar o Eliminar datos segun la necesidad</p>
+        <a href="{% url 'listado_pago_serv' %}" class="w3-button w3-black">Ir hacia Listado</a>
         <br><br>
       </div>
     </div>
-    <div class="w3-third w3-container">
-      <img src="/w3images/nature.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
-      <div class="w3-container w3-white">
-        <p><b>Sector Comuna</b></p>
-        <p>Al seleccionar este sector lo llevara directamente al Listado De COMUNAS, donde podra Visualizar, Agregar, Modificar, Actualizar o Eliminar datos segun la necesidad</p>
-        <a href="{% url 'listado_comuna' %}" class="w3-button w3-black">Ir hacia Listado</a>
-        <br><br>
-      </div>
-    </div>
+   
     
   </div>
     <a href="{% url 'administracion' %}" class="w3-button w3-grey">Volver hacia Administración Base</a>

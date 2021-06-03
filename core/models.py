@@ -33,9 +33,9 @@ opciones_hora_reservada = [
 ]
 #OK
 class BoletaFactura(models.Model):
-    bol_fac_total = models.BigIntegerField()
-    bol_fac_fecha_emision = models.DateField()
-    desc_bol_fac = models.CharField(max_length=7, choices=opciones_bol_fac)
+    bol_fac_total = models.BigIntegerField(verbose_name="Ingrese el valor total de la Boleta o Factura:")
+    bol_fac_fecha_emision = models.DateField(verbose_name="Ingrese la Fecha de emision de la Boleta o Factura:")
+    desc_bol_fac = models.CharField(max_length=7, choices=opciones_bol_fac, verbose_name="Ingrese una breve descipción ")
     serv_titulo = models.ForeignKey('Servicio', on_delete=PROTECT)
 
     #def __str__(self):
@@ -174,9 +174,9 @@ class RecepcionPedido(models.Model):
 
 class RecepcionPedidoProducto(models.Model):
     prod_cantidad = models.BigIntegerField(verbose_name="Ingrese Cantidad entrante del Producto:")
-    fecha_recepcion = models.DateField()
-    costo_recepcion = models.BigIntegerField(blank=True, null=True)
-    prod_nombre = models.ForeignKey('Producto', on_delete=PROTECT)
+    fecha_recepcion = models.DateField(verbose_name="Seleccione la Fecha de rececepción")
+    costo_recepcion = models.BigIntegerField(blank=True, null=True, verbose_name="Ingrese el costro de recepción. Si no hay costo agregado dejar en blanco.")
+    prod_nombre = models.ForeignKey('Producto', on_delete=PROTECT, verbose_name="Ingrese el nombre del Producto entrante")
 
 
     #def __str__(self):
@@ -184,7 +184,7 @@ class RecepcionPedidoProducto(models.Model):
 
 
 class Region(models.Model):
-    desc_region = models.CharField(max_length=100)
+    desc_region = models.CharField(max_length=100, verbose_name="Ingrese el nombre de la región a ingresar")
 
         
     def __str__(self):
@@ -208,16 +208,16 @@ class Reserva(models.Model):
 
 
 class Servicio(models.Model):
-    serv_titulo = models.CharField(max_length=35)
-    serv_descripcion = models.CharField(max_length=45)
-    serv_costo = models.BigIntegerField()
+    serv_titulo = models.CharField(max_length=35, verbose_name="Ingrese el Titulo/Nombre del Servicio:")
+    serv_descripcion = models.CharField(max_length=45, verbose_name="Ingrese una breve descripción del servicio:")
+    serv_costo = models.BigIntegerField(verbose_name="Ingrese el costo del Servicio a realizar:")
     
     def __str__(self):
         return self.serv_titulo
 
 
 class TipoEmpleado(models.Model):
-    desc_tipo_empleado = models.CharField(max_length=100)
+    desc_tipo_empleado = models.CharField(max_length=100,verbose_name="Ingrese el nombre del nuevo Tipo Empleado:")
 
     
     def __str__(self):
@@ -225,7 +225,7 @@ class TipoEmpleado(models.Model):
 
 
 class TipoMarca(models.Model):
-    desc_marca = models.CharField(max_length=50)
+    desc_marca = models.CharField(max_length=50,verbose_name="Ingrese el nombre de la nueva marca asociada:")
 
     
     def __str__(self):
@@ -233,14 +233,14 @@ class TipoMarca(models.Model):
 
 
 class TipoPago(models.Model):
-    desc_medio_pago = models.CharField(max_length=50)
+    desc_medio_pago = models.CharField(max_length=50,verbose_name="Ingrese el nuevo medio de pago a integrar:")
 
     def __str__(self):
         return self.desc_medio_pago
 
 
 class TipoUsuario(models.Model):
-    user_desc = models.CharField(max_length=30)
+    user_desc = models.CharField(max_length=30,verbose_name="Ingrese el nuevo Tipo Usuario el cual sera parte del sistema:")
 
     
     def __str__(self):
@@ -248,9 +248,9 @@ class TipoUsuario(models.Model):
 
 
 class Usuario(models.Model):
-    user_nombre = models.CharField(max_length=20)
-    user_contrasena = models.CharField(max_length=20)
-    user_desc = models.ForeignKey("TipoUsuario", on_delete=PROTECT)
+    user_nombre = models.CharField(max_length=20,verbose_name="Ingrese el Nombre/Tag del nuevo Usuario:")
+    user_contrasena = models.CharField(max_length=20,verbose_name="Ingrese la contraseña del nuevo usuario:")
+    user_desc = models.ForeignKey("TipoUsuario", on_delete=PROTECT,verbose_name="Integre una breve descripcion de cargos del nuevo usuario:")
 
         
     def __str__(self):

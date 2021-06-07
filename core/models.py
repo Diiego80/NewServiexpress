@@ -4,6 +4,7 @@ from django.db import models
 from django.db.models.deletion import PROTECT
 from django.db.models.fields import DateTimeCheckMixin
 from django.db.models.fields.related import OneToOneField
+from django.forms.formsets import formset_factory
 from django.forms.widgets import DateTimeBaseInput, DateTimeInput
 
 
@@ -195,15 +196,14 @@ class Region(models.Model):
 
 
 class Reserva(models.Model):
-    res_hora_reservada = models.DateField(max_length=5, choices=opciones_hora_reservada, verbose_name="Seleccione hora a reservar:")
+    res_hora_reservada = models.DateField(max_length=5, choices=opciones_hora_reservada, verbose_name="Seleccione hora a reservar:",)
     res_fecha_pedido_reserva = models.DateField(verbose_name="Seleccione dia a reservar:")
     serv_titulo = models.ForeignKey('Servicio', on_delete=PROTECT, verbose_name="Ingrese servicio a realizar:")
     res_desc_reserva = models.CharField(max_length=200, verbose_name="Agregue una breve descripción del vehiculo y/o sus errores:")
     cli_rut = models.CharField(max_length=8, verbose_name="Ingrese su RUT sin punto y sin DV, Ej: '20537529' ")
 
     
-    def __int__(self):
-        return self.res_id_reserva
+    
 
 
 

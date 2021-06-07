@@ -4,6 +4,7 @@
 <title>RESERVA</title>
 
 <link rel="stylesheet" href="{% static 'core/css/formulario.css' %}">
+
 {% endblock %}
 
 <!-- BLOC NAV -->
@@ -26,7 +27,7 @@
             <div class="card-body">
                 <form action="" class="" method="POST">
                     {% csrf_token %}
-                    {{formReserva | crispy}}
+                    {{form | crispy}}
                     <br>
                     <div class="d-flex justify-content-end">
                         <input type="reset" value="Limpiar Formulario" class="btn btn-secondary">

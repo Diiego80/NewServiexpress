@@ -20,11 +20,8 @@ urlpatterns = [
     path('registro/', registro, name="registro"),
     #Administracion Interna
     path ('registro-clientes/', registro_clientes, name="registro_clientes"),
-    #path ('registro-productos/', registro_productos, name="registro_productos"),
-    #Formularios
-    #path ('formulario-producto/', formulario_producto, name="formulario_producto"),
-    path ('formulario-reserva/', formulario_reserva, name="formulario_reserva"),
-    #path ('formulario-servicios/', formulario_servicios, name="formulario_servicios"),
+ 
+
     #Agregar
     path ('agregar-producto/', agregar_producto, name="agregar_producto"),
     path ('agregar-empleado/', agregar_empleado, name="agregar_empleado"),
@@ -42,6 +39,8 @@ urlpatterns = [
     path ('agregar-tipo-marca/', agregar_tipo_marca, name="agregar_tipo_marca"),
     path ('agregar-pedido-orden/', agregar_ped_orden, name="agregar_ped_orden"),
     path ('agregar-tipo-empleado/', agregar_tipo_empleado, name="agregar_tipo_empleado"),
+    path ('agregar-reserva/', agregar_reserva, name="agregar_reserva"),
+
     #Listados
     path ('listado-producto/', listado_producto, name="listado_producto"),
     path ('listado-empleado/', listado_empleado, name="listado_empleado"),
@@ -59,6 +58,8 @@ urlpatterns = [
     path ('listado-tipo-marca/', listado_tipo_marca, name="listado_tipo_marca"),
     path ('listado-pedido-orden/', listado_ped_orden, name="listado_ped_orden"),
     path ('listado-tipo-empleado/', listado_tipo_empleado, name="listado_tipo_empleado"),
+    path ('listado-reserva/', listado_reserva, name="listado_reserva"),
+
     #Modificar
     path ('modificar-producto/<id>/', modificar_producto, name="modificar_producto"),
     path ('modificar-empleado/<id>/', modificar_empleado, name="modificar_empleado"),
@@ -76,6 +77,7 @@ urlpatterns = [
     path ('modificar-tipo-marca/<id>/', modificar_tipo_marca, name="modificar_tipo_marca"),
     path ('modificar-pedido-orden/<id>/', modificar_ped_orden, name="modificar_ped_orden"),
     path ('modificar-tipo-empleado/<id>/', modificar_ped_orden, name="modificar_ped_orden"),
+    path ('modificar-reserva/<id>/', modificar_reserva, name="modificar_reserva"),
 
     #Eliminar
     path ('eliminar-producto/<id>/', eliminar_producto, name="eliminar_producto"),
@@ -94,6 +96,7 @@ urlpatterns = [
     path ('eliminar-tipo-marca/<id>/', eliminar_tipo_marca, name="eliminar_tipo_marca"),
     path ('eliminar-pedido-orden/<id>/', eliminar_ped_orden, name="eliminar_ped_orden"),
     path ('eliminar-tipo-empleado/<id>/', eliminar_tipo_empleado, name="eliminar_tipo_empleado"),
+    path ('eliminar-reserva/<id>/', eliminar_reserva, name="eliminar_reserva"),
 ]
 
 

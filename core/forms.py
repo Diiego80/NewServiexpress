@@ -121,10 +121,11 @@ class PedidoOrdenForm(forms.ModelForm):
     class Meta:
         model = PedidoOrden
         fields = "__all__"
-
+    
     widgets = {
             "ped_fecha_emision": forms.SelectDateWidget()
         }
+    
 
 
 class PedidoOrdenProductoForm(forms.ModelForm):
@@ -133,7 +134,7 @@ class PedidoOrdenProductoForm(forms.ModelForm):
         model = PedidoOrdenProducto
         fields = "__all__"
 
-
+   
 class RecepcionPedidoForm(forms.ModelForm):
 
     class Meta:

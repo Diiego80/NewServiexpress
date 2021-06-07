@@ -107,20 +107,58 @@ def registro_clientes(request):
 #def formulario_servicios(request):
     return render(request, 'core/servicio/formulario_servicio.html')
 
-@login_required
-def formulario_reserva(request):
+# R E S E R V A S
+
+def agregar_reserva(request):
     data = {
-        'formReserva': ReservaForm()
+        'form': ReservaForm()
     }
 
     if request.method == 'POST':
         formulario = ReservaForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
-            data["mensaje"] = "Reserva Guardada Con Exito"
+            messages.success(request,"Reserva Guardada Correctamente")
         else:
             data["form"] = formulario
-    return render(request, 'core/reserva/formulario_reserva.html', data)
+    return render(request, 'core/reserva/agregar_reserva.html', data)
+
+
+@login_required
+def listado_reserva(request):
+    reservas = Reserva.objects.all()
+    
+    data = {
+        'reservas': reservas
+    }
+
+    return render(request, 'core/reserva/listado_reserva.html', data)
+
+@login_required
+def modificar_reserva(request, id):
+
+    reserva = Reserva.objects.get(id = id)
+
+    data = {
+        'form': ReservaForm(instance=reserva)
+    }
+    if request.method == 'POST':
+        formulario = ReservaForm(data=request.POST, instance=reserva)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Reserva Modificada Correctamente")
+            return redirect(to="listado_reserva")
+        data['form'] = formulario
+
+    return render(request,'core/reserva/modificar_reserva.html', data)
+
+@login_required
+def eliminar_reserva (request, id):
+    reserva = Producto.objects.get(id = id)
+    reserva.delete()
+    messages.success(request, "Reserva Eliminado Correctamente")
+
+    return redirect(to='reserva')
 
 # P R O D U C T O
 @permission_required('auth.group.Grupo_Empleados')

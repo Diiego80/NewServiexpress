@@ -196,7 +196,7 @@ class Region(models.Model):
 
 
 class Reserva(models.Model):
-    res_hora_reservada = models.DateField(max_length=5, choices=opciones_hora_reservada, verbose_name="Seleccione hora a reservar:",)
+    res_hora_reservada = models.CharField(max_length=5, choices=opciones_hora_reservada, verbose_name="Seleccione hora a reservar:",)
     res_fecha_pedido_reserva = models.DateField(verbose_name="Seleccione dia a reservar:")
     serv_titulo = models.ForeignKey('Servicio', on_delete=PROTECT, verbose_name="Ingrese servicio a realizar:")
     res_desc_reserva = models.CharField(max_length=200, verbose_name="Agregue una breve descripción del vehiculo y/o sus errores:")

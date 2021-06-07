@@ -543,7 +543,7 @@ def agregar_cliente(request):
     return render(request,'core/cliente/agregar_cliente.html', data)
 
 def listado_cliente(request):
-    clientes = Cliente.objects.all()
+    clientes = User.objects.all()
 
     data = {
         'clientes': clientes

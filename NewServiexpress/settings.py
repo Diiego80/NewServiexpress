@@ -135,8 +135,7 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL= '/'
 LOGOUT_REDIRECT_URL='/'
 
-#Configuracion fecha
-DATE_INPUT_FORMATS = ['%d-%m-%Y']
+
 
 #Configuracion imagenes
 import os 

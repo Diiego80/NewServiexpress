@@ -48,13 +48,10 @@
                 <br><br>
                 <tr>
                     <th>ID</th>
-                    <th>Rut</th>
+                    <th>Usuario</th>
                     <th>Nombre</th>
                     <th>Apellidos</th>
                     <th>Email</th>
-                    <th>Telefono</th>
-                    <th>Email</th>
-                    <th>Comuna</th>
                     <th>Opciones</th>
                 </tr>
 
@@ -62,12 +59,12 @@
 
                 <tr>
                     <td>{{c.id}}</td>
-                    <td>{{c.cli_pnombre }}</td>
-                    <td>{{c.cli_apellidopat}} {{c.cli_apellidomat}}</td>
-                    <td>{{c.cli_email}}</td>
-                    <td>{{c.cli_telefono}}</td>
-                    <td>{{c.cli_email}}</td>
-                    <td>{{c.desc_comuna}}</td>
+                    <td>{{c.username }}</td>
+                    <td>{{c.first_name}}</td> 
+                    <td>{{c.last_name}}</td>
+                    <td>{{c.email}}</td>
+                 
+                    
                     <td>
                         <a href="{% url 'modificar_cliente' c.id %}" class="btn btn-info btn-sm">Modificar</a>
                         <a href="#" onclick="eliminarCliente ({{c.id}})" class="btn btn-danger btn-sm">Eliminar</a>

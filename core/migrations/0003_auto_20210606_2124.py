@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='reserva',
             name='serv_titulo',
-            field=models.ForeignKey(default=django.utils.timezone.now, on_delete=django.db.models.deletion.PROTECT, to='core.servicio', verbose_name='Ingrese servicio a realizar:'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='core.servicio', verbose_name='Ingrese servicio a realizar:'),
             preserve_default=False,
         ),
         migrations.AlterField(

@@ -154,11 +154,11 @@ def modificar_reserva(request, id):
 
 @login_required
 def eliminar_reserva (request, id):
-    reserva = Producto.objects.get(id = id)
+    reserva = Reserva.objects.get(id = id)
     reserva.delete()
     messages.success(request, "Reserva Eliminado Correctamente")
 
-    return redirect(to='reserva')
+    return redirect(to='listado_reserva')
 
 # P R O D U C T O
 @permission_required('auth.group.Grupo_Empleados')

@@ -122,7 +122,7 @@ class PedidoOrdenForm(forms.ModelForm):
         model = PedidoOrden
         fields = "__all__"
     
-    widgets = {
+        widgets = {
             "ped_fecha_emision": forms.SelectDateWidget()
         }
     
@@ -142,7 +142,7 @@ class RecepcionPedidoForm(forms.ModelForm):
         model = RecepcionPedido
         fields = "__all__"
 
-    widgets = {
+        widgets = {
             "fecha_recepcion": forms.SelectDateWidget()
         }
 
@@ -153,7 +153,7 @@ class RecepcionPedidoProductoForm(forms.ModelForm):
         model = RecepcionPedidoProducto
         fields = "__all__"
     
-    widgets = {
+        widgets = {
             "fecha_recepcion": forms.SelectDateWidget()
         }
 
@@ -163,7 +163,7 @@ class DetalleServicioForm(forms.ModelForm):
         model = DetalleServicio
         fields = "__all__"
     
-    widgets = {
+        widgets = {
             "fecha_serv_realizado": forms.SelectDateWidget()
         }
 
@@ -179,6 +179,6 @@ class BoletaFacturaPedidoForm(forms.ModelForm):
         model = BoletaFactura
         fields = "__all__"
     
-    widgets = {
+        widgets = {
             "bol_fac_fecha_emision": forms.SelectDateWidget()
         }

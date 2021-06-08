@@ -163,7 +163,7 @@ class Migration(migrations.Migration):
             name='PagoServicio',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('desc_serv', models.CharField(max_length=50)),
+                ('serv_titulo', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='core.servicio')),
                 ('desc_medio_pago', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='core.tipopago')),
             ],
         ),
@@ -192,7 +192,7 @@ class Migration(migrations.Migration):
                 ('servicios_realizados', models.CharField(max_length=150)),
                 ('costo_total_servicios', models.BigIntegerField()),
                 ('cli_rut', models.IntegerField()),
-                ('desc_medio_pago', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='core.pagoservicio')),
+                ('desc_medio_pago', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='core.tipopago')),
                 ('serv_titulo', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='core.servicio')),
             ],
         ),

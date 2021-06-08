@@ -49,9 +49,11 @@ def ubicacion(request):
 def administracion(request):
     return render(request, 'core/administracion.html')
 
+@permission_required('auth.core.add_region')
 def sector_ubicaciones(request):
     return render(request, 'core/sector_ubicaciones.html')
 
+@permission_required('auth.core.add_producto')
 def sector_pagos(request):
     return render (request,'core/sector_pagos.html')
 
@@ -93,19 +95,6 @@ def registro_clientes(request):
     return render(request, 'core/registro_clientes.html')
 
 
-#def registro_productos(request):
-    return render(request, 'core/registro_productos.html')
-
-
-#def formulario_producto(request):
-    return render(request, 'core/formularios/formulario_productos.html')
-
-
-#def formulario_clientes(request):
-    return render(request, 'core/cliente/formulario_clientes.html')
-
-#def formulario_servicios(request):
-    return render(request, 'core/servicio/formulario_servicio.html')
 
 # R E S E R V A S
 
@@ -124,7 +113,7 @@ def agregar_reserva(request):
     return render(request, 'core/reserva/agregar_reserva.html', data)
 
 
-@login_required
+@permission_required('auth.core.view_reserva')
 def listado_reserva(request):
     reservas = Reserva.objects.all()
     
@@ -134,7 +123,7 @@ def listado_reserva(request):
 
     return render(request, 'core/reserva/listado_reserva.html', data)
 
-@login_required
+@permission_required('auth.core.change_reserva')
 def modificar_reserva(request, id):
 
     reserva = Reserva.objects.get(id = id)
@@ -152,7 +141,7 @@ def modificar_reserva(request, id):
 
     return render(request,'core/reserva/modificar_reserva.html', data)
 
-@login_required
+@permission_required('auth.core.delete_reserva')
 def eliminar_reserva (request, id):
     reserva = Reserva.objects.get(id = id)
     reserva.delete()
@@ -161,7 +150,7 @@ def eliminar_reserva (request, id):
     return redirect(to='listado_reserva')
 
 # P R O D U C T O
-@permission_required('auth.group.Grupo_Empleados')
+@permission_required('auth.core.add_producto')
 def agregar_producto(request):
     data = {
         'form': ProductoForm()
@@ -177,7 +166,7 @@ def agregar_producto(request):
 
     return render(request, 'core/producto/agregar_producto.html',data)
 
-@login_required
+@permission_required('auth.core.view_producto')
 def listado_producto (request):
     productos = Producto.objects.all()
     
@@ -187,7 +176,7 @@ def listado_producto (request):
 
     return render(request, 'core/producto/listado_producto.html', data)
 
-@login_required
+@permission_required('auth.core.change_producto')
 def modificar_producto(request, id):
 
     producto = Producto.objects.get(id = id)
@@ -205,7 +194,7 @@ def modificar_producto(request, id):
 
     return render(request,'core/producto/modificar_producto.html', data)
 
-@login_required
+@permission_required('auth.core.delete_producto')
 def eliminar_producto (request, id):
     producto = Producto.objects.get(id = id)
     producto.delete()
@@ -215,7 +204,7 @@ def eliminar_producto (request, id):
 
 # E M P L E A D O
 
-@login_required
+@permission_required('auth.core.add_empleado')
 def agregar_empleado(request):
     data = {
         'form': EmpleadoForm()
@@ -231,7 +220,7 @@ def agregar_empleado(request):
         
     return render(request,'core/empleado/agregar_empleado.html', data)
 
-@login_required
+@permission_required('auth.core.view_empleado')
 def listado_empleado (request):
     empleados = Empleado.objects.all()
 
@@ -241,7 +230,7 @@ def listado_empleado (request):
 
     return render(request, 'core/empleado/listado_empleado.html', data)
 
-@login_required
+@permission_required('auth.core.change_empleado')
 def modificar_empleado(request, id):
 
     empleado = Empleado.objects.get(id = id)
@@ -259,7 +248,7 @@ def modificar_empleado(request, id):
 
     return render(request, 'core/empleado/modificar_empleado.html', data)
 
-@login_required
+@permission_required('auth.core.delete_empleado')
 def eliminar_empleado(request, id):
     empleado = Empleado.objects.get(id = id)
     empleado.delete()
@@ -269,7 +258,7 @@ def eliminar_empleado(request, id):
 
 # S E R V I C I O S 
 
-@login_required
+@permission_required('auth.core.add_servicio')
 def agregar_servicio(request):
     data = {
         'form': ServicioForm(data=request.POST)
@@ -295,7 +284,7 @@ def listado_servicio (request):
 
     return render(request,'core/servicio/listado_servicio.html', data)
 
-@login_required
+@permission_required('auth.core.change_servicio')
 def modificar_servicio(request, id):
 
     servicio = Servicio.objects.get(id = id)
@@ -312,7 +301,7 @@ def modificar_servicio(request, id):
 
     return render(request, 'core/servicio/modificar_servicio.html', data)
 
-@login_required
+@permission_required('auth.core.delete_servicio')
 def eliminar_servicio(request, id):
     servicio = Servicio.objects.get(id = id)
     servicio.delete()
@@ -322,7 +311,7 @@ def eliminar_servicio(request, id):
 
 # C O M U N A
 
-@login_required
+@permission_required('auth.core.add_comuna')
 def agregar_comuna(request):
     data = {
         'form': ComunaForm(data=request.POST)
@@ -339,7 +328,7 @@ def agregar_comuna(request):
     return render(request,'core/comuna/agregar_comuna.html', data)
     
 
-@login_required
+@permission_required('auth.core.view_comuna')
 def listado_comuna (request):
     comunas = Comuna.objects.all()
 
@@ -349,7 +338,7 @@ def listado_comuna (request):
 
     return render(request, 'core/comuna/listado_comuna.html', data)
 
-@login_required
+@permission_required('auth.core.change_comuna')
 def modificar_comuna(request, id):
 
     comuna = Comuna.objects.get(id = id)
@@ -366,7 +355,7 @@ def modificar_comuna(request, id):
 
     return render(request, 'core/comuna/modificar_comuna.html', data)
 
-@login_required
+@permission_required('auth.core.delete_comuna')
 def eliminar_comuna(request, id):
     comuna = Comuna.objects.get(id = id)
     comuna.delete()
@@ -375,7 +364,7 @@ def eliminar_comuna(request, id):
 
 # C I U D A D
 
-@login_required
+@permission_required('auth.core.add_ciudad')
 def agregar_ciudad(request):
     data = {
         'form': CiudadForm(data=request.POST)
@@ -391,7 +380,7 @@ def agregar_ciudad(request):
         
     return render(request,'core/ciudad/agregar_ciudad.html', data)
 
-@login_required
+@permission_required('auth.core.view_ciudad')
 def listado_ciudad (request):
     ciudades = Ciudad.objects.all()
 
@@ -401,7 +390,7 @@ def listado_ciudad (request):
 
     return render(request, 'core/ciudad/listado_ciudad.html', data)
 
-@login_required
+@permission_required('auth.core.change_ciudad')
 def modificar_ciudad(request, id):
 
     ciudad = Ciudad.objects.get(id = id)
@@ -418,7 +407,7 @@ def modificar_ciudad(request, id):
 
     return render(request, 'core/ciudad/modificar_ciudad.html', data)
 
-@login_required
+@permission_required('auth.core.delete_ciudad')
 def eliminar_ciudad(request, id):
     ciudad = Ciudad.objects.get(id = id)
     ciudad.delete()
@@ -427,7 +416,7 @@ def eliminar_ciudad(request, id):
  
 # D E T A L L E  S E R V I C I O
 
-@login_required
+@permission_required('auth.core.add_det_serv')
 def agregar_det_serv(request):
     data = {
         'form': DetalleServicioForm(data=request.POST)
@@ -442,7 +431,7 @@ def agregar_det_serv(request):
             data["form"] = formulario
     return render(request,'core/detalle_servicio/agregar_det_serv.html', data)
 
-@login_required
+@permission_required('auth.core.view_det_serv')
 def listado_det_serv(request):
     det_serv = DetalleServicio.objects.all()
 
@@ -452,7 +441,7 @@ def listado_det_serv(request):
 
     return render(request, 'core/detalle_servicio/listado_det_serv.html', data)
 
-@login_required
+@permission_required('auth.core.change_det_serv')
 def modificar_det_serv(request):
 
     det_ser = DetalleServicio.objects.get(id = id)
@@ -468,7 +457,7 @@ def modificar_det_serv(request):
             data['form'] = formulario
     return render(request, 'core/detalle_servicio/modificar_det_serv.html', data)
 
-@login_required
+@permission_required('auth.core.delete_det_serv')
 def eliminar_det_serv(request, id):
     det_ser = DetalleServicio.objects.get(id = id)
     det_ser.delete()
@@ -477,7 +466,7 @@ def eliminar_det_serv(request, id):
 
 # F A C T U R A  Y  B O L E T A
 
-@login_required
+@permission_required('auth.core.add_bol_fac')
 def agregar_bol_fac(request):
     data = {
         'form':BoletaFacturaPedidoForm()
@@ -493,6 +482,7 @@ def agregar_bol_fac(request):
 
     return render(request,'core/boleta/agregar_bol_fac.html', data)
 
+@permission_required('auth.core.view_bol_fac')
 def listado_bol_fac (request):
     bol_fac = BoletaFactura.objects.all()
 
@@ -502,6 +492,7 @@ def listado_bol_fac (request):
 
     return render(request, 'core/boleta/listado_bol_fac.html', data)
 
+@permission_required('auth.core.change_boleta_factura')
 def modificar_bol_fac(request, id):
 
     boleta = BoletaFactura.objects.get(id = id)
@@ -518,6 +509,7 @@ def modificar_bol_fac(request, id):
         data['form'] = formulario
     return render(request,'core/boleta/modificar_bol_fac.html', data)
 
+@permission_required('auth.core.delete_bol_fac')
 def eliminar_bol_fac(request, id):
     boleta = BoletaFactura.objects.get(id = id)
     boleta.delete()
@@ -527,6 +519,7 @@ def eliminar_bol_fac(request, id):
 
 # C L I E N T E S
 
+@permission_required('auth.core.add_cliente')
 def agregar_cliente(request):
     data = {
         'form': ClienteForm(data=request.POST)
@@ -542,6 +535,7 @@ def agregar_cliente(request):
         
     return render(request,'core/cliente/agregar_cliente.html', data)
 
+@permission_required('auth.core.view_cliente')
 def listado_cliente(request):
     clientes = User.objects.all()
 
@@ -551,6 +545,7 @@ def listado_cliente(request):
 
     return render(request,'core/cliente/listado_cliente.html', data)
 
+@permission_required('auth.core.change_cliente')
 def modificar_cliente(request, id):
 
     cliente = Cliente.objects.get(id = id)
@@ -567,6 +562,7 @@ def modificar_cliente(request, id):
 
     return render(request, 'core/cliente/modificar_cliente.html', data)
 
+@permission_required('auth.core.delete_cliente')
 def eliminar_cliente(request, id):
     cliente = Cliente.objects.get(id = id)
     cliente.delete()
@@ -576,6 +572,7 @@ def eliminar_cliente(request, id):
 
 # E M P L E A D O  S E R V I C I O
 
+@permission_required('auth.core.add_empleado_servicio')
 def agregar_emp_serv(request):
     data = {
         'form': EmpleadoServicioForm(data=request.POST)
@@ -592,6 +589,7 @@ def agregar_emp_serv(request):
     return render(request,'core/empleado_servicio/agregar_emp_serv.html', data)
     
 
+@permission_required('auth.core.view_empleado_servicio')
 def listado_emp_serv (request):
     emp_servicios = EmpleadoServicio.objects.all()
 
@@ -601,6 +599,7 @@ def listado_emp_serv (request):
 
     return render(request, 'core/empleado_servicio/listado_emp_serv.html', data)
 
+@permission_required('auth.core.change_empleado_servicio')
 def modificar_emp_serv(request, id):
     emp_serv = EmpleadoServicio.objects.get(id = id)
 
@@ -616,6 +615,7 @@ def modificar_emp_serv(request, id):
 
     return render(request, 'core/empleado_servicio/modificar_emp_serv.html', data)
 
+@permission_required('auth.core.delete_empleado_servicio')
 def eliminar_emp_serv(request, id):
     emp_serv = EmpleadoServicio.objects.get(id = id)
     emp_serv.delete()
@@ -624,6 +624,7 @@ def eliminar_emp_serv(request, id):
 
 # R E G I O N
 
+@permission_required('auth.core.add_region')
 def agregar_region(request):
     data = {
         'form': RegionForm(data=request.POST)
@@ -639,7 +640,7 @@ def agregar_region(request):
         
     return render(request,'core/region/agregar_region.html', data)
     
-
+@permission_required('auth.core.view_region')
 def listado_region (request):
     regiones = Region.objects.all()
 
@@ -649,6 +650,7 @@ def listado_region (request):
 
     return render(request, 'core/region/listado_region.html', data)
 
+@permission_required('auth.core.change_region')
 def modificar_region(request, id):
 
     region = Region.objects.get(id = id)
@@ -665,6 +667,7 @@ def modificar_region(request, id):
 
     return render(request, 'core/region/modificar_region.html', data)
 
+@permission_required('auth.core.delete_region')
 def eliminar_region(request, id):
     region = Region.objects.get(id = id)
     region.delete()
@@ -673,6 +676,7 @@ def eliminar_region(request, id):
 
 # T I P O  U S U A R I O
 
+@permission_required('auth.core.add_tipo_usuario')
 def agregar_tipo_usuario(request):
     data = {
         'form': TipoUsuarioForm(data=request.POST)
@@ -689,6 +693,7 @@ def agregar_tipo_usuario(request):
     return render(request,'core/tipo_usuario/agregar_tipo_usuario.html', data)
     
 
+@permission_required('auth.core.view_tipo_usuario')
 def listado_tipo_usuario (request):
     tipos = TipoUsuario.objects.all()
 
@@ -698,6 +703,7 @@ def listado_tipo_usuario (request):
 
     return render(request, 'core/tipo_usuario/listado_tipo_usuario.html', data)
 
+@permission_required('auth.core.change_tipo_usuario')
 def modificar_tipo_usuario(request, id):
 
     tipo_usuario = TipoUsuario.objects.get(id = id)
@@ -714,6 +720,7 @@ def modificar_tipo_usuario(request, id):
 
     return render(request, 'core/tipo_usuario/modificar_tipo_usuario.html', data)
 
+@permission_required('auth.core.delete_tipo_usuario')
 def eliminar_tipo_usuario(request, id):
     tipo_usuario = TipoUsuario.objects.get(id = id)
     tipo_usuario.delete()
@@ -722,6 +729,7 @@ def eliminar_tipo_usuario(request, id):
 
 # P A G O  S E R V I C I O
 
+@permission_required('auth.core.add_pago_servicio')
 def agregar_pago_servicio(request):
     data = {
         'form': PagoServicioForm(data=request.POST)
@@ -738,6 +746,7 @@ def agregar_pago_servicio(request):
     return render(request,'core/pago_servicio/agregar_pago_serv.html', data)
     
 
+@permission_required('auth.core.view_pago_servicio')
 def listado_pago_serv (request):
     pagos = PagoServicio.objects.all()
 
@@ -747,6 +756,7 @@ def listado_pago_serv (request):
 
     return render(request, 'core/pago_servicio/listado_pago_serv.html', data)
 
+@permission_required('auth.core.change_pago_servicio')
 def modificar_pago_servicio(request, id):
 
     pago_servicio = PagoServicio.objects.get(id = id)
@@ -763,15 +773,18 @@ def modificar_pago_servicio(request, id):
 
     return render(request, 'core/pago_servicio/modificar_pago_serv.html', data)
 
+@permission_required('auth.core.delete_pago_servicio')
 def eliminar_pago_servicio(request, id):
     pago_servicio = PagoServicio.objects.get(id = id)
     pago_servicio.delete()
 
     return redirect(to='listado_pago_serv')
 
+
+
 # P R O V E E D O R 
 
-
+@permission_required('auth.core.add_proveedor')
 def agregar_proveedor(request):
     data = {
         'form': ProveedorForm(data=request.POST)
@@ -788,6 +801,7 @@ def agregar_proveedor(request):
     return render(request,'core/proveedor/agregar_proveedor.html', data)
     
 
+@permission_required('auth.core.view_proveedor')
 def listado_proveedor (request):
     proveedores = Proveedor.objects.all()
 
@@ -797,6 +811,7 @@ def listado_proveedor (request):
 
     return render(request, 'core/proveedor/listado_proveedor.html', data)
 
+@permission_required('auth.core.change_proveedor')
 def modificar_proveedor(request, id):
 
     proveedor = Proveedor.objects.get(id = id)
@@ -813,14 +828,18 @@ def modificar_proveedor(request, id):
 
     return render(request, 'core/proveedor/modificar_proveedor.html', data)
 
+
+@permission_required('auth.core.delete_proveedor')
 def eliminar_proveedor(request, id):
     proveedor = Proveedor.objects.get(id = id)
     proveedor.delete()
 
     return redirect(to='listado_proveedor')
 
+
 # T I P O  M A R C A S
 
+@permission_required('auth.core.add_tipo_marca')
 def agregar_tipo_marca(request):
     data = {
         'form': TipoMarcaForm(data=request.POST)
@@ -837,6 +856,7 @@ def agregar_tipo_marca(request):
     return render(request,'core/tipo_marca/agregar_tipo_marca.html', data)
     
 
+@permission_required('auth.core.view_tipo_marca')
 def listado_tipo_marca (request):
     tipo_marcas = TipoMarca.objects.all()
 
@@ -846,6 +866,8 @@ def listado_tipo_marca (request):
 
     return render(request, 'core/tipo_marca/listado_tipo_marca.html', data)
 
+
+@permission_required('auth.core.change_tipo_marca')
 def modificar_tipo_marca(request, id):
 
     tipo_marca = TipoMarca.objects.get(id = id)
@@ -862,6 +884,8 @@ def modificar_tipo_marca(request, id):
 
     return render(request, 'core/tipo_marca/modificar_tipo_marca.html', data)
 
+
+@permission_required('auth.core.delete_tipo_marca')
 def eliminar_tipo_marca(request, id):
     tipo_marca = TipoMarca.objects.get(id = id)
     tipo_marca.delete()
@@ -869,8 +893,10 @@ def eliminar_tipo_marca(request, id):
     
     return redirect(to='listado_tipo_marca')
 
+
 # P E D I D O  O R D E N
 
+@permission_required('auth.core.add_pedido_orden')
 def agregar_ped_orden(request):
     data = {
         'form': PedidoOrdenForm(data=request.POST)
@@ -887,6 +913,7 @@ def agregar_ped_orden(request):
     return render(request,'core/pedido_orden/agregar_ped_orden.html', data)
     
 
+@permission_required('auth.core.view_pedido_orden')
 def listado_ped_orden (request):
     ped_ordenes = PedidoOrden.objects.all()
 
@@ -896,6 +923,8 @@ def listado_ped_orden (request):
 
     return render(request, 'core/pedido_orden/listado_ped_orden.html', data)
 
+
+@permission_required('auth.core.change_pedido_orden')
 def modificar_ped_orden(request, id):
 
     ped_orden = PedidoOrden.objects.get(id = id)
@@ -912,6 +941,7 @@ def modificar_ped_orden(request, id):
 
     return render(request, 'core/pedido_orden/modificar_ped_orden.html', data)
 
+@permission_required('auth.core.delete_pedido_orden')
 def eliminar_ped_orden(request, id):
     ped_orden = PedidoOrden.objects.get(id = id)
     ped_orden.delete()
@@ -919,8 +949,11 @@ def eliminar_ped_orden(request, id):
     
     return redirect(to='listado_ped_orden')
 
+
+
 # T I P O  E M P L E A D O 
 
+@permission_required('auth.core.add_tipo_empleado')
 def agregar_tipo_empleado(request):
     data = {
         'form': TipoEmpleadoForm(data=request.POST)
@@ -937,6 +970,7 @@ def agregar_tipo_empleado(request):
     return render(request,'core/tipo_empleado/agregar_tipo_empleado.html', data)
     
 
+@permission_required('auth.core.view_tipo_empleado')
 def listado_tipo_empleado (request):
     tipo_empleados = TipoEmpleado.objects.all()
 
@@ -946,6 +980,7 @@ def listado_tipo_empleado (request):
 
     return render(request, 'core/tipo_empleado/listado_tipo_empleado.html', data)
 
+@permission_required('auth.core.change_tipo_empleado')
 def modificar_tipo_empleado(request, id):
 
     tipo_empleado = TipoEmpleado.objects.get(id = id)
@@ -962,6 +997,8 @@ def modificar_tipo_empleado(request, id):
 
     return render(request, 'core/tipo_empleado/modificar_tipo_empleado.html', data)
 
+
+@permission_required('auth.core.delete_tipo_empleado')
 def eliminar_tipo_empleado(request, id):
     tipo_empleado = TipoEmpleado.objects.get(id = id)
     tipo_empleado.delete()

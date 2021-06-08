@@ -120,7 +120,6 @@ class EmpleadoServicio(models.Model):
 class PagoServicio(models.Model):
     serv_titulo = models.ForeignKey('Servicio', on_delete=PROTECT)
     desc_medio_pago = models.ForeignKey('TipoPago', on_delete=PROTECT)
-    #ID_BoletaFactura = models.ForeignKey(BoletaFactura, models.DO_NOTHING)
 
 
 

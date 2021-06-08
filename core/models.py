@@ -130,7 +130,7 @@ class PagoServicio(models.Model):
 class PedidoOrden(models.Model):
     ped_desc_emision = models.CharField(max_length=100)
     emp_rut = models.ForeignKey("Empleado", on_delete=PROTECT)
-    ped_fecha_emision = models.DateField()
+    ped_fecha_emision = models.DateField() 
 
     #def __str__(self):
     #    return self.ped_id_emision

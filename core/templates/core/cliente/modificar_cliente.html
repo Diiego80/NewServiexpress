@@ -34,7 +34,7 @@
                 <form action="" class="" method="POST">
 
                     {% csrf_token %}
-                    {{form | crispy}}
+                    {{ CustomUserCreationForm | crispy}}
                     <br>
                     <div class="d-flex justify-content-end">
                         <input type="reset" value="Limpiar Formulario" class="btn btn-secondary">

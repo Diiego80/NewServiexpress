@@ -33,6 +33,10 @@ opciones_hora_reservada = [
     ["20:00","20:00"]
 
 ]
+
+
+
+
 #OK
 class BoletaFactura(models.Model):
     bol_fac_total = models.BigIntegerField(verbose_name="Ingrese el valor total de la Boleta o Factura:")
@@ -118,6 +122,7 @@ class EmpleadoServicio(models.Model):
 
 
 class PagoServicio(models.Model):
+    fecha_pago_serv = models.DateField()
     serv_titulo = models.ForeignKey('Servicio', on_delete=PROTECT)
     desc_medio_pago = models.ForeignKey('TipoPago', on_delete=PROTECT)
 

@@ -41,7 +41,7 @@
 <div class="col-12 col-md-8 offset-md-2">
     <div class="card">
         <div class="card-body">
-            <h2>Listado de Clientes</h2>
+            <h2>Listado de Usuarios</h2>
             <hr>
             <table class="table table-striped table-hover table-responsive-sm">
                 <a href="{% url 'agregar_cliente' %}" class="btn btn-primary">Agregar</a>
@@ -52,6 +52,7 @@
                     <th>Nombre</th>
                     <th>Apellidos</th>
                     <th>Email</th>
+                    <th class=>Es Staff?</th>
                     <th>Opciones</th>
                 </tr>
 
@@ -63,6 +64,7 @@
                     <td>{{c.first_name}}</td> 
                     <td>{{c.last_name}}</td>
                     <td>{{c.email}}</td>
+                    <td>{{c.is_staff}}</td>
                  
                     
                     <td>

@@ -34,12 +34,13 @@ urlpatterns = [
     path ('agregar-emp-serv/', agregar_emp_serv, name="agregar_emp_serv"),
     path ('agregar-region/', agregar_region, name="agregar_region"),
     path ('agregar-tipo-usuario/', agregar_tipo_usuario, name="agregar_tipo_usuario"),
-    path ('agregar-pago-serv/', agregar_pago_servicio, name="agregar_pago_serv"),
+    path ('agregar-pago-serv/', agregar_pago_serv, name="agregar_pago_serv"),
     path ('agregar-proveedor/', agregar_proveedor, name="agregar_proveedor"),
     path ('agregar-tipo-marca/', agregar_tipo_marca, name="agregar_tipo_marca"),
     path ('agregar-pedido-orden/', agregar_ped_orden, name="agregar_ped_orden"),
     path ('agregar-tipo-empleado/', agregar_tipo_empleado, name="agregar_tipo_empleado"),
     path ('agregar-reserva/', agregar_reserva, name="agregar_reserva"),
+    path ('agregar-tipo-pago/', agregar_tipo_pago, name="agregar_tipo_pago"),
 
     #Listados
     path ('listado-producto/', listado_producto, name="listado_producto"),
@@ -59,6 +60,7 @@ urlpatterns = [
     path ('listado-pedido-orden/', listado_ped_orden, name="listado_ped_orden"),
     path ('listado-tipo-empleado/', listado_tipo_empleado, name="listado_tipo_empleado"),
     path ('listado-reserva/', listado_reserva, name="listado_reserva"),
+    path ('listado-tipo-pago/', listado_tipo_pago, name="listado_tipo_pago"),
 
     #Modificar
     path ('modificar-producto/<id>/', modificar_producto, name="modificar_producto"),
@@ -78,6 +80,7 @@ urlpatterns = [
     path ('modificar-pedido-orden/<id>/', modificar_ped_orden, name="modificar_ped_orden"),
     path ('modificar-tipo-empleado/<id>/', modificar_ped_orden, name="modificar_ped_orden"),
     path ('modificar-reserva/<id>/', modificar_reserva, name="modificar_reserva"),
+    path ('modificar-tipo-pago/<id>/', modificar_tipo_pago, name="modificar_tipo_pago"),
 
     #Eliminar
     path ('eliminar-producto/<id>/', eliminar_producto, name="eliminar_producto"),
@@ -97,6 +100,7 @@ urlpatterns = [
     path ('eliminar-pedido-orden/<id>/', eliminar_ped_orden, name="eliminar_ped_orden"),
     path ('eliminar-tipo-empleado/<id>/', eliminar_tipo_empleado, name="eliminar_tipo_empleado"),
     path ('eliminar-reserva/<id>/', eliminar_reserva, name="eliminar_reserva"),
+    path ('eliminar-tipo-pago/<id>/', eliminar_tipo_pago, name="eliminar_tipo_pago"),
 ]
 
 

@@ -1,6 +1,7 @@
 from django import forms
 from django.db import models
-from django.forms.widgets import Textarea
+from django.db.models.fields import NullBooleanField
+from django.forms.widgets import NullBooleanSelect, Textarea
 from .models import *
 import datetime
 from django.contrib.auth.forms import UserCreationForm
@@ -11,10 +12,12 @@ class CustomUserCreationForm(UserCreationForm):
     
     class Meta:
         model = User
-        fields = ['username', "first_name", "last_name", "email","password1", "password2"]
+        fields = ['username', "first_name", "last_name", "email","password1", "password2","is_staff"]
 
-
-
+    
+        widgets = {
+            "is_staff": forms.HiddenInput()
+        }
 
 
 class UsuarioForm(forms.ModelForm):

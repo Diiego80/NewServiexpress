@@ -522,11 +522,11 @@ def eliminar_bol_fac(request, id):
 @permission_required('auth.core.add_cliente')
 def agregar_cliente(request):
     data = {
-        'form': ClienteForm(data=request.POST)
+        'form': CustomUserCreationForm(data=request.POST)
     }
 
     if request.method == 'POST':
-        formulario = ClienteForm(data=request.POST)
+        formulario = CustomUserCreationForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
             messages.success(request, "Cliente Agregado Correctamente")
@@ -548,13 +548,13 @@ def listado_cliente(request):
 @permission_required('auth.core.change_cliente')
 def modificar_cliente(request, id):
 
-    cliente = Cliente.objects.get(id = id)
+    cliente = User.objects.get(id = id)
 
     data = {
-        'form': ClienteForm(instance=cliente)
+        'form': CustomUserCreationForm(instance=cliente)
     }
     if request.method == 'POST':
-        formulario = ClienteForm(data=request.POST, instance=cliente)
+        formulario = CustomUserCreationForm(data=request.POST, instance=cliente)
         if formulario.is_valid():
             formulario.save()
             messages.success(request, "Clietne Modificado Correctamente")
@@ -564,7 +564,7 @@ def modificar_cliente(request, id):
 
 @permission_required('auth.core.delete_cliente')
 def eliminar_cliente(request, id):
-    cliente = Cliente.objects.get(id = id)
+    cliente = User.objects.get(id = id)
     cliente.delete()
     messages.success(request, "Cliente Modificado Correctamente")
 
@@ -730,7 +730,7 @@ def eliminar_tipo_usuario(request, id):
 # P A G O  S E R V I C I O
 
 @permission_required('auth.core.add_pago_servicio')
-def agregar_pago_servicio(request):
+def agregar_pago_serv(request):
     data = {
         'form': PagoServicioForm(data=request.POST)
     }
@@ -779,6 +779,59 @@ def eliminar_pago_servicio(request, id):
     pago_servicio.delete()
 
     return redirect(to='listado_pago_serv')
+
+
+# T I P O  P A G O
+@permission_required('auth.core.add_pago_servicio')
+def agregar_tipo_pago(request):
+    data = {
+        'form': TipoPagoForm(data=request.POST)
+    }
+
+    if request.method == 'POST':
+        formulario = TipoPagoForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "TipoPago Agregado Con Exito")
+        else:
+            data["form"] = formulario
+        
+    return render(request,'core/pago_servicio/agregar_tipo_pago', data)
+    
+
+@permission_required('auth.core.view_pago_servicio')
+def listado_tipo_pago (request):
+    tipopagos = TipoPago.objects.all()
+
+    data = {
+        'tipopagos': tipopagos
+    }
+
+    return render(request, 'core/tipo_pago/listado_tipo_pago.html', data)
+
+@permission_required('auth.core.change_pago_servicio')
+def modificar_tipo_pago(request, id):
+
+    tipo_pago = TipoPago.objects.get(id = id)
+
+    data = {
+        'form': TipoPagoForm(instance=tipo_pago)
+    }
+    if request.method == 'POST':
+        formulario = TipoPagoForm(data=request.POST, instance=tipo_pago)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "TipoPago Modificado Con Exito")
+            data ['form'] = formulario
+
+    return render(request, 'core/tipo_pago/modificar_tipo_pago.html', data)
+
+@permission_required('auth.core.delete_pago_servicio')
+def eliminar_tipo_pago(request, id):
+    pago_servicio = TipoPago.objects.get(id = id)
+    pago_servicio.delete()
+
+    return redirect(to='listado_tipo_pago')
 
 
 

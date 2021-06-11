@@ -46,8 +46,7 @@ class BoletaFactura(models.Model):
     serv_titulo = models.ForeignKey('Servicio', on_delete=PROTECT)
 
 
-    #def __str__(self):
-    #    return self.bol_fac_id
+
 
 #OK
 class Ciudad(models.Model):
@@ -89,8 +88,8 @@ class DetalleServicio(models.Model):
     serv_titulo = models.ForeignKey('Servicio', on_delete=PROTECT)
     costo_total_servicios = models.BigIntegerField()
     cli_rut = models.IntegerField()
-    desc_medio_pago = models.ForeignKey('TipoPago', on_delete=PROTECT)
-    #res_id_reserva = models.ForeignKey('Reserva', models.DO_NOTHING, db_column='res_id_reserva')
+    desc_medio_pago = models.ForeignKey("TipoPago", on_delete=PROTECT)
+    
 
 
 
@@ -239,7 +238,7 @@ class TipoMarca(models.Model):
 
 
 class TipoPago(models.Model):
-    desc_medio_pago = models.CharField(max_length=50,verbose_name="Ingrese el nuevo medio de pago a integrar:")
+    desc_medio_pago = models.CharField(max_length=50)
 
     def __str__(self):
         return self.desc_medio_pago

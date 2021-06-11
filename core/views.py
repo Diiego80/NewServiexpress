@@ -75,20 +75,6 @@ def registro(request):
         data["form"] = formulario
     return render(request, 'registration/registro.html', data)
 
-#Ingreso de Django Admin
-#def registro_admin(request):
-#    dataRegistro = {
-#        'form': UsuarioForm()
-#    }
-#    if request.method == 'POST':
-#        formularioContacto = UsuarioForm(data=request.POST)
-#        if formularioContacto.is_valid():
-#            formularioContacto.save()
-#            dataRegistro["mensaje"] = "Usuario Guardado Correctamente"
-#        else:
-#            dataRegistro["form"] = formularioContacto
-#
-#    return render(request, 'registration/registro.html', dataRegistro)
 
 
 def registro_clientes(request):
@@ -321,7 +307,7 @@ def agregar_comuna(request):
         formulario = ComunaForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
-            data['mensaje'] = "Comuna Agregada Con Exito"
+            messages.success(request, "Comuna Agregada Con Exito")
         else:
             data["form"] = formulario
         
@@ -350,7 +336,7 @@ def modificar_comuna(request, id):
         formulario = ComunaForm(data=request.POST, instance=comuna)
         if formulario.is_valid():
             formulario.save()
-            data['mensaje'] = "Comuna Modificada Correctamente"
+            messages.success(request,"Comuna Modificada Con Exito")
             data ['form'] = formulario
 
     return render(request, 'core/comuna/modificar_comuna.html', data)
@@ -359,7 +345,7 @@ def modificar_comuna(request, id):
 def eliminar_comuna(request, id):
     comuna = Comuna.objects.get(id = id)
     comuna.delete()
-
+    messages.success(request,"Comuna Eliminada Con Exito")
     return redirect(to='listado_comuna')
 
 # C I U D A D
@@ -374,7 +360,7 @@ def agregar_ciudad(request):
         formulario = CiudadForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
-            data['mensaje'] = "Ciudad Agregada Con Exito"
+            messages.success(request, "Ciudad Agregada Con Exito")
         else:
             data["form"] = formulario
         
@@ -402,7 +388,7 @@ def modificar_ciudad(request, id):
         formulario = CiudadForm(data=request.POST, instance=ciudad)
         if formulario.is_valid():
             formulario.save()
-            data['mensaje'] = "Ciudad Modificada Correctamente"
+            messages.success(request, "Ciudad Modificada Con Exito")
             data ['form'] = formulario
 
     return render(request, 'core/ciudad/modificar_ciudad.html', data)
@@ -411,7 +397,7 @@ def modificar_ciudad(request, id):
 def eliminar_ciudad(request, id):
     ciudad = Ciudad.objects.get(id = id)
     ciudad.delete()
-
+    messages.success(request, "Ciudad Eliminada Con Exito")
     return redirect(to='listado_ciudad')
  
 # D E T A L L E  S E R V I C I O
@@ -557,7 +543,7 @@ def modificar_cliente(request, id):
         formulario = CustomUserCreationForm(data=request.POST, instance=cliente)
         if formulario.is_valid():
             formulario.save()
-            messages.success(request, "Clietne Modificado Correctamente")
+            messages.success(request, "Cliente Modificado Correctamente")
             data ['form'] = formulario
 
     return render(request, 'core/cliente/modificar_cliente.html', data)
@@ -566,7 +552,7 @@ def modificar_cliente(request, id):
 def eliminar_cliente(request, id):
     cliente = User.objects.get(id = id)
     cliente.delete()
-    messages.success(request, "Cliente Modificado Correctamente")
+    messages.success(request, "Cliente Eliminado Correctamente")
 
     return redirect(to='listado_cliente')
 
@@ -886,7 +872,7 @@ def modificar_proveedor(request, id):
 def eliminar_proveedor(request, id):
     proveedor = Proveedor.objects.get(id = id)
     proveedor.delete()
-
+    messages.success(request,"Proveedor Eliminado Con Exito")
     return redirect(to='listado_proveedor')
 
 

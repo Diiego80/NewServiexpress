@@ -52,15 +52,15 @@
 
                 </tr>
 
-                {% for tp in tipo_pagos %}
+                {% for t in tipo_pagos %}
 
                 <tr>
-                    <td>{{tp.id }}</td>
-                    <td>{{tp.desc_medio_pago | title}}</td>
+                    <td>{{t.id }}</td>
+                    <td>{{t.desc_medio_pago | title}}</td>
 
                     <td>
-                        <a href="{% url 'modificar_tipo_pago' tp.id %}" class="btn btn-info btn-sm">Modificar</a>
-                        <a href="#" onclick="eliminarTipopago ({{tp.id}})"
+                        <a href="{% url 'modificar_tipo_pago' t.id %}" class="btn btn-info btn-sm">Modificar</a>
+                        <a href="#" onclick="eliminarTipopago ({{t.id}})"
                             class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>

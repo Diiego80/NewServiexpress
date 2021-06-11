@@ -605,7 +605,7 @@ def modificar_emp_serv(request, id):
 def eliminar_emp_serv(request, id):
     emp_serv = EmpleadoServicio.objects.get(id = id)
     emp_serv.delete()
-
+    messages.success(request,"Trabajo Realizado Eliminado Con Exito")
     return redirect(to='listado_emp_serv')
 
 # R E G I O N

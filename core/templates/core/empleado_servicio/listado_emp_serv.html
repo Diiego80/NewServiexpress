@@ -66,7 +66,7 @@
                     <td>{{x.cant_utilizada_prod}}</td>
                     <td>{{x.emp_rut}}</td>
                     <td>
-                        <a href="{% url 'modificar_emp_serv' es.id %}" class="btn btn-info btn-sm">Modificar</a>
+                        <a href="{% url 'modificar_emp_serv' x.id %}" class="btn btn-info btn-sm">Modificar</a>
                         <a href="#" onclick="eliminarEmpServ ({{x.id}})" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>

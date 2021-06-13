@@ -4,7 +4,27 @@
 <title>INGRESO</title>
 <link rel="stylesheet" href="{% static 'core/css/formulario.css' %}">
 {% endblock %}
+{% block js %}
+<script>
+    function eliminarDetServ(id) {
+        Swal.fire({
+            "title": "¿Estas Seguro?",
+            "text": "Esta acción no se puede deshacer",
+            "icon": "question",
+            "showCancelButton": true,
+            "cancelButtonText": "No, Cancelar",
+            "confirmButtonText": "Si, Eliminar",
+            "confirmButtonColor": "#dc3534"
+        })
+            .then(function (result) {
+                if (result.isConfirmed) {
+                    window.location.href = "/eliminar-det-serv/" + id + "/"
+                }
+            })
+    }
+</script>
 
+{% endblock %}
 <!-- BLOC NAV -->
 {% block nav%}
 <a class="nav-item nav-link" href="{% url 'index' %}">INICIO <span class="sr-only">(current)</span></a>
@@ -12,7 +32,6 @@
 <a class="nav-item nav-link" href="{% url 'servicio' %}">SERVICIOS</a>
 <a class="nav-item nav-link" href="{% url 'ubicacion' %}">UBICACIÓN</a>
 {% endblock %}
-
 <!-- BLOC CONTENIDO -->
 {% block contenido %}
 {% load humanize %}
@@ -33,26 +52,26 @@
                     <th>Servicio Realizado</th>
                     <th>Costo Final</th>
                     <th>Rut Cliente</th>
-                    <th>ID Pago</th>
-                    <th>ID Reserva</th>
+                    <th>Medio Pago</th>
+
                     <th>Opciones</th>
                 </tr>
 
                 {% for d in det_serv %}
 
                 <tr>
-                    <td>{{d.id_det_serv }}</td>
+                    <td>{{d.id }}</td>
                     <td>{{d.fecha_serv_realizado }}</td>
                     <td>{{d.hora_servicio_realizado}}</td>
                     <td>{{d.servicios_realizados}}</td>
-                    <td>{{d.serv_id}}</td>
+                    <td>{{d.serv_titulo}}</td>
                     <td>${{d.costo_total_servicios | intcomma}}</td>
                     <td>{{d.cli_rut}}</td>
-                    <td>{{d.pago_id}}</td>
-                    <td>{{d.res_id_reserva}}</td>
+                    <td>{{d.desc_medio_pago}}</td>
                     <td>
-                        <a href="{% url 'modificar_det_serv' d.id_det_serv %}" class="btn btn-info btn-sm">Modificar</a>
-                        <a href="{% url 'eliminar_det_serv' d.id_set_serv %}" class="btn btn-danger btn-sm">Eliminar</a>
+                        <!--<a href="{% url 'modificar_det_serv' d.id %}" class="btn btn-info btn-sm">Modificar</a>-->
+                        <a href="#" onclick="eliminarDetServ ({{d.id}})"
+                            class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>
                 {% endfor %}

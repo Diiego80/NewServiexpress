@@ -114,7 +114,7 @@ class EmpleadoServicio(models.Model):
     res_id_reserva = models.BigIntegerField(verbose_name="Ingrese el ID unico de la Reserva:")
     serv_titulo = models.ForeignKey('Servicio', on_delete=PROTECT)
     prod_nombre = models.ForeignKey('Producto', on_delete=PROTECT)
-    emp_rut = models.ForeignKey("Empleado", on_delete=PROTECT)
+    emp_rut = models.ForeignKey("Empleado", on_delete=PROTECT,verbose_name="Ingrese Nombre del Empleado encargado:")
 
     def __str__(self):
         return self.emp_rut
@@ -128,8 +128,8 @@ class PagoServicio(models.Model):
 
 
 class PedidoOrden(models.Model):
-    ped_desc_emision = models.CharField(max_length=100,verbose_name="Ingrese los Productos a pedir:")
-    emp_rut = models.ForeignKey("Empleado", on_delete=PROTECT)
+    ped_desc_emision = models.CharField(max_length=100,verbose_name="Ingrese nombre y cantidad del producto:")
+    emp_rut = models.ForeignKey("Empleado", on_delete=PROTECT,verbose_name="Ingrese Nombre del Empleado encargado:")
     ped_fecha_emision = models.DateField(verbose_name="Ingrese la Fecha de Emisión del pedido:") 
 
 
@@ -164,7 +164,7 @@ class Proveedor(models.Model):
 class RecepcionPedido(models.Model):
     fecha_recepcion = models.DateField(verbose_name="Seleccione la Fecha de recepción del pedido:")
     desc_recepcion = models.CharField(max_length=150, verbose_name="Ingrese el nombre y cantidad de Productos recibidos:")
-    emp_rut = models.ForeignKey('Empleado', on_delete=PROTECT)
+    emp_rut = models.ForeignKey('Empleado', on_delete=PROTECT, verbose_name="Ingrese Nombre del Empleado encargado:")
 
 
 

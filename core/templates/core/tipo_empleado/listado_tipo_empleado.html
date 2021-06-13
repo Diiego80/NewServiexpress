@@ -6,7 +6,7 @@
 {% endblock %}
 {% block js %}
 <script>
-    function eliminarMarca(id) {
+    function eliminarTipoempleado(id) {
         Swal.fire({
             "title": "¿Estas Seguro?",
             "text": "Esta acción no se puede deshacer",
@@ -18,7 +18,7 @@
         })
             .then(function (result) {
                 if (result.isConfirmed) {
-                    window.location.href = "/eliminar-tipo-marca/" + id + "/"
+                    window.location.href = "/eliminar-tipo-empleado/" + id + "/"
                 }
             })
     }
@@ -52,15 +52,15 @@
 
                 </tr>
 
-                {% for te in tipo_empleados %}
+                {% for t in tipo_empleados %}
 
                 <tr>
-                    <td>{{te.id }}</td>
-                    <td>{{te.desc_tipo_empleado | title}}</td>
+                    <td>{{t.id }}</td>
+                    <td>{{t.desc_tipo_empleado | title}}</td>
 
                     <td>
-                        <a href="{% url 'modificar_tipo_empleado' te.id %}" class="btn btn-info btn-sm">Modificar</a>
-                        <a href="#" onclick="eliminarMarca ({{te.id}})"
+
+                        <a href="#" onclick="eliminarTipoempleado ({{t.id}})"
                             class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>

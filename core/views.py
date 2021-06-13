@@ -782,7 +782,7 @@ def agregar_tipo_pago(request):
         else:
             data["form"] = formulario
         
-    return render(request,'core/pago_servicio/agregar_tipo_pago', data)
+    return render(request,'core/tipo_pago/agregar_tipo_pago.html', data)
     
 
 @permission_required('auth.core.view_pago_servicio')

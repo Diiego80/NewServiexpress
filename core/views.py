@@ -412,7 +412,7 @@ def agregar_det_serv(request):
         formulario = DetalleServicioForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
-            data['mensaje'] = "Detalle Servicio Agregado con exito"
+            messages.success(request,"Detalle Servicio Agregado Correctamente")
         else:
             data["form"] = formulario
     return render(request,'core/detalle_servicio/agregar_det_serv.html', data)
@@ -439,7 +439,7 @@ def modificar_det_serv(request):
         formulario = DetalleServicioForm(data=request.POST, instance=det_ser)
         if formulario.is_valid():
             formulario.save()
-            data['mensaje'] = "Detalle Servicio Modificado Correctamente"
+            messages.success(request,"Detalle Servicio Modificado Correctamente")
             data['form'] = formulario
     return render(request, 'core/detalle_servicio/modificar_det_serv.html', data)
 

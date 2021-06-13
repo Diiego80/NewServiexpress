@@ -50,7 +50,7 @@ class BoletaFactura(models.Model):
 
 #OK
 class Ciudad(models.Model):
-    desc_ciudad = models.CharField(max_length=50)
+    desc_ciudad = models.CharField(max_length=50,verbose_name="Ingrese Nombre Ciudad:")
     desc_region = models.ForeignKey("Region", on_delete=models.PROTECT)
 
 
@@ -59,12 +59,12 @@ class Ciudad(models.Model):
 
 #OK
 class Cliente(models.Model):
-    cli_rut = models.IntegerField(primary_key=True)
-    cli_pnombre = models.CharField(max_length=30)
-    cli_apellidopat = models.CharField(max_length=50)
-    cli_apellidomat = models.CharField(max_length=50)
-    cli_email = models.EmailField(max_length=50)
-    cli_telefono = models.BigIntegerField()
+    cli_rut = models.IntegerField(primary_key=True,verbose_name="Ingrese el Rut del Cliente sin punto ni guión:")
+    cli_pnombre = models.CharField(max_length=30,verbose_name="Ingrese el primer del Cliente:")
+    cli_apellidopat = models.CharField(max_length=50,verbose_name="Ingrese el apellido paterno del Cliente:")
+    cli_apellidomat = models.CharField(max_length=50,verbose_name="Ingrese el apellido materno del Cliente:")
+    cli_email = models.EmailField(max_length=50,verbose_name="Ingrese el Correo/Email del Cliente:")
+    cli_telefono = models.BigIntegerField(verbose_name="Ingrese el Numero de telefono del Cliente:")
     desc_comuna = models.ForeignKey('Comuna', on_delete=PROTECT)
 
 
@@ -73,7 +73,7 @@ class Cliente(models.Model):
 
 #OK
 class Comuna(models.Model):
-    desc_comuna = models.CharField(max_length=50)
+    desc_comuna = models.CharField(max_length=50,verbose_name="Ingrese Nombre Comuna:")
     desc_ciudad = models.ForeignKey("Ciudad", on_delete=PROTECT)
 
     
@@ -82,12 +82,12 @@ class Comuna(models.Model):
 
 #OK
 class DetalleServicio(models.Model):
-    fecha_serv_realizado = models.DateField()
-    hora_servicio_realizado = models.CharField(max_length=5 ,choices=opciones_hora_reservada)
-    servicios_realizados = models.CharField(max_length=150)
+    fecha_serv_realizado = models.DateField(verbose_name="Ingrese la Fecha del Trabajo Finalizado:")
+    hora_servicio_realizado = models.CharField(max_length=5 ,choices=opciones_hora_reservada,verbose_name="Ingrese la hora la cual se entrego el vehiculo:")
+    servicios_realizados = models.CharField(max_length=150,verbose_name="Ingrese una breve descripción del trabajo realizado:")
     serv_titulo = models.ForeignKey('Servicio', on_delete=PROTECT)
-    costo_total_servicios = models.BigIntegerField()
-    cli_rut = models.IntegerField()
+    costo_total_servicios = models.BigIntegerField(verbose_name="Ingrese el Costo Total del Servicio:")
+    cli_rut = models.IntegerField(verbose_name="Ingrese el Rut del Cliente:")
     desc_medio_pago = models.ForeignKey("TipoPago", on_delete=PROTECT)
     
 
@@ -95,23 +95,23 @@ class DetalleServicio(models.Model):
 
 #OK
 class Empleado(models.Model):
-    emp_rut = models.CharField(max_length=8)
-    emp_pnombre = models.CharField(max_length=50)
-    emp_apellidopat = models.CharField(max_length=50)
-    emp_apellidomat = models.CharField(max_length=50)
-    emp_sueldo = models.BigIntegerField()
-    emp_telefono = models.IntegerField()
-    emp_email = models.EmailField(max_length=30)
+    emp_rut = models.CharField(max_length=8,verbose_name="Ingrese el Rut del Empleado:")
+    emp_pnombre = models.CharField(max_length=50,verbose_name="Ingrese el Nombre del Empleado:")
+    emp_apellidopat = models.CharField(max_length=50,verbose_name="Ingrese el Apellido paterno del Empleado:")
+    emp_apellidomat = models.CharField(max_length=50,verbose_name="Ingrese el Apellido materno del Empleado:")
+    emp_sueldo = models.BigIntegerField(verbose_name="Ingrese el Sueldo del Empleado:")
+    emp_telefono = models.IntegerField(verbose_name="Ingrese el Numero de Telefono del Empleado:")
+    emp_email = models.EmailField(max_length=30,verbose_name="Ingrese el Correo/Email del Empleado:")
     desc_tipo_empleado = models.ForeignKey('TipoEmpleado', on_delete=PROTECT)
-    user_nombre = models.CharField(max_length=50)
+    user_nombre = models.CharField(max_length=50,verbose_name="Ingrese el Nombre de Usuario del Empleado:")
     
     def __str__(self):
         return self.emp_pnombre+" "+self.emp_apellidopat
 
 
 class EmpleadoServicio(models.Model):
-    cant_utilizada_prod = models.BigIntegerField()
-    res_id_reserva = models.BigIntegerField()
+    cant_utilizada_prod = models.BigIntegerField(verbose_name="Ingrese la Cantidad total utilizada del Producto:")
+    res_id_reserva = models.BigIntegerField(verbose_name="Ingrese el ID unico de la Reserva:")
     serv_titulo = models.ForeignKey('Servicio', on_delete=PROTECT)
     prod_nombre = models.ForeignKey('Producto', on_delete=PROTECT)
     emp_rut = models.ForeignKey("Empleado", on_delete=PROTECT)
@@ -121,33 +121,23 @@ class EmpleadoServicio(models.Model):
 
 
 class PagoServicio(models.Model):
-    fecha_pago_serv = models.DateField()
+    fecha_pago_serv = models.DateField(verbose_name="Ingrese la Fecha De Pago:")
     serv_titulo = models.ForeignKey('Servicio', on_delete=PROTECT)
     desc_medio_pago = models.ForeignKey('TipoPago', on_delete=PROTECT)
 
 
 
- 
-
-
 class PedidoOrden(models.Model):
-    ped_desc_emision = models.CharField(max_length=100)
+    ped_desc_emision = models.CharField(max_length=100,verbose_name="Ingrese los Productos a pedir:")
     emp_rut = models.ForeignKey("Empleado", on_delete=PROTECT)
-    ped_fecha_emision = models.DateField() 
+    ped_fecha_emision = models.DateField(verbose_name="Ingrese la Fecha de Emisión del pedido:") 
 
-    #def __str__(self):
-    #    return self.ped_id_emision
 
 
 class PedidoOrdenProducto(models.Model):
-    prod_cantidad = models.BigIntegerField()
-    costo_pedido = models.BigIntegerField()
+    prod_cantidad = models.BigIntegerField(verbose_name="Ingrese la Cantidad de productos a pedir:")
+    costo_pedido = models.BigIntegerField(verbose_name="Ingrese el precio total de la cotización:")
     prod_nombre = models.ForeignKey('Producto', on_delete=PROTECT)
-
-
-
-
-
 
 
 
@@ -238,7 +228,7 @@ class TipoMarca(models.Model):
 
 
 class TipoPago(models.Model):
-    desc_medio_pago = models.CharField(max_length=50)
+    desc_medio_pago = models.CharField(max_length=50,verbose_name="Ingrese el Medio De Pago:")
 
     def __str__(self):
         return self.desc_medio_pago

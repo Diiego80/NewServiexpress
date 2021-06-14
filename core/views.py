@@ -95,7 +95,7 @@ def registro_clientes(request):
 
 
 ## R E S E R V A S
-
+@login_required
 def agregar_reserva(request):
     data = {
         'form': ReservaForm()

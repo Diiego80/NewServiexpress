@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block css %}
+<title>INICIO</title>
+<link rel="stylesheet" href="{% static 'core/css/index.css' %}">
+{% endblock %}
+
+<!-- BLOC NAV -->
+{% block nav%}
+<a class="nav-item nav-link active" href="{% url 'index' %}">INICIO <span class="sr-only">(current)</span></a>
+<a class="nav-item nav-link" href="{% url 'nosotros' %}">NOSOTROS</a>
+<a class="nav-item nav-link" href="{% url 'servicio' %}">SERVICIOS</a>
+<a class="nav-item nav-link" href="{% url 'ubicacion' %}">UBICACIÓN</a>
+{% endblock %}
+<!--Contenido Pagina Manual Clientes-->
+{% block contenido %}
+<title>Manual</title>
+<h2>Manual De Uso Serviexpress Para Empleados</h2>
+{% endblock %}

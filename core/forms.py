@@ -8,6 +8,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 
+class DateForm(forms.Form):
+    date = forms.DateTimeField(input_formats=['%d/%m/%Y %H:%M'])
+    
+
 class CustomUserCreationForm(UserCreationForm):
     
     class Meta:

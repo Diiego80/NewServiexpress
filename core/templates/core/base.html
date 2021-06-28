@@ -17,6 +17,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!--Date Picker BootStrap-->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+    <!-- Fengyuan Chen's Datepicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.css"
+        integrity="sha256-b88RdwbRJEzRx95nCuuva+hO5ExvXXnpX+78h8DjyOE=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.js"
+        integrity="sha256-/7FLTdzP6CfC1VBAj/rsp3Rinuuu9leMRGd354hvk0k=" crossorigin="anonymous"></script>
 </head>
 
 
@@ -87,6 +99,7 @@
                 </div>
                 {% endif %}
             </div>
+
         </div>
 
         <!-- CONTENIDO FOOTER -->
@@ -102,6 +115,8 @@
                         GALERIA</b></a>
                 <a href="{% url 'servicio' %}" id="txtf" style="text-decoration: none;"><b><br>· SERVICIOS</b></a>
                 <a href="{% url 'ubicacion' %}" id="txtf" style="text-decoration: none;"><b><br>· UBICACIÓN</b></a>
+                <a href="{% url 'manual_clientes' %}" id="txtf" style="text-decoration: none;"><b><br>· MANUAL</b></a>
+                
             </div>
             <div class="col3" style="text-align: center;">
                 <h1 id="titlef"><b>HORARIOS</b></h1>
@@ -124,7 +139,7 @@
                 </a>
             </div>
         </div>
-        
+
         <!-- FINAL -->
         <div class="container-end">
             <p>©2021 SERVIEXPRESS | All Rights Reserved</p>

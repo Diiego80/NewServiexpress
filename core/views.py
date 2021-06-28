@@ -49,6 +49,9 @@ def ubicacion(request):
     return render(request, 'core/ubicacion.html')
 
 
+def manual_clientes(request):
+    return render(request, 'core/manual_clientes.html')
+
 @login_required
 @permission_required('core.admin_interface')
 def administracion(request):

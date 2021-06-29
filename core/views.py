@@ -9,6 +9,10 @@ from django.contrib.auth import login, authenticate
 from rest_framework import viewsets
 from django.contrib import messages
 from django.http import Http404
+from django.shortcuts import render
+
+
+
 
 # Create your views here.
 
@@ -35,6 +39,10 @@ def ingreso(request):
 
 def nosotros(request):
     return render(request, 'core/nosotros.html')
+
+
+def reportes (request):
+    return(request,'core/reportes.html')
 
 
 def servicio(request):

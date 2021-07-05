@@ -1,8 +1,11 @@
+from io import BytesIO
 from django.shortcuts import render, redirect, get_object_or_404
+from reportlab.lib import pagesizes
+from reportlab.lib.utils import c
 from .models import *
 from .forms import *
 # Extra
-from django.http import JsonResponse
+from django.http import JsonResponse, response, HttpResponse
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
@@ -10,6 +13,12 @@ from rest_framework import viewsets
 from django.contrib import messages
 from django.http import Http404
 from django.shortcuts import render
+#LabsPdf
+import os
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A4, cm
+from reportlab.lib.units import cm, mm
+this_path = os.getcws() + '/registration/'
 
 
 
@@ -1124,3 +1133,54 @@ def eliminar_tipo_empleado(request, id):
     messages.success(request, "Tipo-Empleado Eliminado Con Exito")
 
     return redirect(to='listado_tipo_empleado')
+
+#Reporte Pdf
+def reporte(request):
+    response = HttpResponse(content_type='applicaction/pdf')
+    response['Content-Disposition'] = 'attachment; filename=TallerMecanico-Reporte.pdf'
+    
+    buffer = BytesIO()
+    c=canvas.Canvas(buffer, pagesizes=A4)
+
+    #Header
+    c.setlineWidth(.3)
+    c.setFont('Helvetica',22)
+    c.drawString(30,750,'Taller Mecanico')
+    c.setFont('Helvetica', 12)
+    c.drawString(30,735,'Report')
+    #Fecha
+    c.setFont('helvetica-bold', 12)
+    c.drawString(480, 750,"01/07/2021")
+    c.line (460,747,560,747)
+
+    #Tabla
+    autos =[]
+    
+    #Tabla header
+    styles = getSampleStylesheet()
+    stylesA = styles ["Nomarl"]
+    stylesA.alignment= TA_CENTER
+    stylesA.fontSize= 10
+
+    Numero = Paragraph('''#''',stylesA)
+    Nombre = Paragraph('''Nombre''',stylesA)
+    Cantidad = Paragraph('''Cantidad''',stylesA)
+    
+
+    data = []
+    data.append ([Numero,Nombre, Cantidad])
+    
+    #TABLACONTE
+    stylesN = styles ["BodyText"]
+    stylesN.alignment = TA_CENTER
+    stylesN.fontSize = 7
+
+    high = 650
+    from 
+
+
+    c.save()
+    pdf = buffer.getvalue()
+    buffer.close()
+    response.write(pdf)
+    return response

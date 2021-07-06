@@ -32,6 +32,7 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 # Application definition
 
 INSTALLED_APPS = [
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'rest_framework',
     'admin_interface',
+    'import_export',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

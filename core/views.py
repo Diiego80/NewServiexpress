@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 # from reportlab.lib.utils import c
 from .models import *
 from .forms import *
+from import_export.admin import ImportExportModelAdmin
 # Extra
 from django.http import JsonResponse, response, HttpResponse
 from django.contrib.auth.decorators import login_required, permission_required
@@ -65,6 +66,9 @@ def servicio(request):
 
 def ubicacion(request):
     return render(request, 'core/ubicacion.html')
+
+def admin_reportes(request):
+    return render(request, 'core/admin_reportes.html')
 
 
 def manual_clientes(request):

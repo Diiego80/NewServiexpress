@@ -34,7 +34,19 @@ class CiudadResource(resources.ModelResource):
 
 class UserResource(resources.ModelResource):
     class Meta:
-        form = User
+        model = User
+
+class ProductoResource(resources.ModelResource):
+    class Meta:
+        model = Producto
+
+class ProveedorResource(resources.ModelResource):
+    class Meta:
+        model = Proveedor
+
+class DetalleServicioResource(resources.ModelResource):
+    class Meta:
+        model = DetalleServicio
 
 
 #Desplegar Boton Import-Export
@@ -58,27 +70,47 @@ class CiudadAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     search_fields = ['desc_marca']
     resource_class = CiudadResource
 
+class UserAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    search_fields = ['desc_marca']
+    resource_class = UserResource
+
+class BoletaFacturaAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    search_fields = ['desc_marca']
+    resource_class = BoletaFacturaResource
+
+class ProductoAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    search_fields = ['desc_marca']
+    resource_class = ProductoResource
+
+class ProveedorAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    search_fields = ['desc_marca']
+    resource_class = ProveedorResource
+
+class DetalleServicioAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    search_fields = ['desc_marca']
+    resource_class = DetalleServicioResource
+
 
 # Register your models here.
 
 
-admin.site.register(BoletaFactura)
+admin.site.register(BoletaFactura,BoletaFacturaAdmin)
 admin.site.register(Ciudad)
 admin.site.register(Cliente)
 admin.site.register(Comuna)
-admin.site.register(DetalleServicio)
+admin.site.register(DetalleServicio,DetalleServicioAdmin)
 admin.site.register(Empleado,EmpleadoAdmin)
 admin.site.register(EmpleadoServicio)
 admin.site.register(PagoServicio)
 admin.site.register(PedidoOrden)
 admin.site.register(PedidoOrdenProducto)
-admin.site.register(Producto)
-admin.site.register(Proveedor)
+admin.site.register(Producto,ProductoAdmin)
+admin.site.register(Proveedor,ProveedorAdmin)
 admin.site.register(RecepcionPedido)
 admin.site.register(RecepcionPedidoProducto)
 admin.site.register(Region)
 admin.site.register(Reserva,ReservaAdmin)
-admin.site.register(Servicio)
+admin.site.register(Servicio,ServicioAdmin)
 admin.site.register(TipoEmpleado)
 admin.site.register(TipoMarca,TipoMarcaAdmin)
 admin.site.register(TipoPago)

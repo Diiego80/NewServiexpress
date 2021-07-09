@@ -117,7 +117,7 @@ class EmpleadoServicio(models.Model):
     prod_nombre = models.ForeignKey('Producto', on_delete=PROTECT)
     emp_rut = models.ForeignKey("Empleado", on_delete=PROTECT,verbose_name="Ingrese Nombre del Empleado encargado:")
 
-    def __str__(self):
+    def __int__(self):
         return self.emp_rut
 
 

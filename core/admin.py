@@ -48,6 +48,10 @@ class DetalleServicioResource(resources.ModelResource):
     class Meta:
         model = DetalleServicio
 
+class EmpleadoServicioResource(resources.ModelResource):
+    class Meta:
+        model = EmpleadoServicio
+
 
 #Desplegar Boton Import-Export
 class ReservaAdmin(ImportExportModelAdmin,admin.ModelAdmin):
@@ -90,6 +94,10 @@ class DetalleServicioAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     search_fields = ['desc_marca']
     resource_class = DetalleServicioResource
 
+class EmpleadoServicioAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+    search_fields = ['desc_marca']
+    resource_class = EmpleadoServicioResource
+
 
 # Register your models here.
 
@@ -100,7 +108,7 @@ admin.site.register(Cliente)
 admin.site.register(Comuna)
 admin.site.register(DetalleServicio,DetalleServicioAdmin)
 admin.site.register(Empleado,EmpleadoAdmin)
-admin.site.register(EmpleadoServicio)
+admin.site.register(EmpleadoServicio,EmpleadoServicioAdmin)
 admin.site.register(PagoServicio)
 admin.site.register(PedidoOrden)
 admin.site.register(PedidoOrdenProducto)

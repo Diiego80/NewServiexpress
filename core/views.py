@@ -1189,3 +1189,38 @@ def eliminar_tipo_empleado(request, id):
 #     buffer.close()
 #     response.write(pdf)
 #     return response
+
+@login_required(login_url='user-login')
+def grafico(request):
+    product = Reserva.objects.all()
+    product_count = product.count()
+    order = Order.objects.all()
+    order_count = order.count()
+    customer = User.objects.filter(groups=2)
+    customer_count = customer.count()
+
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.customer = request.user
+            obj.save()
+            return redirect('core/reportes_prueba.html')
+    else:
+        form = OrderForm()
+    context = {
+        'form': form,
+        'order': order,
+        'product': product,
+        'product_count': product_count,
+        'order_count': order_count,
+        'customer_count': customer_count,
+    }
+    return render(request, 'core/reportes_prueba.html', context)
+
+
+
+
+
+
+

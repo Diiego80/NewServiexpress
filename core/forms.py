@@ -189,3 +189,16 @@ class BoletaFacturaPedidoForm(forms.ModelForm):
         widgets = {
             "bol_fac_fecha_emision": forms.SelectDateWidget()
         }
+
+class ProductForm(forms.ModelForm):
+    class Meta:
+        model = Reserva
+        fields = '__all__'
+
+
+class OrderForm(forms.ModelForm):
+
+    class Meta:
+        model = Order
+        fields = ['name', 'order_quantity']
+ 

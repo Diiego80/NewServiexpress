@@ -1,5 +1,6 @@
 
 from datetime import datetime
+from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.deletion import PROTECT
 from django.db.models.fields import DateTimeCheckMixin
@@ -253,6 +254,13 @@ class Usuario(models.Model):
 
 # MODELOS ONLY PAG WEB
 
+
+CATEGORY = (
+    ('Stationary', 'Stationary'),
+    ('Electronics', 'Electronics'),
+    ('Food', 'Food'),
+)
+
 class MisionVision(models.Model):
     mision = models.CharField(max_length=200)
     vision = models.CharField(max_length=200)
@@ -260,5 +268,13 @@ class MisionVision(models.Model):
     imagen_mision = models.ImageField(upload_to="Mision", null=True)
 
 
-    
+    def __str__(self):
+        return f'{self.name}'    
 
+class Order(models.Model):
+    name = models.ForeignKey(Reserva, on_delete=models.CASCADE, null=True)
+    customer = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    order_quantity = models.PositiveIntegerField(null=True)
+
+    def __str__(self):
+        return f'{self.customer}-{self.name}'

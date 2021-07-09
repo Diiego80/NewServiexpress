@@ -15,7 +15,8 @@ urlpatterns = [
     path ('manual-clientes/', manual_clientes, name="manual_clientes"),
     path ('reportes/', reportes, name="reportes"),
     path ('admin-reportes/', admin_reportes, name="admin_reportes"),
-    
+    path ('reportes-prueba/', reportes_prueba, name="reportes_prueba"),
+
     #Sectores Internos de Administracion
     path ('sector-ubicaciones/', sector_ubicaciones, name="sector_ubicaciones"), 
     path ('sector-pagos/', sector_pagos, name="sector_pagos"),

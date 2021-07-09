@@ -45,6 +45,7 @@
                     <a href="{% url 'servicio' %}" class="w3-button w3-grey">Servicios</a>
                     <a href="{% url 'ubicacion' %}" class="w3-button w3-grey">Ubicación</a>
                     <a href="{% url 'admin_reportes' %}" class="w3-button w3-grey">Reportes Y Actividad</a>
+                    <a href="{% url 'administracion' %}" class="w3-button w3-grey">Volvar a Administracion Principal</a>
 
                 </div>
             </div>
@@ -75,10 +76,10 @@
                 </div>
             </div>
 
-            <div class="w3-third w3-container w3-margin-bottom">
+
+            
 
 
-            </div>
 
             <!--Second Photo Grid-->
             <div class="w3-row-padding">
@@ -143,63 +144,53 @@
                 <div class="w3-container w3-white">
                     <p><b>Descarga de DETALLE SERVICIO en variados formatos</b></p>
                     <p>Permite descargar datos e informes relacionados a Detalle Servicio</p>
-                    <a href="http://127.0.0.1:8000/admin/core/detalleservicio/export/?" class="w3-button w3-black">Ingresar a
+                    <a href="http://127.0.0.1:8000/admin/core/detalleservicio/export/?"
+                        class="w3-button w3-black">Ingresar a
                         Detalle Servicio</a>
                     <br><br>
                 </div>
             </div>
             <div class="w3-third w3-container w3-margin-bottom">
                 <div class="w3-container w3-white">
-                    <p><b>Sector Productos</b></p>
-                    <p>Al seleccionar este sector lo llevara directamente al Listado De PRODUCTOS, donde podra
-                        Visualizar,
-                        Agregar,
-                        Modificar, Actualizar o Eliminar datos segun la </p>
-                    <a href="{% url 'listado_producto' %}" class="w3-button w3-black">Ir hacia Listado</a>
-                    <br><br>
-                </div>
-            </div>
-            <div class="w3-third w3-container w3-margin-bottom">
-                <div class="w3-container w3-white">
-                    <p><b>Sector Trabajos Finalizados</b></p>
-                    <p>Al seleccionar este sector lo llevara directamente al Listado De TRABAJOS FINALIZADOS, donde
-                        podra
-                        Visualizar, Agregar,
-                        Modificar, Actualizar o Eliminar datos segun la necesidad.</p>
-                    <a href="{% url 'listado_emp_serv' %}" class="w3-button w3-black">Ir hacia Listado</a>
+                    <p><b>Descarga de MARCAS ASOCIADAS en variados formatos</b></p>
+                    <p>Permite descargar datos e informes relacionados a Marcas</p>
+                    <a href="http://127.0.0.1:8000/admin/core/tipomarca/export/?" class="w3-button w3-black">Ingresar a
+                        Marcas</a>
                     <br><br>
                 </div>
             </div>
 
 
-            <div class="w3-third w3-container w3-margin-bottom">
-                <div class="w3-container w3-white">
-                    <p><b>Manual de Usuarios</b></p>
-                    <p>Pinche "Descargar" para obtener el Manual de Usuario.</p>
-                    <a href="" class="w3-button w3-black">Descargar</a>
-                    <br><br>
-                </div>
+        </div>
+        <!--Manual-->
+        <div class="w3-third w3-container w3-margin-bottom">
+            <div class="w3-container w3-white">
+                <p><b>Manual de Usuarios</b></p>
+                <p>Pinche "Descargar" para obtener el Manual de Usuario.</p>
+                <a href="" class="w3-button w3-grey">Descargar</a>
+                <br><br>
             </div>
+        </div>
 
 
 
+        <p class="pos_fixed ">
+
+        <!-- End page content -->
 
 
-            <!-- End page content 
-    </div>
--->
-            <script>
-                // Script to open and close sidebar
-                function w3_open() {
-                    document.getElementById("mySidebar").style.display = "block";
-                    document.getElementById("myOverlay").style.display = "block";
-                }
+        <script>
+            // Script to open and close sidebar
+            function w3_open() {
+                document.getElementById("mySidebar").style.display = "block";
+                document.getElementById("myOverlay").style.display = "block";
+            }
 
-                function w3_close() {
-                    document.getElementById("mySidebar").style.display = "none";
-                    document.getElementById("myOverlay").style.display = "none";
-                }
-            </script>
+            function w3_close() {
+                document.getElementById("mySidebar").style.display = "none";
+                document.getElementById("myOverlay").style.display = "none";
+            }
+        </script>
 
 </body>
 

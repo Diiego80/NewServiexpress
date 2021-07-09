@@ -55,12 +55,17 @@
             <div class="w3-container w3-margin-bottom">
                 <div class="w3-container w3-white">
                     <p><b>Leyenda de formatos de descarga:</b></p>
-                    <p>CSV: Entrega todos los datos en una sola fila (EXCEL), separado por comas sin ningun ordenamiento. No se recomienda utilizar para revisión de datos, informes y/o resumenes.</p>
-                    <p>XLS y XLSX: Entrega los datos ordenados segun su tabla e Identificador unico (EXCEL). Se recomienda para obtener datos y dar una revision general de la tabla.</p>
+                    <p>CSV: Entrega todos los datos en una sola fila (EXCEL), separado por comas sin ningun
+                        ordenamiento. No se recomienda utilizar para revisión de datos, informes y/o resumenes.</p>
+                    <p>XLS y XLSX: Entrega los datos ordenados segun su tabla e Identificador unico (EXCEL). Se
+                        recomienda para obtener datos y dar una revision general de la tabla.</p>
                     <p>TSV: Entrega los datos en un bloc de notas ordenados segun Identificador Unico</p>
                     <p>ODS: No entrega ningun resultado visible por Excel, por lo cual no se debe utilizar.</p>
-                    <p>JSON: Entrega los datos ordenados para se utilizados bajo JavaScript, este informe esta orientado hacia los desarrolladores de la pagina, por lo cual no se recomienda utilizar para revisión de datos.</p>
-                    <p>YAML: Entrega los datos bajo el siguiente formato: "Nombre de tabla" : "Identificador Unico". Ej: {Empleado : 1}</p>
+                    <p>JSON: Entrega los datos ordenados para se utilizados bajo JavaScript, este informe esta orientado
+                        hacia los desarrolladores de la pagina, por lo cual no se recomienda utilizar para revisión de
+                        datos.</p>
+                    <p>YAML: Entrega los datos bajo el siguiente formato: "Nombre de tabla" : "Identificador Unico". Ej:
+                        {Empleado : 1}</p>
                     <p>HTML: Entrega los datos bajo formato JSON, y los muestra en una nueva pagina del navegador.</p>
                 </div>
             </div>
@@ -177,55 +182,90 @@
 
 
     </div>
-    <!--Manual-->
-    <div class="w3-third w3-container w3-margin-bottom">
-        <div class="w3-container w3-white">
-            <p><b>Manual de Usuarios</b></p>
-            <p>Pinche "Descargar" para obtener el Manual de Usuario.</p>
-            <a href="" class="w3-button w3-grey">Descargar</a>
-            <br><br>
-        </div>
-    </div>
-    <!--GRAFICOS-->
+    
+
+
+    <!--G R A F I C O S-->
     <html>
-        <head>
-          
-          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-          <script type="text/javascript">
-            google.charts.load("current", {packages:["corechart"]});
+
+    <head>
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load("current", { packages: ["corechart"] });
             google.charts.setOnLoadCallback(drawChart);
             function drawChart() {
-                
-              var data = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                ['Work',     4],
-                ['Eat',      2],
-                ['Commute',  2],
-                ['Watch TV', 2],
-                ['Sleep',    7]
-              ]);
-      
-              var options = {
-                title: 'My Daily Activities',
-                
-              };
-              
-      
-              var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-              chart.draw(data, options);
+
+                var data = google.visualization.arrayToDataTable([
+                    ['Task', 'Hours per Day'],
+                    ['Work', 4],
+                    ['Eat', 2],
+                    ['Commute', 2],
+                    ['Watch TV', 2],
+                    ['Sleep', 7]
+                ]);
+
+                var options = {
+                    title: 'My Daily Activities',
+
+                };
+
+
+                var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+                chart.draw(data, options);
             }
-          </script>
-          
-        </head>
-        <body>
-          <div id="donutchart" style="width: 900px; height: 500px;"></div>
-        </body>
+        </script>
 
-        
-      </html>
+    </head>
+
+    <body>
+        <div id="donutchart" style="width: 900px; height: 500px;"></div>
+    </body>
 
 
-      
+    </html>
+
+    <!--Segundo Grafico-->
+    <br><br><br>
+    <html>
+
+    <head>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', { 'packages': ['bar'] });
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                    ['Year', 'Sales', 'Expenses', 'Profit'],
+                    ['2014', 1000, 400, 200],
+                    ['2015', 1170, 460, 250],
+                    ['2016', 660, 1120, 300],
+                    ['2017', 1030, 540, 350]
+                ]);
+
+                var options = {
+                    chart: {
+                        title: 'Company Performance',
+                        subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+                    }
+                };
+
+                var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+                chart.draw(data, google.charts.Bar.convertOptions(options));
+            }
+        </script>
+    </head>
+
+    <body>
+        <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+    </body>
+
+    </html>
+
+
+
     <!-- End page content -->
 
 

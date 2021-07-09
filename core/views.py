@@ -1192,13 +1192,9 @@ def eliminar_tipo_empleado(request, id):
 
 @login_required(login_url='user-login')
 def grafico(request):
-    product = Reserva.objects.all()
-    product_count = product.count()
-    order = Order.objects.all()
-    order_count = order.count()
-    customer = User.objects.filter(groups=2)
-    customer_count = customer.count()
-
+    reserva = Reserva.objects.all()
+    reserva_count = reserva.count()
+   
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
@@ -1210,11 +1206,9 @@ def grafico(request):
         form = OrderForm()
     context = {
         'form': form,
-        'order': order,
-        'product': product,
-        'product_count': product_count,
-        'order_count': order_count,
-        'customer_count': customer_count,
+         'Reserva': reserva,
+         'reserva_count': reserva_count,
+       
     }
     return render(request, 'core/reportes_prueba.html', context)
 

@@ -51,10 +51,24 @@
             </div>
         </header>
 
+        <div class="w3-row-padding">
+            <div class="w3-container w3-margin-bottom">
+                <div class="w3-container w3-white">
+                    <p><b>Leyenda de formatos de descarga:</b></p>
+                    <p>CSV: Entrega todos los datos en una sola fila (EXCEL), separado por comas sin ningun ordenamiento. No se recomienda utilizar para revisión de datos, informes y/o resumenes.</p>
+                    <p>XLS y XLSX: Entrega los datos ordenados segun su tabla e Identificador unico (EXCEL). Se recomienda para obtener datos y dar una revision general de la tabla.</p>
+                    <p>TSV: Entrega los datos en un bloc de notas ordenados segun Identificador Unico</p>
+                    <p>ODS: No entrega ningun resultado visible por Excel, por lo cual no se debe utilizar.</p>
+                    <p>JSON: Entrega los datos ordenados para se utilizados bajo JavaScript, este informe esta orientado hacia los desarrolladores de la pagina, por lo cual no se recomienda utilizar para revisión de datos.</p>
+                    <p>YAML: Entrega los datos bajo el siguiente formato: "Nombre de tabla" : "Identificador Unico". Ej: {Empleado : 1}</p>
+                    <p>HTML: Entrega los datos bajo formato JSON, y los muestra en una nueva pagina del navegador.</p>
+                </div>
+            </div>
+        </div>
+
         <!-- First Photo Grid-->
         <div class="w3-row-padding">
             <div class="w3-third w3-container w3-margin-bottom">
-
 
                 <div class="w3-container w3-white">
                     <p><b>Descarga de RESERVAS en variados formatos</b></p>
@@ -65,8 +79,6 @@
                 </div>
             </div>
             <div class="w3-third w3-container w3-margin-bottom">
-
-
                 <div class="w3-container w3-white">
                     <p><b>Descarga de EMPLEADOS en variados formatos</b></p>
                     <p>Permite descargar datos e informes relacionados a Empleados</p>
@@ -77,46 +89,32 @@
             </div>
 
 
-            
-
-
-
-            <!--Second Photo Grid-->
-            <div class="w3-row-padding">
-                <div class="w3-third w3-container w3-margin-bottom">
-
-
-                    <div class="w3-container w3-white">
-                        <p><b>Descarga de SERVICIOS en variados formatos</b></p>
-                        <p>Permite descargar datos e informes relacionados a Servicios</p>
-                        <a href="http://127.0.0.1:8000/admin/core/servicio/export/?" class="w3-button w3-black">Ingresar
-                            a
-                            Servicios</a>
-                        <br><br>
-                    </div>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="w3-container w3-white">
+                    <p><b>Descarga de SERVICIOS en variados formatos</b></p>
+                    <p>Permite descargar datos e informes relacionados a Servicios</p>
+                    <a href="http://127.0.0.1:8000/admin/core/servicio/export/?" class="w3-button w3-black">Ingresar
+                        a
+                        Servicios</a>
+                    <br><br>
                 </div>
-                <div class="w3-third w3-container w3-margin-bottom">
-
-
-                    <div class="w3-container w3-white">
-                        <p><b>Descarga de BOLETAS/FACTURAS en variados formatos</b></p>
-                        <p>Permite descargar datos e informes relacionados a Boletas y Facturas</p>
-                        <a href="http://127.0.0.1:8000/admin/core/boletafactura/export/?"
-                            class="w3-button w3-black">Ingresar a
-                            Boletas y Facturas</a>
-                        <br><br>
-                    </div>
-                </div>
-
             </div>
         </div>
 
-
-        <!-- Third Photo Grid -->
+        <!-- Second Photo Grid-->
         <div class="w3-row-padding">
             <div class="w3-third w3-container w3-margin-bottom">
 
-
+                <div class="w3-container w3-white">
+                    <p><b>Descarga de BOLETAS/FACTURAS en variados formatos</b></p>
+                    <p>Permite descargar datos e informes relacionados a Boletas y Facturas</p>
+                    <a href="http://127.0.0.1:8000/admin/core/boletafactura/export/?"
+                        class="w3-button w3-black">Ingresar a
+                        Boletas y Facturas</a>
+                    <br><br>
+                </div>
+            </div>
+            <div class="w3-third w3-container w3-margin-bottom">
                 <div class="w3-container w3-white">
                     <p><b>Descarga de PRODUCTOS en variados formatos</b></p>
                     <p>Permite descargar datos e informes relacionados a Productos</p>
@@ -125,73 +123,90 @@
                     <br><br>
                 </div>
             </div>
+
+
             <div class="w3-third w3-container w3-margin-bottom">
                 <div class="w3-container w3-white">
                     <p><b>Descarga de PROVEEDOR en variados formatos</b></p>
-                    <p>Permite descargar datos e informes relacionados a Proveedores</p>
-                    <a href="http://127.0.0.1:8000/admin/core/proveedor/export/?" class="w3-button w3-black">Ingresar a
-                        Proveedores</a>
+                    <p>Permite descargar datos e informes relacionados a Productos</p>
+                    <a href="http://127.0.0.1:8000/admin/core/proveedor/export/?" class="w3-button w3-black">Ingresar
+                        a
+                        Productos</a>
                     <br><br>
                 </div>
             </div>
-
         </div>
-        <!-- Forth Photo Grid -->
+
+        <!-- Third Photo Grid-->
         <div class="w3-row-padding">
             <div class="w3-third w3-container w3-margin-bottom">
 
-
                 <div class="w3-container w3-white">
                     <p><b>Descarga de DETALLE SERVICIO en variados formatos</b></p>
-                    <p>Permite descargar datos e informes relacionados a Detalle Servicio</p>
+                    <p>Permite descargar datos e informes relacionados a Detalles Servicios</p>
                     <a href="http://127.0.0.1:8000/admin/core/detalleservicio/export/?"
-                        class="w3-button w3-black">Ingresar a
-                        Detalle Servicio</a>
+                        class="w3-button w3-black">Ingresar
+                        a
+                        Detalles Servicios</a>
                     <br><br>
                 </div>
             </div>
             <div class="w3-third w3-container w3-margin-bottom">
                 <div class="w3-container w3-white">
                     <p><b>Descarga de MARCAS ASOCIADAS en variados formatos</b></p>
-                    <p>Permite descargar datos e informes relacionados a Marcas</p>
+                    <p>Permite descargar datos e informes relacionados a Marcas Asociadas</p>
                     <a href="http://127.0.0.1:8000/admin/core/tipomarca/export/?" class="w3-button w3-black">Ingresar a
-                        Marcas</a>
+                        Marcas Asociadas</a>
                     <br><br>
                 </div>
             </div>
 
-
-        </div>
-        <!--Manual-->
-        <div class="w3-third w3-container w3-margin-bottom">
-            <div class="w3-container w3-white">
-                <p><b>Manual de Usuarios</b></p>
-                <p>Pinche "Descargar" para obtener el Manual de Usuario.</p>
-                <a href="" class="w3-button w3-grey">Descargar</a>
-                <br><br>
+            <div class="w3-third w3-container w3-margin-bottom">
+                <div class="w3-container w3-white">
+                    <p><b>Descarga de EMPLEADO SERVICIO en variados formatos</b></p>
+                    <p>Permite descargar datos e informes relacionados a Servicios realizados por Empleados</p>
+                    <a href="http://127.0.0.1:8000/admin/core/empleadoservicio/export/?"
+                        class="w3-button w3-black">Ingresar
+                        a
+                        Empleado Servicio</a>
+                    <br><br>
+                </div>
             </div>
         </div>
 
 
 
-        <p class="pos_fixed ">
+    </div>
+    <!--Manual-->
+    <div class="w3-third w3-container w3-margin-bottom">
+        <div class="w3-container w3-white">
+            <p><b>Manual de Usuarios</b></p>
+            <p>Pinche "Descargar" para obtener el Manual de Usuario.</p>
+            <a href="" class="w3-button w3-grey">Descargar</a>
+            <br><br>
+        </div>
+    </div>
 
-        <!-- End page content -->
 
 
-        <script>
-            // Script to open and close sidebar
-            function w3_open() {
-                document.getElementById("mySidebar").style.display = "block";
-                document.getElementById("myOverlay").style.display = "block";
-            }
 
-            function w3_close() {
-                document.getElementById("mySidebar").style.display = "none";
-                document.getElementById("myOverlay").style.display = "none";
-            }
-        </script>
 
+    <!-- End page content -->
+
+
+    <script>
+        // Script to open and close sidebar
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+    </script>
+    </div>
 </body>
 
 </html>

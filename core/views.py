@@ -1190,7 +1190,8 @@ def eliminar_tipo_empleado(request, id):
 #     response.write(pdf)
 #     return response
 
-@login_required(login_url='user-login')
+@login_required
+@permission_required('auth.core.delete_tipo_empleado')
 def grafico(request):
     reserva = Reserva.objects.all()
     reserva_count = reserva.count()
@@ -1211,6 +1212,12 @@ def grafico(request):
        
     }
     return render(request, 'core/reportes_prueba.html', context)
+
+
+
+def reportes_prueba (request):
+    return(request,'core/reportes_prueba.html')
+
 
 
 

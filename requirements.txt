@@ -3,3 +3,4 @@ pillow
 django-admin-interface
 django-crispy-forms
 pip install django-import-export
+pip install django-chartjs

@@ -15,7 +15,7 @@ urlpatterns = [
     path ('manual-clientes/', manual_clientes, name="manual_clientes"),
     path ('reportes/', reportes, name="reportes"),
     path ('admin-reportes/', admin_reportes, name="admin_reportes"),
-    path ('reportes-prueba/', reportes_prueba, name="reportes_prueba"),
+    path ('graficos/', graficos, name="graficos"),
 
     #Sectores Internos de Administracion
     path ('sector-ubicaciones/', sector_ubicaciones, name="sector_ubicaciones"), 
@@ -110,6 +110,10 @@ urlpatterns = [
     path ('eliminar-reserva/<id>/', eliminar_reserva, name="eliminar_reserva"),
     path ('eliminar-tipo-pago/<id>/', eliminar_tipo_pago, name="eliminar_tipo_pago"),
     path ('eliminar-tipo-empleado/<id>/', eliminar_tipo_empleado, name="eliminar_tipo_empleado"),
+
+
+    path('chart', line_chart, name='line_chart'),
+    path('chartJSON', line_chart_json, name='line_chart_json'),
 ]
 
 

@@ -21,7 +21,8 @@ import os
 # from reportlab.lib.pagesizes import A4, cm
 # from reportlab.lib.units import cm, mm
 # this_path = os.getcws() + '/registration/'
-
+from django.views.generic import TemplateView
+from chartjs.views.lines import BaseLineChartView
 
 
 
@@ -53,8 +54,10 @@ def nosotros(request):
 
 
 def reportes (request):
-    return(request,'core/reportes.html')
+    return render (request,'core/reportes.html')
 
+def graficos (request):
+    return render (request,'core/graficos.html')
 
 def servicio(request):
     servicio = Servicio.objects.all()
@@ -67,6 +70,9 @@ def servicio(request):
 def ubicacion(request):
     return render(request, 'core/ubicacion.html')
 
+
+@login_required
+@permission_required('core.admin_interface')
 def admin_reportes(request):
     return render(request, 'core/admin_reportes.html')
 
@@ -1221,13 +1227,44 @@ def grafico(request):
 
 
 
-def reportes_prueba (request):
-    return(request,'core/reportes_prueba.html')
 
 
 
 
+# G R A F I C O S
+
+# def pie_chart(request):
+#     labels = []
+#     data = []
+
+#     queryset = Reserva.objects.order_by('-serv_titulo')[:5]
+#     for reserva in queryset:
+#         labels.append(reserva)
+#         data.append(reserva)
+
+#     return render(request, 'core/reportes_prueba.html', {
+#         'labels': labels,
+#         'data': data,
+#     })
 
 
+class LineChartJSONView(BaseLineChartView):
+    def get_labels(self):
+        """Return 7 labels for the x-axis."""
+        return ["January", "February", "March", "April", "May", "June", "July"]
 
+    def get_providers(self):
+        """Return names of datasets."""
+        return ["Central", "Eastside", "Westside"]
+
+    def get_data(self):
+        """Return 3 datasets to plot."""
+
+        return [[75, 44, 92, 11, 44, 95, 35],
+                [41, 92, 18, 3, 73, 87, 92],
+                [87, 21, 94, 3, 90, 13, 65]]
+
+
+line_chart = TemplateView.as_view(template_name='line_chart.html')
+line_chart_json = LineChartJSONView.as_view()
 

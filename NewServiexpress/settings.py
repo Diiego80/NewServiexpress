@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'admin_interface',
     'import_export',
+    'chartjs',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

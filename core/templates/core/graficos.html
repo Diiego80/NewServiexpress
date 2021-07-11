@@ -52,7 +52,7 @@
           
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Work',     4],
+          ['Work',     {% for Producto in productos %}'{{Producto.prod_stock}}'{{% endfor %}}],
           ['Eat',      2],
           ['Commute',  2],
           ['Watch TV', 2],

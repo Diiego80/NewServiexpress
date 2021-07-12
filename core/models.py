@@ -88,7 +88,7 @@ class DetalleServicio(models.Model):
     servicios_realizados = models.CharField(max_length=150,verbose_name="Ingrese una breve descripción del trabajo realizado:")
     serv_titulo = models.ForeignKey('Servicio', on_delete=PROTECT)
     costo_total_servicios = models.BigIntegerField(verbose_name="Ingrese el Costo Total del Servicio:")
-    cli_rut = models.IntegerField(verbose_name="Ingrese el Rut del Cliente:")
+    cli_rut = models.IntegerField(verbose_name="Ingrese el Rut del Cliente sin punto ni guion:")
     desc_medio_pago = models.ForeignKey("TipoPago", on_delete=PROTECT)
     
 
@@ -96,7 +96,7 @@ class DetalleServicio(models.Model):
 
 #OK
 class Empleado(models.Model):
-    emp_rut = models.CharField(max_length=8,verbose_name="Ingrese el Rut del Empleado:")
+    emp_rut = models.CharField(max_length=8,verbose_name="Ingrese el Rut del Empleado sin punto ni guion:")
     emp_pnombre = models.CharField(max_length=50,verbose_name="Ingrese el Nombre del Empleado:")
     emp_apellidopat = models.CharField(max_length=50,verbose_name="Ingrese el Apellido paterno del Empleado:")
     emp_apellidomat = models.CharField(max_length=50,verbose_name="Ingrese el Apellido materno del Empleado:")
@@ -113,9 +113,9 @@ class Empleado(models.Model):
 class EmpleadoServicio(models.Model):
     cant_utilizada_prod = models.BigIntegerField(verbose_name="Ingrese la Cantidad total utilizada del Producto:")
     res_id_reserva = models.BigIntegerField(verbose_name="Ingrese el ID unico de la Reserva:")
-    serv_titulo = models.ForeignKey('Servicio', on_delete=PROTECT)
-    prod_nombre = models.ForeignKey('Producto', on_delete=PROTECT)
-    emp_rut = models.ForeignKey("Empleado", on_delete=PROTECT,verbose_name="Ingrese Nombre del Empleado encargado:")
+    serv_titulo = models.ForeignKey('Servicio', on_delete=PROTECT, verbose_name="Servicio Realizado: ")
+    prod_nombre = models.ForeignKey('Producto', on_delete=PROTECT, verbose_name="Seleccione el producto utilizado: ")
+    emp_rut = models.ForeignKey("Empleado", on_delete=PROTECT,verbose_name="Ingrese Nombre del Empleado encargado: sin punto ni guion")
 
     def __int__(self):
         return self.emp_rut
@@ -154,7 +154,7 @@ class Producto(models.Model):
 
 class Proveedor(models.Model):
     prov_nombre = models.CharField(max_length=100, verbose_name="Ingrese el Nombre del Proveedor:")
-    prov_rut_empresa = models.CharField(max_length=12, verbose_name="Ingrese el Rut de la Empresa asociada:")
+    prov_rut_empresa = models.CharField(max_length=12, verbose_name="Ingrese el Rut de la Empresa asociada sin punto ni guion:")
 
 
     
